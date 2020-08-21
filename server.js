@@ -57,11 +57,11 @@ const crypto = require("crypto");
  * ルーティング
  */
 
-// あいちゃ
-app.get("/aicha", (request, response) => {
+// テスト
+app.get("/test", (request, response) => {
   response.sendFile(__dirname + "/views/test_index.html");
 });
-app.post("/aicha", (request, response) => {
+app.post("/test", (request, response) => {
   var table_id = crypto
     .createHash("md5")
     .update(request.body.table_name)
@@ -100,6 +100,17 @@ app.get("/", (request, response) => {
   }
 });
 
+// パークトップ
+app.get("/aicha", (request, response) => {
+  const testmode = 1; // 0:通常モード、 1:テストモード
+
+  if (testmode == 1) {
+    const data = getRoomList2();
+    response.render("./index_park.ejs", data);
+  } else {
+    response.sendFile(__dirname + "/views/index_park.html");
+  }
+});
 // パークアクセス時にAichaにリダイレクトする
 app.get("/chat", (request, response) => {
   response.redirect("/aicha");
@@ -130,6 +141,23 @@ app.post("/", (request, response) => {
   // レンダリングを行う
   // response.render("./table.ejs", data); //旧バージョン
   response.render("./room_mtg.ejs", data);
+});
+
+// パーク部屋
+app.post("/aicha", (request, response) => {
+  var table_id = crypto
+    .createHash("md5")
+    .update(request.body.table_name)
+    .digest("hex");
+
+  var data = {
+    roomlist: getRoomList(),
+    user_name: request.body.user_name,
+    table_id: table_id,
+    table_name: request.body.table_name,
+  };
+  // レンダリングを行う
+  response.render("./room_park.ejs", data);
 });
 
 // ファイル置き場
