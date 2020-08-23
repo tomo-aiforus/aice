@@ -45,6 +45,9 @@ var port = process.env.PORT || 3000;
 // テンプレートエンジン
 app.set("view engine", "ejs");
 
+app.set("views", __dirname + "/views");
+app.set("public", __dirname + "/public");
+
 // POSTにも対応
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
