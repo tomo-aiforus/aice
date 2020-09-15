@@ -1,23 +1,3 @@
-/*
-var https = require('https');
-var fs = require('fs');
-var ssl_server_key = '/etc/letsencrypt/live/www.aice.cloud/privkey.pem';
-var ssl_server_crt = '/etc/letsencrypt/live/www.aice.cloud/fullchain.pem';
-var sslport = 8443;
-
-var options = {
-        key: fs.readFileSync(ssl_server_key),
-        cert: fs.readFileSync(ssl_server_crt)
-};
-
-https.createServer(options, function (req,res) {
-        res.writeHead(200, {
-                'Content-Type': 'text/plain'
-        });
-        res.end("Hello, world\n");
-}).listen(sslport);
-*/
-
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
@@ -32,15 +12,6 @@ var app = express();
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
 var port = process.env.PORT || 8443;
-
-/*
-// エクスプレスサーバ・ソケットサーバの基本設定
-var express = require("express");
-var app = express();
-var server = require("http").createServer(app);
-var io = require("socket.io")(server);
-var port = process.env.PORT || 3000;
-*/
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
@@ -59,64 +30,9 @@ const crypto = require("crypto");
 /**
  * ルーティング
  */
-
-// テスト
-app.get("/test", (request, response) => {
-  response.sendFile(__dirname + "/views/test_index.html");
-});
-app.post("/test", (request, response) => {
-  var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
-
-  var data = {
-    roomlist: getRoomList(),
-    user_name: request.body.user_name,
-    table_id: table_id,
-    table_name: request.body.table_name,
-  };
-  // レンダリングを行う
-  response.render("./test_room.ejs", data);
-});
-
-// mtgトップ
+// 会議チャットトップ
 app.get("/", (request, response) => {
-  const testmode = 0; // 0:通常モード、 1:テストモード
-
-  if (testmode == 1) {
-    var data = {
-      user_name: "name",
-      table_id: "table_id",
-      table_name: "table_name",
-    };
-    response.render("./table.ejs", data);
-  } else if (testmode == 2) {
-    var data = {
-      user_name: "name",
-      table_id: "table_id",
-      table_name: "table_name",
-    };
-    response.render("./room.ejs", data);
-  } else if (testmode == 0) {
-    response.sendFile(__dirname + "/views/index.html");
-  }
-});
-
-// パークトップ
-app.get("/aicha", (request, response) => {
-  const testmode = 1; // 0:通常モード、 1:テストモード
-
-  if (testmode == 1) {
-    const data = getRoomList2();
-    response.render("./index_park.ejs", data);
-  } else {
-    response.sendFile(__dirname + "/views/index_park.html");
-  }
-});
-// パークアクセス時にAichaにリダイレクトする
-app.get("/chat", (request, response) => {
-  response.redirect("/aicha");
+  response.sendFile(__dirname + "/views/index.html");
 });
 
 // AIFORUS用トップ
@@ -129,7 +45,7 @@ app.get("/demo", (request, response) => {
   response.sendFile(__dirname + "/views/index_demo.html");
 });
 
-// mtg部屋
+// 会議部屋
 app.post("/", (request, response) => {
   var table_id = crypto
     .createHash("md5")
@@ -142,29 +58,23 @@ app.post("/", (request, response) => {
     table_name: request.body.table_name,
   };
   // レンダリングを行う
-  // response.render("./table.ejs", data); //旧バージョン
   response.render("./room_mtg.ejs", data);
 });
 
-// パーク部屋
-app.post("/aicha", (request, response) => {
-  var table_id = crypto
-    .createHash("md5")
-    .update(request.body.table_name)
-    .digest("hex");
+// デザインリニューアルテスト
+app.get("/renew", (request, response) => {
+  var table_id = crypto.createHash("md5").update("りにゅーある").digest("hex");
 
   var data = {
-    roomlist: getRoomList(),
-    user_name: request.body.user_name,
+    user_name: "とも",
     table_id: table_id,
-    table_name: request.body.table_name,
+    table_name: "りにゅーある",
   };
   // レンダリングを行う
-  response.render("./room_park.ejs", data);
+  response.render("./room_mtg_renew.ejs", data);
 });
 
 // ファイル置き場
-// app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 
 // リッスン開始
