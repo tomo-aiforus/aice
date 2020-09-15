@@ -108,39 +108,17 @@ socket.on("alert", function(msg) {
 });
 
 socket.on("being", function(msg) {
-  memberVue.updateMemberList(msg);
-});
-
-socket.on("leaveSignal", function(msg) {
-  memberVue.unsableUser(msg);
-});
-
-socket.on("talkSignal", function(msg) {
   var text = msg;
   const words = text.split("---");
-
-  // マイク使用中ユーザの色を変える
-  $("#userlist_" + words[1]).addClass("nowtalking");
-
-  // マイクボタンを使用不可にする
-  $("#unmutebutton").addClass("unavailable");
-
-});
-
-socket.on("releaseSignal", function(msg) {
-  var text = msg;
-  const words = text.split("---");
-
-  // マイク使用中ユーザの色を戻す
-  $("#userlist_" + words[1]).removeClass("nowtalking");
+  // 名前欄を更新する
+  if($("#user_name_" + words[1]).text() !== words[0]){
+    $("#user_name_" + words[1]).text(words[0]);
+  }
   
-  // マイクボタンを使用可にする
-  $("#unmutebutton").removeClass("unavailable");
+  // メンバー一覧を更新する  
+  memberVue.updateMemberList(msg);
 
 });
-
-
-
 
 // --- broadcast message to all members in room
 function emitRoom(msg) {
@@ -244,7 +222,7 @@ function attachVideo(id, stream) {
   playVideo(video, stream);
   video.volume = 1.0;
 
-  $("#remote_video_" + id).wrap('<div class="col-1 col-12-small" id="video_container_' + id + '"/>');
+  $("#remote_video_" + id).wrap('<div class="col-3 col-12-small" id="video_container_' + id + '"/>');
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
   );
@@ -331,7 +309,7 @@ function removeBlankVideoElement(){
 
 // ダミーのビデオを追加する
 function addBlankVideoElement(){
-  $('#container').append('<div class="col-1 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
+  $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
 }
 
 // function
@@ -339,37 +317,6 @@ function addBlankVideoElement(){
 // ----------------------------------------------------------------
 // ---------------------- ボタン操作  -----------------------
 // ----------------------------------------------------------------
-
-/**
- * イベントリスナ
- */
-$("#startbutton").on('click', () =>{
-  startVideo();
-});
-
-$("#stopbutton").on('click', () =>{
-  stopVideo();
-});
-
-$("#unmutebutton").on('click', () =>{
-
-  var classStr = $("#unmutebutton").attr("class");
-  if (classStr.indexOf('unavailable') !== -1) {
-    toastr.error("他の参加者が話し中です。");
-  }else{
-    startVoice();
-  } 
-});
-
-$("#mutebutton").on('click', () =>{
-  stopVoice();
-});
-
-$(window).on('beforeunload', () =>{
-  sendLeaveUser();
-  stopVoice();
-  sendLeaveRoom();
-});
 
 // connect video
 function connectVideo() {
@@ -384,7 +331,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオ・音声の送信をポーズ
-      stopVideo();
+      stopVideo_();
       stopVoice();
 
       connect();
@@ -397,7 +344,6 @@ function connectVideo() {
     return false;
 }
 
-/*
 // start local video
 function startVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
@@ -431,39 +377,30 @@ function stopVideo() {
 
   return false;
 }
-*/
 
 // マイクON/OFFボタン
 function startVoice(){
-
-  sendTalkSignal();
-
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
-  $("#userlist_myname").addClass("nowtalking");
 }
 function stopVoice(){
-
-  sendReleaseSignal();
-
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
    $("#unmutebutton").removeClass("hidden");
    $("#mutebutton").addClass("hidden");
-   $("#userlist_myname").removeClass("nowtalking");
 }
 
-// ビデオON/OFFボタン
-function startVideo(){
+// ビデオON/OFFボタン（テスト）
+function startVideo_(){
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = true;
 });
   $("#stopbutton").removeClass("hidden");
   $("#startbutton").addClass("hidden");
 }
-function stopVideo() {
+function stopVideo_() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = false;
 });
@@ -477,15 +414,12 @@ function sendChat() {
   if($("#input_msg").val().length == 0){
     toastr.error("文字を入力してください");
   }else{
+    var text = $("#user_name").val() + " : " + $("#input_msg").val();
+    //$("#chat").append($("<li>").text(text));
+    socket.emit("chat", text);
 
-    if( checkSendRestrict() ){
-      var text = $("#user_name").val() + " : " + $("#input_msg").val();
-      socket.emit("chat", text);
-      chatVue.addContent(text);
-      $("#input_msg").val("");
-    }else{
-      toastr.error("連続投稿は禁止されています。しばらくしてからお試しください。");
-    }
+    chatVue.addContent(text);
+    $("#input_msg").val("");
   }
   
   return false;
@@ -496,32 +430,6 @@ function sendBeing() {
   socket.emit("being", message);
   return false;
 }
-
-function sendTalkSignal(){
-  var message = $("#user_name").val() + "---" + socket.id;
-  socket.emit("talkSignal", message);
-}
-
-function sendReleaseSignal(){
-  var message = $("#user_name").val() + "---" + socket.id;
-  socket.emit("releaseSignal", message);
-}
-
-function sendLeaveUser(){
-  var message = $("#user_name").val() + "---" + socket.id;
-  socket.emit("leaveSignal", message);
-}
-
-function sendLeaveRoom(){
-  var today = new Date();
-  var hour = today.getHours();
-  var minut = today.getMinutes();
-  var textdate = hour + '時' + minut + '分' ;
-  
-  var text = $("#user_name").val() + "さんが退室しました。（" + textdate + "）";
-  socket.emit("chat", text);
-}
-
 
 function stopLocalStream(stream) {
   let tracks = stream.getTracks();
@@ -867,12 +775,14 @@ window.onload = function() {
     sendBeing();
   }, 5000);
 
+  // autoScroll();
+
   connectVideo();
   
 };
 
 $('#chatToggle').on('click', function () {
-  $("#chatSlide").slideToggle();
+        $("#chatSlide").slideToggle();
 });
 
 function copyToClipboard() {
@@ -888,6 +798,19 @@ function copyToClipboard() {
     // コピーをお知らせする
     alert("コピーできました！ : " + copyTarget.value);
 }
+
+// オートスクロール
+var scrollY = 0;
+function autoScroll() {
+	var sampleBox = document.getElementById("chat-container");
+	sampleBox.scrollTop = scrollY + 1;
+	if( scrollY < sampleBox.scrollHeight - sampleBox.clientHeight ){
+		setTimeout( "autoScroll()", 20 );
+		}else{
+			scrollY = 0;
+			sampleBox.scrollTop = 0;
+			setTimeout( "autoScroll()", 20 );
+}}
 
 
 function jumpOtherRoom(roomname) {
@@ -928,44 +851,3 @@ function execPost(action, data) {
   // submit
   form.submit();
  }
-
-
-
- var sendTimeArr = [];
- const MAX_RAPIDFIRE = 10;
- const COOL_TIME = 60;
-
-/**
- * 投稿制限をチェックする
- */
-function checkSendRestrict(){
-  var date = new Date();
-  var a = date.getTime();
-  var nowtime = Math.floor(a / 1000);
-
-  // 配列が４以下の時は送信OK
-  if(sendTimeArr.length < MAX_RAPIDFIRE){
-    setSendTime(nowtime);
-    return true;
-
-  // 配列が許容最大のときは判定
-  }else{
-    if(nowtime - sendTimeArr[0] > COOL_TIME){
-      // 送信OK
-      setSendTime(nowtime);
-      return true;
-    }else{
-      // 送信NG（送信しすぎの場合）
-      return false;
-    }
-  }
-}
-
-function setSendTime(timeInt){
-  // 配列長が最大なら配列の頭を削除
-  if(sendTimeArr.length >= MAX_RAPIDFIRE){
-    sendTimeArr.shift();
-  } 
-  // 配列の末尾に時間を格納
-  sendTimeArr.push(timeInt);
-}

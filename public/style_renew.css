@@ -132,13 +132,13 @@ video{
 }
 .membersvideo{
   width: 100%;
-  height: 5vw;
+  height: 15vw;
   object-fit: cover;
 }
 
 .dummyvideo{
   width: 100%;
-  height: 5vw;
+  height: 15vw;
   object-fit: cover;
 }
 
@@ -151,9 +151,8 @@ video{
 
 .membername{
   position: relative;
-  bottom: 28px;
-  left: 0px;
-  font-size: 1px;
+  bottom: 35px;
+  left: 10px;
   color: white;
   margin-bottom: -2.5rem;
   text-shadow: 
@@ -275,6 +274,7 @@ table.flametable{
 }
 
 table.flametable > tbody > tr {
+  height: calc(50vh - 100px);
   background-color: #2a2a2a;
 }
 
@@ -297,7 +297,7 @@ form.chatform {
 }
 
 div.chatarea {
-  height: calc(100vh - 200px);
+  height: calc(50vh - 100px);
 }
 
 ul{
@@ -318,59 +318,4 @@ div#wrapper,
 div#main,
 .flametable > tbody > tr > td{
   padding-top: 0px;
-}
-
-.roomselect{
-  background-color: #ffffff;
-  height: 30px;
-}
-
-.footerfixarea{
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-}
-
-.nowtalking{
-  text-shadow: 
-    turquoise 1px 1px 15px,
-    turquoise -1px 1px 15px,
-    turquoise 1px -1px 15px, 
-    royalblue -1px -1px 15px;
-}
-
-.unavailable{
-  background-color: black !important;
-}
-
-
-
-
-/*
- フローティングアクションボタン
- <a class="fab" href="#">
-  <i class="fa fa-share"></i>
- </a>
-*/
-.fab {/*円の部分*/
-  display: block;
-  width: 56px;/*幅*/
-  height: 56px;/*高さ*/
-  background: #03a9f4;/*背景色*/
-  text-align: center;/*中央寄せ*/
-  border-radius: 50%;/*角丸く*/
-  transition: .3s;/*滑らかな動きに*/
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
-  padding-top: 0ex;
-}
-
-.fab:hover {/*ホバー時*/
-box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
-}
-
-.fab i {/*中央のアイコン*/
-color: white;
-line-height: 56px;/*＝幅と高さ*/
-font-size: 18px;/*サイズ*/
-padding-top: 0ex;
 }
