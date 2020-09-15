@@ -7,7 +7,7 @@ const vueSeamless = window.vueSeamlessScroll;
  * ルームメンバーを管理するVue
  */
 var memberVue = new Vue({
-  el: "#app",
+  el: "#memberapp",
 
   data: {
     members: [
