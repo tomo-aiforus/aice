@@ -170,6 +170,32 @@ var chatVue = new Vue({
 });
 
 /**
+ * ビデオ表示をを制御するVue
+ * まずは数を数えてクラスの制御をするだけ
+ */
+var videoVue = new Vue({
+  el: "#videoapp",
+
+  data: {
+    vCount: 1,
+  },
+
+  computed: {
+    loginmembers: function () {},
+  },
+
+  methods: {
+    // 表示されているビデオ数を管理
+    addVideoCount: function () {
+      this.vCount++;
+    },
+    removeVideoCount: function () {
+      this.vCount--;
+    },
+  },
+});
+
+/**
  * 
 const MAX_KEEP_TIME = 300000;
 const timerVue = new Vue({

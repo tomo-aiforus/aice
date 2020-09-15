@@ -222,7 +222,7 @@ function attachVideo(id, stream) {
   video.volume = 1.0;
 
   $("#remote_video_" + id).wrap(
-    '<div class="col-3 col-12-small" id="video_container_' + id + '"/>'
+    '<div class="" id="video_container_' + id + '"/>'
   );
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
