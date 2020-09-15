@@ -317,7 +317,15 @@ function removeVideoWrapperElement(elementId) {
 
 // connect video
 function connectVideo() {
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
+  var videoParam = {
+    audio: true,
+    video: {
+      width: 640,
+      height: 480,
+      frameRate: { ideal: 10, max: 15 },
+    },
+  };
+  getDeviceStream(videoParam) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function (stream) {
       // success
 
