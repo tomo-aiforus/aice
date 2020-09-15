@@ -44,11 +44,11 @@ let port = 3000;
 let socket = io();
 let room = getRoomName();
 
-socket.on("connect", function(evt) {
+socket.on("connect", function (evt) {
   console.log("socket.io connected. enter room=" + room);
   socket.emit("enter", room);
 });
-socket.on("message", function(message) {
+socket.on("message", function (message) {
   console.log("message:", message);
   let fromId = message.from;
 
@@ -89,7 +89,7 @@ socket.on("message", function(message) {
     }
   }
 });
-socket.on("user disconnected", function(evt) {
+socket.on("user disconnected", function (evt) {
   console.log("====user disconnected==== evt:", evt);
   let id = evt.id;
   if (isConnectedWith(id)) {
@@ -97,27 +97,26 @@ socket.on("user disconnected", function(evt) {
   }
 });
 
-socket.on("chat", function(msg) {
+socket.on("chat", function (msg) {
   // $("#chat").append($("<li>").text(msg));
   chatVue.addContent(msg);
 });
 
-socket.on("alert", function(msg) {
+socket.on("alert", function (msg) {
   toastr.success(msg);
   $("#se").get(0).play();
 });
 
-socket.on("being", function(msg) {
+socket.on("being", function (msg) {
   var text = msg;
   const words = text.split("---");
   // 名前欄を更新する
-  if($("#user_name_" + words[1]).text() !== words[0]){
+  if ($("#user_name_" + words[1]).text() !== words[0]) {
     $("#user_name_" + words[1]).text(words[0]);
   }
-  
-  // メンバー一覧を更新する  
-  memberVue.updateMemberList(msg);
 
+  // メンバー一覧を更新する
+  memberVue.updateMemberList(msg);
 });
 
 // --- broadcast message to all members in room
@@ -222,7 +221,9 @@ function attachVideo(id, stream) {
   playVideo(video, stream);
   video.volume = 1.0;
 
-  $("#remote_video_" + id).wrap('<div class="col-3 col-12-small" id="video_container_' + id + '"/>');
+  $("#remote_video_" + id).wrap(
+    '<div class="col-3 col-12-small" id="video_container_' + id + '"/>'
+  );
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
   );
@@ -237,7 +238,7 @@ function detachVideo(id) {
   $("#video_container_" + id).remove();
 
   // ダミービデオ要素を追加
-  addBlankVideoElement();
+  // addBlankVideoElement();
 }
 
 function isRemoteVideoAttached(id) {
@@ -269,9 +270,8 @@ function deleteRemoteVideoElement(id) {
 }
 
 function createVideoElement(elementId) {
-
   // ダミービデオを一つ削除
-  removeBlankVideoElement();
+  // removeBlankVideoElement();
 
   // ビデオ要素を作成
   let video = document.createElement("video");
@@ -296,21 +296,18 @@ function removeVideoWrapperElement(elementId) {
   _assert("removeVideoWrapperElement() video must exist", wrapper);
 
   //container.remove(wrapper);
-  $("#"+elementId).remove();
+  $("#" + elementId).remove();
 }
 
 // ダミーのビデオを削除する
-function removeBlankVideoElement(){
-  //$(".blankVideo").each(function(elm){
-  //  elm.remove();
-  //});
-  $(".blankVideo")[0].remove();
-}
+// function removeBlankVideoElement(){
+//   $(".blankVideo")[0].remove();
+// }
 
 // ダミーのビデオを追加する
-function addBlankVideoElement(){
-  $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
-}
+// function addBlankVideoElement(){
+//   $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
+// }
 
 // function
 
@@ -321,7 +318,7 @@ function addBlankVideoElement(){
 // connect video
 function connectVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
-    .then(function(stream) {
+    .then(function (stream) {
       // success
 
       // 取得したメディア情報をぶち込む
@@ -336,18 +333,18 @@ function connectVideo() {
 
       connect();
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // error
       console.error("getUserMedia error:", error);
       return;
     });
-    return false;
+  return false;
 }
 
 // start local video
 function startVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
-    .then(function(stream) {
+    .then(function (stream) {
       // success
       localStream = stream;
       playVideo(localVideo, stream);
@@ -358,12 +355,12 @@ function startVideo() {
 
       connect();
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // error
       console.error("getUserMedia error:", error);
       return;
     });
-    return false;
+  return false;
 }
 
 // stop local video
@@ -379,31 +376,31 @@ function stopVideo() {
 }
 
 // マイクON/OFFボタン
-function startVoice(){
+function startVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
   $("#mutebutton").removeClass("hidden");
   $("#unmutebutton").addClass("hidden");
 }
-function stopVoice(){
+function stopVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
-   $("#unmutebutton").removeClass("hidden");
-   $("#mutebutton").addClass("hidden");
+  $("#unmutebutton").removeClass("hidden");
+  $("#mutebutton").addClass("hidden");
 }
 
 // ビデオON/OFFボタン（テスト）
-function startVideo_(){
+function startVideo_() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = true;
-});
+  });
   $("#stopbutton").removeClass("hidden");
   $("#startbutton").addClass("hidden");
 }
 function stopVideo_() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = false;
-});
+  });
   // stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
@@ -411,9 +408,9 @@ function stopVideo_() {
 
 //
 function sendChat() {
-  if($("#input_msg").val().length == 0){
+  if ($("#input_msg").val().length == 0) {
     toastr.error("文字を入力してください");
-  }else{
+  } else {
     var text = $("#user_name").val() + " : " + $("#input_msg").val();
     //$("#chat").append($("<li>").text(text));
     socket.emit("chat", text);
@@ -421,7 +418,7 @@ function sendChat() {
     chatVue.addContent(text);
     $("#input_msg").val("");
   }
-  
+
   return false;
 }
 
@@ -449,7 +446,7 @@ function getDeviceStream(option) {
     return navigator.mediaDevices.getUserMedia(option);
   } else {
     console.log("wrap navigator.getUserMadia with Promise");
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       navigator.getUserMedia(option, resolve, reject);
     });
   }
@@ -505,7 +502,7 @@ function sendSdp(id, sessionDescription) {
   console.log("---sending sdp ---");
   let message = {
     type: sessionDescription.type,
-    sdp: sessionDescription.sdp
+    sdp: sessionDescription.sdp,
   };
   console.log("sending SDP=" + message);
   //ws.send(message);
@@ -531,8 +528,8 @@ function prepareNewConnection(id) {
     iceServers: [
       { urls: "stun:stun.l.google.com:19302" },
       { urls: "stun:stun1.l.google.com:19302" },
-      { urls: "stun:stun2.l.google.com:19302" }
-    ]
+      { urls: "stun:stun2.l.google.com:19302" },
+    ],
   };
   let peer = new RTCPeerConnection(pc_config);
 
@@ -542,7 +539,7 @@ function prepareNewConnection(id) {
 
   // --- on get remote stream ---
   if ("ontrack" in peer) {
-    peer.ontrack = function(event) {
+    peer.ontrack = function (event) {
       let stream = event.streams[0];
       console.log("-- peer.ontrack() stream.id=" + stream.id);
       if (isRemoteVideoAttached(id)) {
@@ -553,7 +550,7 @@ function prepareNewConnection(id) {
       }
     };
   } else {
-    peer.onaddstream = function(event) {
+    peer.onaddstream = function (event) {
       let stream = event.stream;
       console.log("-- peer.onaddstream() stream.id=" + stream.id);
       //playVideo(remoteVideo, stream);
@@ -562,7 +559,7 @@ function prepareNewConnection(id) {
   }
 
   // --- on get local ICE candidate
-  peer.onicecandidate = function(evt) {
+  peer.onicecandidate = function (evt) {
     if (evt.candidate) {
       console.log(evt.candidate);
 
@@ -581,20 +578,20 @@ function prepareNewConnection(id) {
   };
 
   // --- when need to exchange SDP ---
-  peer.onnegotiationneeded = function(evt) {
+  peer.onnegotiationneeded = function (evt) {
     console.log("-- onnegotiationneeded() ---");
   };
 
   // --- other events ----
-  peer.onicecandidateerror = function(evt) {
+  peer.onicecandidateerror = function (evt) {
     console.error("ICE candidate ERROR:", evt);
   };
 
-  peer.onsignalingstatechange = function() {
+  peer.onsignalingstatechange = function () {
     console.log("== signaling status=" + peer.signalingState);
   };
 
-  peer.oniceconnectionstatechange = function() {
+  peer.oniceconnectionstatechange = function () {
     console.log("== ice connection status=" + peer.iceConnectionState);
     if (peer.iceConnectionState === "disconnected") {
       console.log("-- disconnected --");
@@ -602,15 +599,15 @@ function prepareNewConnection(id) {
     }
   };
 
-  peer.onicegatheringstatechange = function() {
+  peer.onicegatheringstatechange = function () {
     console.log("==***== ice gathering state=" + peer.iceGatheringState);
   };
 
-  peer.onconnectionstatechange = function() {
+  peer.onconnectionstatechange = function () {
     console.log("==***== connection state=" + peer.connectionState);
   };
 
-  peer.onremovestream = function(event) {
+  peer.onremovestream = function (event) {
     console.log("-- peer.onremovestream()");
     deleteRemoteStream(id);
     detachVideo(id);
@@ -634,11 +631,11 @@ function makeOffer(id) {
 
   peerConnection
     .createOffer()
-    .then(function(sessionDescription) {
+    .then(function (sessionDescription) {
       console.log("createOffer() succsess in promise");
       return peerConnection.setLocalDescription(sessionDescription);
     })
-    .then(function() {
+    .then(function () {
       console.log("setLocalDescription() succsess in promise");
 
       // -- Trickle ICE の場合は、初期SDPを相手に送る --
@@ -646,7 +643,7 @@ function makeOffer(id) {
 
       // -- Vanilla ICE の場合には、まだSDPは送らない --
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 }
@@ -658,11 +655,11 @@ function setOffer(id, sessionDescription) {
 
   peerConnection
     .setRemoteDescription(sessionDescription)
-    .then(function() {
+    .then(function () {
       console.log("setRemoteDescription(offer) succsess in promise");
       makeAnswer(id);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error("setRemoteDescription(offer) ERROR: ", err);
     });
 }
@@ -677,11 +674,11 @@ function makeAnswer(id) {
 
   peerConnection
     .createAnswer()
-    .then(function(sessionDescription) {
+    .then(function (sessionDescription) {
       console.log("createAnswer() succsess in promise");
       return peerConnection.setLocalDescription(sessionDescription);
     })
-    .then(function() {
+    .then(function () {
       console.log("setLocalDescription() succsess in promise");
 
       // -- Trickle ICE の場合は、初期SDPを相手に送る --
@@ -689,7 +686,7 @@ function makeAnswer(id) {
 
       // -- Vanilla ICE の場合には、まだSDPは送らない --
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error(err);
     });
 }
@@ -703,10 +700,10 @@ function setAnswer(id, sessionDescription) {
 
   peerConnection
     .setRemoteDescription(sessionDescription)
-    .then(function() {
+    .then(function () {
       console.log("setRemoteDescription(answer) succsess in promise");
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.error("setRemoteDescription(answer) ERROR: ", err);
     });
 }
@@ -752,8 +749,7 @@ function callMe() {
   emitRoom({ type: "call me" });
 }
 
-window.onload = function() {
-
+window.onload = function () {
   var today = new Date();
   // var year = today.getFullYear();
   // var month = today.getMonth() + 1;
@@ -762,66 +758,64 @@ window.onload = function() {
   var minut = today.getMinutes();
   // var seccond = today.getSeconds();
   // var textdate = year + '年' + month + '月' + day + '日';
-  var textdate = hour + '時' + minut + '分' ;
-  
+  var textdate = hour + "時" + minut + "分";
+
   var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
   socket.emit("alert", text);
   socket.emit("chat", text);
 
-  var systemmesage = "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
+  var systemmesage =
+    "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
   chatVue.addContent(systemmesage);
 
-  setInterval(function() {
+  setInterval(function () {
     sendBeing();
   }, 5000);
 
   // autoScroll();
 
   connectVideo();
-  
 };
 
-$('#chatToggle').on('click', function () {
-        $("#chatSlide").slideToggle();
+$("#chatToggle").on("click", function () {
+  $("#chatSlide").slideToggle();
 });
 
 function copyToClipboard() {
-    // コピー対象をJavaScript上で変数として定義する
-    var copyTarget = document.getElementById("copyTarget");
+  // コピー対象をJavaScript上で変数として定義する
+  var copyTarget = document.getElementById("copyTarget");
 
-    // コピー対象のテキストを選択する
-    copyTarget.select();
+  // コピー対象のテキストを選択する
+  copyTarget.select();
 
-    // 選択しているテキストをクリップボードにコピーする
-    document.execCommand("Copy");
+  // 選択しているテキストをクリップボードにコピーする
+  document.execCommand("Copy");
 
-    // コピーをお知らせする
-    alert("コピーできました！ : " + copyTarget.value);
+  // コピーをお知らせする
+  alert("コピーできました！ : " + copyTarget.value);
 }
 
 // オートスクロール
 var scrollY = 0;
 function autoScroll() {
-	var sampleBox = document.getElementById("chat-container");
-	sampleBox.scrollTop = scrollY + 1;
-	if( scrollY < sampleBox.scrollHeight - sampleBox.clientHeight ){
-		setTimeout( "autoScroll()", 20 );
-		}else{
-			scrollY = 0;
-			sampleBox.scrollTop = 0;
-			setTimeout( "autoScroll()", 20 );
-}}
-
-
-function jumpOtherRoom(roomname) {
-
-  const param = {
-    "table_name": roomname,
-    "user_name": $("#user_name").val()
+  var sampleBox = document.getElementById("chat-container");
+  sampleBox.scrollTop = scrollY + 1;
+  if (scrollY < sampleBox.scrollHeight - sampleBox.clientHeight) {
+    setTimeout("autoScroll()", 20);
+  } else {
+    scrollY = 0;
+    sampleBox.scrollTop = 0;
+    setTimeout("autoScroll()", 20);
   }
-  execPost('', param);
 }
 
+function jumpOtherRoom(roomname) {
+  const param = {
+    table_name: roomname,
+    user_name: $("#user_name").val(),
+  };
+  execPost("", param);
+}
 
 /**
  * データをPOSTする
@@ -840,14 +834,14 @@ function execPost(action, data) {
   document.body.appendChild(form);
   // パラメタの設定
   if (data !== undefined) {
-   for (var paramName in data) {
-    var input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', paramName);
-    input.setAttribute('value', data[paramName]);
-    form.appendChild(input);
-   }
+    for (var paramName in data) {
+      var input = document.createElement("input");
+      input.setAttribute("type", "hidden");
+      input.setAttribute("name", paramName);
+      input.setAttribute("value", data[paramName]);
+      form.appendChild(input);
+    }
   }
   // submit
   form.submit();
- }
+}
