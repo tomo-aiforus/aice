@@ -1,7 +1,11 @@
+/* ユーティリティ */
+.hidden {
+  display: none;
+}
 .pageWrapper {
 }
 .leftArea {
-  width: auto;
+  width: calc(100vw -200px);
 }
 .rightArea {
   width: 200px;
