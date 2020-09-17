@@ -205,16 +205,16 @@ var videoVue = new Vue({
       var classname = "";
       switch (this.vCount) {
         case 1:
-          classname = vc1;
+          classname = "vc1";
           break;
         case 2:
-          classname = vc2;
+          classname = "vc2";
           break;
         case 3:
-          classname = vc3;
+          classname = "vc3";
           break;
         case 4:
-          classname = vc4;
+          classname = "vc4";
           break;
       }
       return classname;
