@@ -358,6 +358,7 @@ function connectVideo() {
   return false;
 }
 
+/*
 // start local video
 function startVideo() {
   getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
@@ -391,21 +392,18 @@ function stopVideo() {
 
   return false;
 }
-
+*/
 // マイクON/OFFボタン
 function startVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
-  $("#mutebutton").removeClass("hidden");
-  $("#unmutebutton").addClass("hidden");
 }
 function stopVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
-  $("#unmutebutton").removeClass("hidden");
-  $("#mutebutton").addClass("hidden");
 }
 
+/*
 // ビデオON/OFFボタン（テスト）
 function startVideo_() {
   localStream.getVideoTracks().forEach((track) => {
@@ -422,6 +420,7 @@ function stopVideo_() {
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
 }
+*/
 
 //
 function sendChat() {
@@ -913,11 +912,28 @@ function toggleVideo() {
 function toggleMic() {
   localStream.getVideoTracks().forEach((track) => {
     if (track.enabled == true) {
-      stopVideo();
+      stopVoice();
       $("#micbutton").removeClass("fab-on");
     } else {
-      startVideo();
+      startVoice();
       $("#micbutton").addClass("fab-on");
     }
   });
+}
+
+function startVideo() {
+  localStream.getVideoTracks().forEach((track) => {
+    track.enabled = true;
+  });
+  $("#stopbutton").removeClass("hidden");
+  $("#startbutton").addClass("hidden");
+}
+
+function stopVideo() {
+  localStream.getVideoTracks().forEach((track) => {
+    track.enabled = false;
+  });
+  // stopLocalStream(localStream);
+  $("#startbutton").removeClass("hidden");
+  $("#stopbutton").addClass("hidden");
 }
