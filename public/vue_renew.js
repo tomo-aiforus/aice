@@ -197,8 +197,8 @@ var videoVue = new Vue({
     },
     editVideoClass: function () {
       $(".videowrapper").each((index, elm) => {
-        elm.removeClass("vc1 vc2 vc3 vc4");
-        elm.addClass(this.getClassname);
+        $(elm).removeClass("vc1 vc2 vc3 vc4");
+        $(elm).addClass(this.getClassname);
       });
     },
     getClassname: function () {
