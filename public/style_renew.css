@@ -73,17 +73,19 @@
 }
 
 .vc1 {
-  width: 300px;
+  width: 45%;
 }
 
 .vc2 {
-  width: 200px;
+  width: 45%;
 }
 
 .vc3 {
-  width: 100px;
+  width: 45%;
+  display: flex;
 }
 
 .vc4 {
   width: 80px;
+  display: flex;
 }
