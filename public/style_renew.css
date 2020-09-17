@@ -67,7 +67,9 @@
 .fab-disable {
   background: #696969;
 }
-
+.membersvideo {
+  object-fit: cover;
+}
 .membername {
   position: relative;
   bottom: 50px;
