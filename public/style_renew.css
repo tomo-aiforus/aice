@@ -27,6 +27,9 @@
   background-color: palevioletred;
   height: 50%;
 }
+.controlArea span.fab {
+  margin: 0px 10px;
+}
 
 .fab {
   /*円の部分*/
