@@ -862,3 +862,62 @@ function execPost(action, data) {
   // submit
   form.submit();
 }
+
+// ----------------------------------------------------------------
+// ---------------------- ボタン操作 --------------------------------
+// ----------------------------------------------------------------
+
+/**
+ * イベントリスナ
+ */
+
+$("#videobutton").on("click", () => {
+  toggleVideo();
+});
+
+$("#micbutton").on("click", () => {
+  toggleMic();
+});
+
+$("#capturebutton").on("click", () => {
+  alert("Now developing...");
+});
+$("#recordbutton").on("click", () => {
+  alert("Now developing...");
+});
+$("#goodbutton").on("click", () => {
+  alert("Now developing...");
+});
+$("#badbutton").on("click", () => {
+  alert("Now developing...");
+});
+$("#calendarbutton").on("click", () => {
+  alert("Now developing...");
+});
+$("#leavebutton").on("click", () => {
+  alert("Now developing...");
+});
+
+function toggleVideo() {
+  localStream.getVideoTracks().forEach((track) => {
+    if (track.enabled == true) {
+      stopVideo();
+      $("#videobutton").removeClass("fab-on");
+    } else {
+      startVideo();
+      $("#videobutton").addClass("fab-on");
+    }
+  });
+}
+
+function toggleMic() {
+  localStream.getVideoTracks().forEach((track) => {
+    if (track.enabled == true) {
+      stopVideo();
+      $("#micbutton").removeClass("fab-on");
+    } else {
+      startVideo();
+      $("#micbutton").addClass("fab-on");
+    }
+  });
+}

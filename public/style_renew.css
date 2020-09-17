@@ -58,7 +58,10 @@
   padding-top: 0ex;
 }
 
-.fab-green {
+.fab-off {
+  background: linear-gradient(#808080, #b0c4de);
+}
+.fab-on {
   background: linear-gradient(#1e90ff, #40e0d0);
 }
 .fab-disable {
