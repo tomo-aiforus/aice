@@ -13,11 +13,11 @@
 }
 .videoArea {
   background-color: khaki;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 60px);
 }
 .controlArea {
   background-color: aliceblue;
-  height: 100px;
+  height: 60px;
 }
 .userArea {
   background-color: paleturquoise;
