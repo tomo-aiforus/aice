@@ -64,10 +64,26 @@
 
 .membername {
   position: relative;
-  bottom: 35px;
+  bottom: 50px;
   left: 10px;
   color: white;
   margin-bottom: -2.5rem;
   text-shadow: black 1px 1px 10px, black -1px 1px 10px, black 1px -1px 10px,
     black -1px -1px 10px;
+}
+
+.vc1 {
+  width: 300px;
+}
+
+.vc2 {
+  width: 300px;
+}
+
+.vc3 {
+  width: 300px;
+}
+
+.vc4 {
+  width: 300px;
 }
