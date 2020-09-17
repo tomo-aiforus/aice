@@ -24,10 +24,7 @@
         <!--ビデオエリア  -->
         <div class="videoArea" id="videoapp">
           <div id="container" class=".uk-grid-small" uk-grid>
-            <div
-              class="videowrapper"
-              v-bind:class="{ 'vc1' :vCount==1,  'vc2' :vCount==2,  'vc3' :vCount==3,  'vc4' :vCount==4, }"
-            >
+            <div class="videowrapper">
               <video id="local_video" class="membersvideo" autoplay></video>
               <p class="membername"><%- user_name %></p>
             </div>

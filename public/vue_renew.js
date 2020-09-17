@@ -195,6 +195,30 @@ var videoVue = new Vue({
     removeVideoCount: function () {
       this.vCount--;
     },
+    editVideoClass: function () {
+      elm.removeClass("vc1 vc2 vc3 vc4 ");
+      $(".videowrapper").forEach((elm) => {
+        elm.addClass(this.getClassname);
+      });
+    },
+    getClassname: function () {
+      var classname = "";
+      switch (this.vCount) {
+        case 1:
+          classname = vc1;
+          break;
+        case 2:
+          classname = vc2;
+          break;
+        case 3:
+          classname = vc3;
+          break;
+        case 4:
+          classname = vc4;
+          break;
+      }
+      return classname;
+    },
   },
 });
 
