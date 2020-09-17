@@ -6,7 +6,7 @@
   display: flex;
 }
 .leftArea {
-  width: calc(100vw -300px);
+  width: calc(100vw - 300px);
 }
 .rightArea {
   width: 300px;
