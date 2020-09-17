@@ -221,8 +221,10 @@ function attachVideo(id, stream) {
   playVideo(video, stream);
   video.volume = 1.0;
 
+  const vbind = `v-bind:class="{ 'vc1' :vCount==1,  'vc2' :vCount==2,  'vc3' :vCount==3,  'vc4' :vCount==4, }"`;
+
   $("#remote_video_" + id).wrap(
-    '<div class="" id="video_container_' + id + '"/>'
+    '<div class="" id="video_container_' + id + '" ' + vbind + "/>"
   );
   $("#remote_video_" + id).after(
     '<p class="membername" id="user_name_' + id + '">　</p>'
