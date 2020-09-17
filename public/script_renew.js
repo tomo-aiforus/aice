@@ -237,6 +237,9 @@ function detachVideo(id) {
   // $('#remote_video_'+id).remove();
   $("#video_container_" + id).remove();
 
+  // ビデオ数をカウントダウン
+  videoVue.removeVideoCount();
+
   // ダミービデオ要素を追加
   // addBlankVideoElement();
 }
@@ -272,6 +275,9 @@ function deleteRemoteVideoElement(id) {
 function createVideoElement(elementId) {
   // ダミービデオを一つ削除
   // removeBlankVideoElement();
+
+  // ビデオ数をカウントアップ
+  videoVue.addVideoCount();
 
   // ビデオ要素を作成
   let video = document.createElement("video");
