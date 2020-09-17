@@ -345,7 +345,7 @@ function connectVideo() {
       playVideo(localVideo, stream);
 
       // ビデオ・音声の送信をポーズ
-      stopVideo_();
+      stopVideo();
       stopVoice();
 
       connect();
@@ -393,15 +393,6 @@ function stopVideo() {
   return false;
 }
 */
-// マイクON/OFFボタン
-function startVoice() {
-  var tracks = localStream.getAudioTracks();
-  tracks[0].enabled = true;
-}
-function stopVoice() {
-  var tracks = localStream.getAudioTracks();
-  tracks[0].enabled = false;
-}
 
 /*
 // ビデオON/OFFボタン（テスト）
@@ -936,4 +927,14 @@ function stopVideo() {
   // stopLocalStream(localStream);
   $("#startbutton").removeClass("hidden");
   $("#stopbutton").addClass("hidden");
+}
+
+// マイクON/OFF
+function startVoice() {
+  var tracks = localStream.getAudioTracks();
+  tracks[0].enabled = true;
+}
+function stopVoice() {
+  var tracks = localStream.getAudioTracks();
+  tracks[0].enabled = false;
 }
