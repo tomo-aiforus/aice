@@ -61,6 +61,9 @@
 .fab-green {
   background: linear-gradient(#1e90ff, #40e0d0);
 }
+.fab-disable {
+  background: #696969;
+}
 
 .membername {
   position: relative;
