@@ -8,6 +8,7 @@
 .pageWrapper {
   background: linear-gradient(#203744, #355a85);
   display: flex;
+  overflow: hidden;
 }
 .leftArea {
   width: calc(100vw - 300px);
@@ -15,6 +16,7 @@
 .rightArea {
   width: 300px;
   background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
 }
 .videoArea {
   /* background-color: khaki; */
@@ -115,4 +117,11 @@
 
 /************* ユーザーエリア ***************/
 
+.member h4 {
+  border-bottom: 3px solid #3e62ad;
+}
 /************* チャットエリア ***************/
+
+.chat {
+  border-top: solid 1px #696969;
+}
