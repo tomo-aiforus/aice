@@ -1,8 +1,12 @@
-/* ユーティリティ */
+/************* ユーティリティ ***************/
 .hidden {
   display: none;
 }
+
+/************* 全体構造 ***************/
+
 .pageWrapper {
+  background: linear-gradient(#708090, #778899);
   display: flex;
 }
 .leftArea {
@@ -12,25 +16,64 @@
   width: 300px;
 }
 .videoArea {
-  background-color: khaki;
+  /* background-color: khaki; */
   height: calc(100vh - 75px);
   padding: 15px 0px 0px 15px;
 }
 .controlArea {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   height: 60px;
 }
 .userArea {
-  background-color: paleturquoise;
+  /* background-color: paleturquoise; */
   height: 50%;
 }
 .chatArea {
-  background-color: palevioletred;
+  /* background-color: palevioletred; */
   height: 50%;
 }
 .controlArea span.fab {
   margin: 0px 10px;
 }
+
+/************* ビデオエリア ***************/
+
+.container {
+  margin-left: 0px;
+}
+.videowrapper {
+  margin-top: 0px !important;
+}
+.membersvideo {
+  object-fit: cover;
+}
+.membername {
+  position: relative;
+  bottom: 50px;
+  left: 10px;
+  color: white;
+  margin-bottom: -2.5rem;
+  text-shadow: black 1px 1px 10px, black -1px 1px 10px, black 1px -1px 10px,
+    black -1px -1px 10px;
+}
+
+.vc1 {
+  width: 47%;
+}
+
+.vc2 {
+  width: 47%;
+}
+
+.vc3 {
+  width: 31%;
+}
+
+.vc4 {
+  width: 23%;
+}
+
+/************* コントロールエリア ***************/
 
 .fab {
   /*円の部分*/
@@ -68,37 +111,7 @@
 .fab-disable {
   background: #696969;
 }
-.container {
-  margin-left: 0px;
-}
-.videowrapper {
-  margin-top: 0px !important;
-}
-.membersvideo {
-  object-fit: cover;
-}
-.membername {
-  position: relative;
-  bottom: 50px;
-  left: 10px;
-  color: white;
-  margin-bottom: -2.5rem;
-  text-shadow: black 1px 1px 10px, black -1px 1px 10px, black 1px -1px 10px,
-    black -1px -1px 10px;
-}
 
-.vc1 {
-  width: 47%;
-}
+/************* ユーザーエリア ***************/
 
-.vc2 {
-  width: 47%;
-}
-
-.vc3 {
-  width: 31%;
-}
-
-.vc4 {
-  width: 23%;
-}
+/************* チャットエリア ***************/

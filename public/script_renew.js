@@ -884,6 +884,9 @@ $("#badbutton").on("click", () => {
 $("#calendarbutton").on("click", () => {
   alert("Now developing...");
 });
+$("#bgchangebutton").on("click", () => {
+  alert("Now developing...");
+});
 $("#leavebutton").on("click", () => {
   alert("Now developing...");
 });
