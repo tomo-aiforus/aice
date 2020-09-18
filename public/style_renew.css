@@ -13,7 +13,8 @@
 }
 .videoArea {
   background-color: khaki;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 75px);
+  padding: 15px 0px 0px 15px;
 }
 .controlArea {
   background-color: aliceblue;
@@ -86,19 +87,19 @@
 }
 
 .vc1 {
-  width: 45%;
+  width: 47%;
 }
 
 .vc2 {
-  width: 45%;
+  width: 47%;
 }
 
 .vc3 {
-  width: 28%;
+  width: 31%;
   display: flex;
 }
 
 .vc4 {
-  width: 20%;
+  width: 23%;
   display: flex;
 }
