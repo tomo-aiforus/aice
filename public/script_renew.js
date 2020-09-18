@@ -368,6 +368,10 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
+      if (localStream.getVideoTracks().length == 2) {
+        // 既に２つのトラックが含まれる場合は、2つめのトラック（ScreenShare）を削除
+        localStream.removeTrack(localStream.getVideoTracks()[1]);
+      }
       localStream.addTrack(stream.getVideoTracks()[0]);
       playVideo(localVideo, stream);
 
