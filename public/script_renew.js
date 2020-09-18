@@ -390,7 +390,7 @@ function setCameraVideo() {
   };
   getDeviceStream(videoParam)
     .then((stream) => {
-      localStream = null;
+      localStream = stream;
       playVideo(localVideo, stream);
     })
     .catch((error) => {

@@ -46,6 +46,8 @@
 }
 .videowrapper {
   margin-top: 0px !important;
+  margin-right: auto;
+  margin-left: auto;
 }
 .membersvideo {
   object-fit: cover;
@@ -73,6 +75,18 @@
 }
 
 .vc4 {
+  width: 23%;
+}
+
+.vc5 {
+  width: 31%;
+}
+
+.vc6 {
+  width: 31%;
+}
+
+.vc7 {
   width: 23%;
 }
 

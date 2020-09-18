@@ -213,9 +213,18 @@ var videoVue = new Vue({
         case 3:
           classname = "vc3";
           break;
-        default:
-          // 4以上は同じ
+        case 4:
           classname = "vc4";
+          break;
+        case 5:
+          classname = "vc5";
+          break;
+        case 6:
+          classname = "vc6";
+          break;
+        default:
+          // 7以上は同じ
+          classname = "vc7";
           break;
       }
       return classname;
