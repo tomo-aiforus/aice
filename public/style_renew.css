@@ -67,6 +67,12 @@
 .fab-disable {
   background: #696969;
 }
+.container {
+  margin-left: 0px;
+}
+.videowrapper {
+  margin-top: 40px;
+}
 .membersvideo {
   object-fit: cover;
 }
@@ -89,11 +95,11 @@
 }
 
 .vc3 {
-  width: 45%;
+  width: 28%;
   display: flex;
 }
 
 .vc4 {
-  width: 80px;
+  width: 20%;
   display: flex;
 }
