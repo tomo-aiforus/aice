@@ -369,6 +369,27 @@ function setCaptureVideo() {
     .getDisplayMedia(videoParam)
     .then((stream) => {
       localStream = stream;
+      playVideo(localVideo, stream);
+    })
+    .catch((error) => {
+      console.error("getDisplayMedia error:", error);
+      return;
+    });
+}
+function setCameraVideo() {
+  var videoParam = {
+    audio: true,
+    video: {
+      width: 640,
+      height: 480,
+      frameRate: { ideal: 10, max: 15 },
+    },
+  };
+  navigator.mediaDevices
+    .getUserMadia(videoParam)
+    .then((stream) => {
+      localStream = stream;
+      playVideo(localVideo, stream);
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
@@ -886,7 +907,7 @@ $("#micbutton").on("click", () => {
 });
 
 $("#capturebutton").on("click", () => {
-  setCaptureVideo();
+  toggleInput();
 });
 $("#recordbutton").on("click", () => {
   alert("Now developing...");
@@ -956,4 +977,17 @@ function startVoice() {
 function stopVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = false;
+}
+
+function toggleInput() {
+  if ($("#capturebutton").hasClass("fab-on")) {
+    setCameraVideo();
+    $("#capturebutton").removeClass("fab-on");
+  } else {
+    alert(
+      "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
+    );
+    setCaptureVideo();
+    $("#capturebutton").addClass("fab-on");
+  }
 }
