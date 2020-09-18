@@ -982,7 +982,7 @@ function toggleInput() {
     setCameraVideo();
     $("#capturebutton").removeClass("fab-on");
   } else {
-    alert(
+    toastr.info(
       "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
     );
     setCaptureVideo();
