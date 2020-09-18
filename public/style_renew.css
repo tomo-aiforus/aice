@@ -14,7 +14,7 @@
 }
 .rightArea {
   width: 300px;
-  background: linear-gradient(#e8ecef, #eaf4fc);
+  background: rgba(255, 255, 255, 0.5);
 }
 .videoArea {
   /* background-color: khaki; */
