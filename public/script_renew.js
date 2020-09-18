@@ -369,7 +369,6 @@ function setCaptureVideo() {
     .getDisplayMedia(videoParam)
     .then((stream) => {
       localStream = stream;
-      playVideo(localVideo, stream);
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
