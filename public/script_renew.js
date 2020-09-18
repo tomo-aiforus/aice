@@ -385,8 +385,7 @@ function setCameraVideo() {
       frameRate: { ideal: 10, max: 15 },
     },
   };
-  navigator.mediaDevices
-    .getUserMadia(videoParam)
+  getDeviceStream(videoParam)
     .then((stream) => {
       localStream = stream;
       playVideo(localVideo, stream);
