@@ -368,6 +368,7 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
+      localStream = null;
       localStream = stream;
       playVideo(localVideo, stream);
 
