@@ -6,7 +6,7 @@
 /************* 全体構造 ***************/
 
 .pageWrapper {
-  background: linear-gradient(#708090, #778899);
+  background: linear-gradient(#203744, #355a85);
   display: flex;
 }
 .leftArea {
@@ -14,6 +14,7 @@
 }
 .rightArea {
   width: 300px;
+  background: linear-gradient(#e8ecef, #eaf4fc);
 }
 .videoArea {
   /* background-color: khaki; */
