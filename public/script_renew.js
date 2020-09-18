@@ -368,7 +368,8 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
-      localStream = stream;
+      //localStream = stream;
+      playVideo(localVideo, stream);
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
