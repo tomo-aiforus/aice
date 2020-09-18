@@ -764,23 +764,21 @@ window.onload = function () {
   var hour = today.getHours();
   var minut = today.getMinutes();
   var textdate = hour + "：" + minut;
-  alert("1");
 
   var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
   socket.emit("alert", text);
-  alert("2");
   socket.emit("chat", text);
-  alert("3");
+
   var systemmesage =
     "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
   chatVue.addContent(systemmesage);
-  alert("4");
+
   setInterval(function () {
     sendBeing();
   }, 5000);
 
   // autoScroll();
-  alert("5");
+
   connectVideo();
 };
 
