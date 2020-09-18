@@ -124,8 +124,19 @@
 
 .chat {
   border-top: solid 1px #696969;
+  overflow-y: scroll;
+  height: 100%;
 }
-.chatform {
+
+.chat ul {
+  margin-bottom: 70px;
 }
-.chatform input {
+
+.chat input {
+  padding: 10px;
+  font-size: 15px;
+  width: 265px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 5px;
 }
