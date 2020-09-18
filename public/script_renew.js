@@ -358,6 +358,24 @@ function connectVideo() {
   return false;
 }
 
+function setCaptureVideo() {
+  var videoParam = {
+    audio: true,
+    video: {
+      frameRate: { ideal: 10, max: 15 },
+    },
+  };
+  navigator.mediaDevices
+    .getDisplayMedia(videoParam)
+    .then((stream) => {
+      localStream = stream;
+    })
+    .catch((error) => {
+      console.error("getDisplayMedia error:", error);
+      return;
+    });
+}
+
 /*
 // start local video
 function startVideo() {
@@ -868,7 +886,7 @@ $("#micbutton").on("click", () => {
 });
 
 $("#capturebutton").on("click", () => {
-  alert("Now developing...");
+  setCaptureVideo();
 });
 $("#recordbutton").on("click", () => {
   alert("Now developing...");
