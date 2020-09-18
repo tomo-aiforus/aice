@@ -72,6 +72,7 @@
   margin-left: 0px;
 }
 .videowrapper {
+  margin-top: 0px !important;
 }
 .membersvideo {
   object-fit: cover;
