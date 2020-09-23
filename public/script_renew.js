@@ -839,13 +839,13 @@ $("#recordbutton").on("click", () => {
   alert("Now developing...");
 });
 $("#goodbutton").on("click", () => {
-  if ($("#goodbutton").hasClass("fab-disable")) {
+  if (!$("#goodbutton").hasClass("fab-disable")) {
     sendVote("good");
     shieldButton("goodbutton");
   }
 });
 $("#badbutton").on("click", () => {
-  if ($("#badbutton").hasClass("fab-disable")) {
+  if (!$("#badbutton").hasClass("fab-disable")) {
     sendVote("bad");
     shieldButton("badbutton");
   }
@@ -944,13 +944,11 @@ function sendVote(voteStr) {
 
 function shieldButton(idname) {
   $("#" + idname).addClass("fab-disable");
-  /*
   $("#" + idname)
     .delay(10000)
     .queue(function () {
       $(this).removeClass("fab-disable").dequeue();
     });
-    */
 }
 
 /**
