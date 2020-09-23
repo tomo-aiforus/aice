@@ -79,7 +79,14 @@
           <div id="memberapp" class="member">
             <h4><%- table_name %>（{{ loginmembers.length + 1 }}人）</h4>
             <ul>
-              <li id="myname"><%- user_name %></li>
+              <li>
+                <span v-bind:id="user_good_myid" class="hidden goodicon"
+                  ><i class="fas fa-thumbs-up"></i
+                ></span>
+                <span v-bind:id="user_bad_myid" class="hidden badicon"
+                  ><i class="fas fa-thumbs-down"></i></span
+                ><%- user_name %>
+              </li>
               <li v-for="member in loginmembers">
                 <span
                   v-bind:id="'user_good_' + member.user_id"

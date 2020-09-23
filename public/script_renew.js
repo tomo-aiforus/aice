@@ -946,6 +946,13 @@ function sendVote(voteStr) {
     id: socket.id,
   };
   socket.emit("vote", message);
+
+  const mymsg = {
+    vote: voteStr,
+    id: "myid",
+  };
+  memberVue.vote(mymsg);
+  $("#vote_se").get(0).play();
   return false;
 }
 
