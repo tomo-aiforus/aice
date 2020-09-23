@@ -952,18 +952,6 @@ function toggleMic() {
     startVoice();
     $("#micbutton").addClass("fab-on");
   }
-
-  /*
-  localStream.getVideoTracks().forEach((track) => {
-    if (track.enabled == true) {
-      stopVoice();
-      $("#micbutton").removeClass("fab-on");
-    } else {
-      startVoice();
-      $("#micbutton").addClass("fab-on");
-    }
-  });
-  */
 }
 
 function startVideo() {
