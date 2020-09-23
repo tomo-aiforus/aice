@@ -377,8 +377,6 @@ function setCaptureVideo() {
       // localStream.addTrack(stream.getVideoTracks()[0]);
       const new_track = stream.getVideoTracks()[0];
 
-      alert(getConnectionCount());
-
       peerConnections.forEach(function (pc) {
         var sender = pc.getSenders().find(function (s) {
           return s.track.kind == videoTrack.kind;
@@ -693,6 +691,7 @@ function makeOffer(id) {
   _assert("makeOffer must not connected yet", !isConnectedWith(id));
   peerConnection = prepareNewConnection(id);
   addConnection(id, peerConnection);
+  alert(getConnectionCount());
 
   peerConnection
     .createOffer()
