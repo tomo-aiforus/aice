@@ -375,16 +375,16 @@ function setCaptureVideo() {
     .then((stream) => {
       // localStream.removeTrack(localStream.getVideoTracks()[0]);
       // localStream.addTrack(stream.getVideoTracks()[0]);
+      const new_track = stream.getVideoTracks()[0];
 
-      localStream.getVideoTracks().forEach((track) => {
-        peerConnections.forEach(function (pc) {
-          var sender = pc.getSenders().find(function (s) {
-            return s.track.kind == videoTrack.kind;
-          });
-          console.log("found sender:", sender);
-          sender.replaceTrack(track);
+      peerConnections.forEach(function (pc) {
+        var sender = pc.getSenders().find(function (s) {
+          return s.track.kind == videoTrack.kind;
         });
+        console.log("found sender:", sender);
+        sender.replaceTrack(new_track);
       });
+
       playVideo(localVideo, stream);
 
       connect();
