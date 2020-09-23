@@ -10,6 +10,9 @@
   display: flex;
   overflow: hidden;
 }
+.lightBG {
+  background: linear-gradient(#f4b3c2, #aacf53) !important;
+}
 .leftArea {
   width: calc(100vw - 300px);
 }
@@ -127,6 +130,10 @@
 }
 .fab-disable {
   background: #696969;
+}
+.fab-left {
+}
+.fab-right {
 }
 
 /************* ユーザーエリア ***************/

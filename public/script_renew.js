@@ -1016,6 +1016,16 @@ function toggleInput() {
   }
 }
 
+function toggleBG() {
+  if ($("#bgchangebutton").hasClass("fab-on")) {
+    $("#pageWrapper").removeClass("lightBG");
+    $("#bgchangebutton").removeClass("fab-on");
+  } else {
+    $("#pageWrapper").addClass("lightBG");
+    $("#bgchangebutton").addClass("fab-on");
+  }
+}
+
 //
 
 /**
