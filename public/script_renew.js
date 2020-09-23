@@ -374,12 +374,12 @@ function setCaptureVideo() {
     .getDisplayMedia(videoParam)
     .then((stream) => {
       // ↓これでもやってることは同じ
-      // localStream.removeTrack(localStream.getVideoTracks()[0]);
-      // localStream.addTrack(stream.getVideoTracks()[0]);
+      localStream.removeTrack(localStream.getVideoTracks()[0]);
+      localStream.addTrack(stream.getVideoTracks()[0]);
 
-      localStream.getVideoTracks().forEach((track) => {
-        track = stream.getVideoTracks()[0];
-      });
+      //localStream.getVideoTracks().forEach((track) => {
+      //  track = stream.getVideoTracks()[0];
+      //});
 
       /*
       // PeerConnectionのSenderで制御したいが、PCsが空なんですけど！！？？
