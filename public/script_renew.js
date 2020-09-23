@@ -377,6 +377,7 @@ function setCaptureVideo() {
       // localStream.addTrack(stream.getVideoTracks()[0]);
       const new_track = stream.getVideoTracks()[0];
 
+      console.log(peerConnections.length());
       peerConnections.forEach(function (pc) {
         var sender = pc.getSenders().find(function (s) {
           return s.track.kind == videoTrack.kind;
