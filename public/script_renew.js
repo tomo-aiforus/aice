@@ -857,8 +857,8 @@ $("#badbutton").on("click", () => {
     shieldButton("badbutton");
   }
 });
-$("#calendarbutton").on("click", () => {
-  socket.emit("sharereq", "");
+$("#linkbutton").on("click", () => {
+  alert("Now developing...");
 });
 $("#bgchangebutton").on("click", () => {
   toggleWallpaper();
