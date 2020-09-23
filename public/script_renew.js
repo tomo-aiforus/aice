@@ -119,8 +119,8 @@ socket.on("being", function (msg) {
 });
 
 socket.on("sharereq", function (msg) {
-  alert(msg);
-  stopConnection(msg);
+  let video = getRemoteVideoElement(msg);
+  pauseVideo(video);
   connect();
 });
 
