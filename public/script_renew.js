@@ -377,10 +377,13 @@ function setCaptureVideo() {
       // localStream.addTrack(stream.getVideoTracks()[0]);
 
       localStream.getVideoTracks().forEach((track) => {
-        var sender = track.getSenders().find(function (sdr) {
-          return sdr.track.kind == new_track.kind;
+        peerConnections.forEach(function (pc) {
+          var sender = pc.getSenders().find(function (s) {
+            return s.track.kind == videoTrack.kind;
+          });
+          console.log("found sender:", sender);
+          sender.replaceTrack(track);
         });
-        sender.replaceTrack(stream);
       });
       playVideo(localVideo, stream);
 
