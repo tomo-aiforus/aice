@@ -118,6 +118,11 @@ socket.on("being", function (msg) {
   memberVue.updateMemberList(msg);
 });
 
+socket.on("vote", function (msg) {
+  memberVue.vote(msg);
+  $("#vote_se").get(0).play();
+});
+
 socket.on("sharereq", function (msg) {
   //let video = getRemoteVideoElement(msg);
   //pauseVideo(video);

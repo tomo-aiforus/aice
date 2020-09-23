@@ -86,6 +86,22 @@ var memberVue = new Vue({
         }
       });
     },
+
+    vote: function (voteJson) {
+      var data = JSON.parse(voteJson);
+      var target_id;
+      if (data.vote === "good") {
+        target_id = "user_good_" + data.id;
+      } else {
+        target_id = "user_bad_" + data.id;
+      }
+      $("#" + target_id).removeClass("hidden");
+      $("#" + target_id)
+        .delay(30000)
+        .queue(function () {
+          $(this).add("hidden").dequeue();
+        });
+    },
   },
 });
 

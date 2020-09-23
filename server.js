@@ -192,6 +192,11 @@ io.on("connection", function (socket) {
   });
 });
 
+// 投票シグナルの配信
+socket.on("vote", function (message) {
+  emitMessage("vote", message);
+});
+
 // DBから部屋リストを取得
 function getRoomList() {
   var data = [
