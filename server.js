@@ -190,11 +190,11 @@ io.on("connection", function (socket) {
   socket.on("sharereq", function () {
     emitMessage("sharereq", socket.id);
   });
-});
 
-// 投票シグナルの配信
-socket.on("vote", function (message) {
-  emitMessage("vote", message);
+  // 投票シグナルの配信
+  socket.on("vote", function (message) {
+    emitMessage("vote", message);
+  });
 });
 
 // DBから部屋リストを取得
