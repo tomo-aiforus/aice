@@ -839,12 +839,18 @@ $("#recordbutton").on("click", () => {
   alert("Now developing...");
 });
 $("#goodbutton").on("click", () => {
-  sendVote("good");
-  shieldButton("goodbutton");
+  if ($("#goodbutton").hasClass("fab-disable")) {
+    sendVote("good");
+    shieldButton("goodbutton");
+    shieldButton("badbutton");
+  }
 });
 $("#badbutton").on("click", () => {
-  sendVote("bad");
-  shieldButton("badbutton");
+  if ($("#badbutton").hasClass("fab-disable")) {
+    sendVote("bad");
+    shieldButton("goodbutton");
+    shieldButton("badbutton");
+  }
 });
 $("#calendarbutton").on("click", () => {
   socket.emit("sharereq", "");
