@@ -385,9 +385,9 @@ function setCaptureVideo() {
         sender.replaceTrack(new_track);
       });
 
-      // playVideo(localVideo, stream);
+      playVideo(localVideo, stream);
 
-      //connect();
+      callMe();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
@@ -691,7 +691,6 @@ function makeOffer(id) {
   _assert("makeOffer must not connected yet", !isConnectedWith(id));
   peerConnection = prepareNewConnection(id);
   addConnection(id, peerConnection);
-  alert(getConnectionCount());
 
   peerConnection
     .createOffer()
