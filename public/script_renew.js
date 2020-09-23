@@ -313,18 +313,6 @@ function removeVideoWrapperElement(elementId) {
   $("#" + elementId).remove();
 }
 
-// ダミーのビデオを削除する
-// function removeBlankVideoElement(){
-//   $(".blankVideo")[0].remove();
-// }
-
-// ダミーのビデオを追加する
-// function addBlankVideoElement(){
-//   $('#container').append('<div class="col-3 col-12-small blankVideo" ><img src="/assets/images/dummy.png" class="dummyvideo"/></div>');
-// }
-
-// function
-
 // ----------------------------------------------------------------
 // ---------------------- ボタン操作  -----------------------
 // ----------------------------------------------------------------
@@ -421,61 +409,6 @@ function setCameraVideo() {
     });
 }
 
-/*
-// start local video
-function startVideo() {
-  getDeviceStream({ video: true, audio: true }) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
-    .then(function (stream) {
-      // success
-      localStream = stream;
-      playVideo(localVideo, stream);
-
-      // ボタンの表示を切り替え
-      $("#startbutton").addClass("hidden");
-      $("#stopbutton").removeClass("hidden");
-
-      connect();
-    })
-    .catch(function (error) {
-      // error
-      console.error("getUserMedia error:", error);
-      return;
-    });
-  return false;
-}
-
-// stop local video
-function stopVideo() {
-  pauseVideo(localVideo);
-  stopLocalStream(localStream);
-
-  // ボタンの表示を切り替え
-  $("#startbutton").removeClass("hidden");
-  $("#stopbutton").addClass("hidden");
-
-  return false;
-}
-*/
-
-/*
-// ビデオON/OFFボタン（テスト）
-function startVideo_() {
-  localStream.getVideoTracks().forEach((track) => {
-    track.enabled = true;
-  });
-  $("#stopbutton").removeClass("hidden");
-  $("#startbutton").addClass("hidden");
-}
-function stopVideo_() {
-  localStream.getVideoTracks().forEach((track) => {
-    track.enabled = false;
-  });
-  // stopLocalStream(localStream);
-  $("#startbutton").removeClass("hidden");
-  $("#stopbutton").addClass("hidden");
-}
-*/
-
 //
 function sendChat() {
   if ($("#input_msg").val().length == 0) {
@@ -543,30 +476,6 @@ function pauseVideo(element) {
     element.src = "";
   }
 }
-
-/*--
-  // ----- hand signaling ----
-  function onSdpText() {
-    let text = textToReceiveSdp.value;
-    if (peerConnection) {
-      console.log('Received answer text...');
-      let answer = new RTCSessionDescription({
-        type : 'answer',
-        sdp : text,
-      });
-      setAnswer(answer);
-    }
-    else {
-      console.log('Received offer text...');
-      let offer = new RTCSessionDescription({
-        type : 'offer',
-        sdp : text,
-      });
-      setOffer(offer);
-    }
-    textToReceiveSdp.value ='';
-  }
-  --*/
 
 function sendSdp(id, sessionDescription) {
   console.log("---sending sdp ---");
@@ -639,11 +548,6 @@ function prepareNewConnection(id) {
       // Vanilla ICE の場合には、何もしない
     } else {
       console.log("empty ice event");
-
-      // Trickle ICE の場合は、何もしない
-
-      // Vanilla ICE の場合には、ICE candidateを含んだSDPを相手に送る
-      //sendSdp(id, peer.localDescription);
     }
   };
 
