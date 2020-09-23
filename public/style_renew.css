@@ -145,6 +145,13 @@
 .member h4 {
   border-bottom: 3px solid #3e62ad;
 }
+.goodicon {
+  color: #f8b500;
+}
+.badicon {
+  color: #00a497;
+}
+
 /************* チャットエリア ***************/
 
 .chat {

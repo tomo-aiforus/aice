@@ -409,7 +409,6 @@ function setCameraVideo() {
     });
 }
 
-//
 function sendChat() {
   if ($("#input_msg").val().length == 0) {
     toastr.error("文字を入力してください");
@@ -421,7 +420,6 @@ function sendChat() {
     chatVue.addContent(text);
     $("#input_msg").val("");
   }
-
   return false;
 }
 
@@ -841,10 +839,12 @@ $("#recordbutton").on("click", () => {
   alert("Now developing...");
 });
 $("#goodbutton").on("click", () => {
-  alert("Now developing...");
+  sendVote("good");
+  shieldButton("goodbutton");
 });
 $("#badbutton").on("click", () => {
-  alert("Now developing...");
+  sendVote("bad");
+  shieldButton("badbutton");
 });
 $("#calendarbutton").on("click", () => {
   socket.emit("sharereq", "");
@@ -929,7 +929,23 @@ function toggleWallpaper() {
   }
 }
 
-//
+function sendVote(voteStr) {
+  const message = {
+    vote: voteStr,
+    id: socket.id,
+  };
+  socket.emit("vote", message);
+  return false;
+}
+
+function shieldButton(idname) {
+  $("#" + idname).addClass("fab-disable");
+  $("#" + idname)
+    .delay(10000)
+    .queue(function () {
+      $(this).removeClass("fab-disable").dequeue();
+    });
+}
 
 /**
  * 退室処理
