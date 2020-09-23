@@ -944,6 +944,16 @@ function toggleVideo() {
 }
 
 function toggleMic() {
+  var tracks = localStream.getAudioTracks();
+  if (tracks[0].enabled) {
+    stopVoice();
+    $("#micbutton").removeClass("fab-on");
+  } else {
+    startVoice();
+    $("#micbutton").addClass("fab-on");
+  }
+
+  /*
   localStream.getVideoTracks().forEach((track) => {
     if (track.enabled == true) {
       stopVoice();
@@ -953,6 +963,7 @@ function toggleMic() {
       $("#micbutton").addClass("fab-on");
     }
   });
+  */
 }
 
 function startVideo() {
