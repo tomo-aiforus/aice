@@ -119,8 +119,8 @@ socket.on("being", function (msg) {
 });
 
 socket.on("sharereq", function (msg) {
-  alert(msg.from);
-  stopConnection(msg.from);
+  alert(msg);
+  stopConnection(msg);
 });
 
 // --- broadcast message to all members in room
