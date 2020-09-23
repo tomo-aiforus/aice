@@ -842,13 +842,11 @@ $("#goodbutton").on("click", () => {
   if ($("#goodbutton").hasClass("fab-disable")) {
     sendVote("good");
     shieldButton("goodbutton");
-    shieldButton("badbutton");
   }
 });
 $("#badbutton").on("click", () => {
   if ($("#badbutton").hasClass("fab-disable")) {
     sendVote("bad");
-    shieldButton("goodbutton");
     shieldButton("badbutton");
   }
 });
