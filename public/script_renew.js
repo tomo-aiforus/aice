@@ -944,11 +944,13 @@ function sendVote(voteStr) {
 
 function shieldButton(idname) {
   $("#" + idname).addClass("fab-disable");
+  /*
   $("#" + idname)
     .delay(10000)
     .queue(function () {
       $(this).removeClass("fab-disable").dequeue();
     });
+    */
 }
 
 /**
