@@ -373,9 +373,11 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
-      localStream.removeTrack(localStream.getVideoTracks()[0]);
-
-      localStream.addTrack(stream.getVideoTracks()[0]);
+      // localStream.removeTrack(localStream.getVideoTracks()[0]);
+      // localStream.addTrack(stream.getVideoTracks()[0]);
+      localStream.getVideoTracks().forEach((track) => {
+        track = stream.getVideoTracks()[0];
+      });
       playVideo(localVideo, stream);
 
       connect();
