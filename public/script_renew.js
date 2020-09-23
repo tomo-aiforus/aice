@@ -373,10 +373,16 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
+      // ↓これでもやってることは同じ
       // localStream.removeTrack(localStream.getVideoTracks()[0]);
       // localStream.addTrack(stream.getVideoTracks()[0]);
-      const new_track = stream.getVideoTracks()[0];
 
+      localStream.getVideoTracks().forEach((track) => {
+        track = stream.getVideoTracks()[0];
+      });
+
+      /*
+      // PeerConnectionのSenderで制御したいが、PCsが空なんですけど！！？？
       peerConnections.forEach(function (pc) {
         var sender = pc.getSenders().find(function (s) {
           return s.track.kind == videoTrack.kind;
@@ -384,10 +390,10 @@ function setCaptureVideo() {
         console.log("found sender:", sender);
         sender.replaceTrack(new_track);
       });
+      */
 
       playVideo(localVideo, stream);
-
-      callMe();
+      connect();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
