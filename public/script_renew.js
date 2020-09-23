@@ -114,9 +114,13 @@ socket.on("being", function (msg) {
   if ($("#user_name_" + words[1]).text() !== words[0]) {
     $("#user_name_" + words[1]).text(words[0]);
   }
-
   // メンバー一覧を更新する
   memberVue.updateMemberList(msg);
+});
+
+socket.on("sharereq", function (msg) {
+  alert(msg.from);
+  stopConnection(msg.from);
 });
 
 // --- broadcast message to all members in room
@@ -928,8 +932,8 @@ $("#bgchangebutton").on("click", () => {
   alert("Now developing...");
 });
 $("#leavebutton").on("click", () => {
-  alert("Now developing...");
-  connectVideo();
+  // alert("Now developing...");
+  socket.emit("sharereq", "");
 });
 
 function toggleVideo() {

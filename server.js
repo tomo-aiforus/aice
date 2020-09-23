@@ -185,6 +185,11 @@ io.on("connection", function (socket) {
   socket.on("leaveSignal", function (message) {
     emitMessage("leaveSignal", message);
   });
+
+  // 画面共有リクエストの配信
+  socket.on("sharereq", function () {
+    emitMessage("sharereq", socket.id);
+  });
 });
 
 // DBから部屋リストを取得
