@@ -87,8 +87,8 @@ var memberVue = new Vue({
       });
     },
 
-    vote: function (voteJson) {
-      var data = JSON.parse(voteJson);
+    vote: function (data) {
+      //var data = JSON.parse(voteJson);
       var target_id;
       if (data.vote === "good") {
         target_id = "user_good_" + data.id;
