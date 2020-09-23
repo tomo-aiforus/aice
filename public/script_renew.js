@@ -929,6 +929,7 @@ $("#bgchangebutton").on("click", () => {
 });
 $("#leavebutton").on("click", () => {
   alert("Now developing...");
+  connectVideo();
 });
 
 function toggleVideo() {
