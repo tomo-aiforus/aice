@@ -187,6 +187,7 @@ function addConnection(id, peer) {
   _assert("addConnection() peer", peer);
   _assert("addConnection() peer must NOT EXIST", !peerConnections[id]);
   peerConnections[id] = peer;
+  alert("peerConnections[id]:" + id);
 }
 
 function getConnection(id) {
@@ -377,7 +378,6 @@ function setCaptureVideo() {
       // localStream.addTrack(stream.getVideoTracks()[0]);
       const new_track = stream.getVideoTracks()[0];
 
-      console.log(peerConnections.length);
       peerConnections.forEach(function (pc) {
         var sender = pc.getSenders().find(function (s) {
           return s.track.kind == videoTrack.kind;
