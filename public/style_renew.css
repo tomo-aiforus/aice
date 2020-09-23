@@ -46,8 +46,8 @@
 }
 .videowrapper {
   margin-top: 0px !important;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: auto !important;
+  margin-left: auto !important;
 }
 .membersvideo {
   object-fit: cover;
