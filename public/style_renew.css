@@ -145,11 +145,14 @@
 .member h4 {
   border-bottom: 3px solid #3e62ad;
 }
+.member ul {
+  list-style: none;
+}
 .goodicon {
   color: #f8b500;
 }
 .badicon {
-  color: #00a497;
+  color: #38b48b;
 }
 
 /************* チャットエリア ***************/
@@ -162,6 +165,7 @@
 
 .chat ul {
   margin-bottom: 70px;
+  list-style: none;
 }
 .chatform input {
   padding: 10px;

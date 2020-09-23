@@ -97,9 +97,9 @@ var memberVue = new Vue({
       }
       $("#" + target_id).removeClass("hidden");
       $("#" + target_id)
-        .delay(30000)
+        .delay(20000)
         .queue(function () {
-          $(this).add("hidden").dequeue();
+          $(this).addClass("hidden").dequeue();
         });
     },
   },
