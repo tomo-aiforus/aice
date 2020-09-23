@@ -187,7 +187,6 @@ function addConnection(id, peer) {
   _assert("addConnection() peer", peer);
   _assert("addConnection() peer must NOT EXIST", !peerConnections[id]);
   peerConnections[id] = peer;
-  alert("peerConnections[id]:" + id);
 }
 
 function getConnection(id) {
@@ -692,6 +691,7 @@ function makeOffer(id) {
   _assert("makeOffer must not connected yet", !isConnectedWith(id));
   peerConnection = prepareNewConnection(id);
   addConnection(id, peerConnection);
+  alert("addConnection");
 
   peerConnection
     .createOffer()
