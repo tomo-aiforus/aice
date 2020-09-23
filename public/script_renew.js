@@ -385,9 +385,9 @@ function setCaptureVideo() {
         sender.replaceTrack(new_track);
       });
 
-      playVideo(localVideo, stream);
+      // playVideo(localVideo, stream);
 
-      connect();
+      //connect();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
