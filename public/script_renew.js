@@ -393,7 +393,8 @@ function setCaptureVideo() {
       */
 
       playVideo(localVideo, stream);
-      connect();
+      // connect();
+      callMe();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
