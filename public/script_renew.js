@@ -943,11 +943,10 @@ $("#badbutton").on("click", () => {
   alert("Now developing...");
 });
 $("#calendarbutton").on("click", () => {
-  alert("Now developing...");
+  socket.emit("sharereq", "");
 });
 $("#bgchangebutton").on("click", () => {
-  // alert("Now developing...");
-  socket.emit("sharereq", "");
+  toggleWallpaper();
 });
 $("#leavebutton").on("click", () => {
   leaveRoom();
@@ -1016,7 +1015,7 @@ function toggleInput() {
   }
 }
 
-function toggleBG() {
+function toggleWallpaper() {
   if ($("#bgchangebutton").hasClass("fab-on")) {
     $("#pageWrapper").removeClass("lightBG");
     $("#bgchangebutton").removeClass("fab-on");
