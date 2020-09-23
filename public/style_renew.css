@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 .lightBG {
-  background: linear-gradient(#f4b3c2, #aacf53) !important;
+  background: linear-gradient(#f4b3c2, #eaf4fc) !important;
 }
 .leftArea {
   width: calc(100vw - 300px);
@@ -132,8 +132,12 @@
   background: #696969;
 }
 .fab-left {
+  border-radius: 50% 0 0 50%;
+  margin-right: 0px !important;
 }
 .fab-right {
+  border-radius: 0 50% 50% 0;
+  margin-left: -3px !important;
 }
 
 /************* ユーザーエリア ***************/
