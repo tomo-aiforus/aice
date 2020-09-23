@@ -946,11 +946,11 @@ $("#calendarbutton").on("click", () => {
   alert("Now developing...");
 });
 $("#bgchangebutton").on("click", () => {
-  alert("Now developing...");
-});
-$("#leavebutton").on("click", () => {
   // alert("Now developing...");
   socket.emit("sharereq", "");
+});
+$("#leavebutton").on("click", () => {
+  leaveRoom();
 });
 
 function toggleVideo() {
@@ -1014,4 +1014,37 @@ function toggleInput() {
     setCaptureVideo();
     $("#capturebutton").addClass("fab-on");
   }
+}
+
+//
+
+/**
+ * 退室処理
+ */
+function leaveRoom() {
+  Swal.fire({
+    title: "退室してよろしいですか？",
+    icon: "warning",
+    html: "完全にログアウトして、ログイン画面に戻ります。",
+    showCloseButton: false,
+    showCancelButton: true,
+    focusConfirm: false,
+    confirmButtonText: "はい",
+    confirmButtonAriaLabel: "OK",
+    cancelButtonText: "いいえ",
+    cancelButtonAriaLabel: "No",
+    reverseButtons: true,
+    allowOutsideClick: true,
+  }).then((result) => {
+    if (result.value) {
+      stopVideo();
+      stopVoice();
+      hangUp();
+      toastr.info("安全に全ての接続を切りました。");
+      $("#alert_se").get(0).play();
+      window.setTimeout(function () {
+        window.location.href = "/";
+      }, 6000);
+    }
+  });
 }
