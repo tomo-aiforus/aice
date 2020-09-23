@@ -375,8 +375,12 @@ function setCaptureVideo() {
     .then((stream) => {
       // localStream.removeTrack(localStream.getVideoTracks()[0]);
       // localStream.addTrack(stream.getVideoTracks()[0]);
+
       localStream.getVideoTracks().forEach((track) => {
-        track = stream.getVideoTracks()[0];
+        var sender = track.getSenders().find(function (sdr) {
+          return sdr.track.kind == new_track.kind;
+        });
+        sender.replaceTrack(stream);
       });
       playVideo(localVideo, stream);
 
