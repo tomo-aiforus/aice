@@ -129,6 +129,10 @@ socket.on("sharereq", function (msg) {
   callMe();
 });
 
+socket.on("roomhash", function (msg) {
+  showLinkWindow(msg);
+});
+
 // --- broadcast message to all members in room
 function emitRoom(msg) {
   socket.emit("message", msg);
@@ -858,7 +862,7 @@ $("#badbutton").on("click", () => {
   }
 });
 $("#linkbutton").on("click", () => {
-  alert("Now developing...");
+  sendLinkRequest();
 });
 $("#bgchangebutton").on("click", () => {
   toggleWallpaper();
@@ -993,5 +997,31 @@ function leaveRoom() {
         window.location.href = "/";
       }, 6000);
     }
+  });
+}
+
+function sendLinkRequest() {
+  var data = {
+    room_name: "へやめい",
+    password: "ぱすわーど",
+  };
+  socket.emit("roomhash", data);
+}
+function showLinkWindow(msg) {
+  const root = document.location.href;
+  const url = root + "?" + msg;
+  Swal.fire({
+    title: "招待リンク",
+    // icon: "info",
+    html:
+      `<p>このURLから新しい参加者を招待することができます</p>` +
+      `<input value="` +
+      url +
+      `"/>`,
+    showCloseButton: true,
+    focusConfirm: false,
+    confirmButtonText: "閉じる",
+    confirmButtonAriaLabel: "Close",
+    allowOutsideClick: true,
   });
 }

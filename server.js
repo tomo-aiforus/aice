@@ -90,10 +90,6 @@ app.get("/renew", (request, response) => {
     };
   }
 
-  //test
-  data.room_name = "なまえ";
-  data.password = "ぱすわーど";
-
   // response.sendFile(__dirname + "/views/index_renew.html");
   response.render("./index_renew.ejs", data);
 });
@@ -245,6 +241,15 @@ io.on("connection", function (socket) {
   // 投票シグナルの配信
   socket.on("vote", function (message) {
     emitMessage("vote", message);
+  });
+  // リンクパラメータの配信
+  socket.on("roomhash", function (message) {
+    var data = {
+      room_name: message.room_name,
+      password: message.password,
+    };
+    const result = executeEncrypt(JSON.stringify(data));
+    socket.emit("roomhash", result);
   });
 });
 
