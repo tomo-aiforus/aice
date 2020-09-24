@@ -82,8 +82,10 @@ app.post("/", (request, response) => {
 // デザインリニューアルテスト
 app.get("/renew", (request, response) => {
   const param = request.query.secret;
+  console.log("param: " + param);
   try {
     var jsondata = executeDecrypt(param);
+    console.log("jsondata: " + jsondata);
     var obj = JSON.parse(jsondata);
     var data = {
       room_name: obj.room_name,
