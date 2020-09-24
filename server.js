@@ -34,7 +34,9 @@ const CRYPTO_KEY = "MariariIs0urJustice";
 
 function executeEncrypt(text) {
   var words = CryptoJS.enc.Utf8.parse(text); // WordArray object
+  console.log("words");
   var base64 = CryptoJS.enc.Base64.stringify(words); // string: 'SGVsbG8gd29ybGQ='
+  console.log("base64");
   return base64;
   // return CryptoJS.AES.encrypt(word, CRYPTO_KEY).toString();
 }
