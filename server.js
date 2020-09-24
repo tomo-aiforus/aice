@@ -31,11 +31,18 @@ const crypto = require("crypto");
 // 暗号の強度はほとんど問題にしていないため、適当なものにしています
 var CryptoJS = require("crypto-js");
 const CRYPTO_KEY = "MariariIs0urJustice";
-function executeEncrypt(word) {
-  return CryptoJS.AES.encrypt(word, CRYPTO_KEY).toString();
+
+function executeEncrypt(text) {
+  var words = CryptoJS.enc.Utf8.parse(text); // WordArray object
+  var base64 = CryptoJS.enc.Base64.stringify(words); // string: 'SGVsbG8gd29ybGQ='
+  return base64;
+  // return CryptoJS.AES.encrypt(word, CRYPTO_KEY).toString();
 }
-function executeDecrypt(word) {
-  return CryptoJS.AES.decrypt(word, CRYPTO_KEY).toString(CryptoJS.enc.Utf8);
+function executeDecrypt(base64) {
+  var words = CryptoJS.enc.Base64.parse(base64);
+  var textString = CryptoJS.enc.Utf8.stringify(words); // 'Hello world'
+  return textString;
+  // return CryptoJS.AES.decrypt(word, CRYPTO_KEY).toString(CryptoJS.enc.Utf8);
 }
 
 /**
