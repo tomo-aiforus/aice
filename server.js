@@ -27,6 +27,17 @@ app.use(bodyParser.json());
 // ハッシュライブラリ
 const crypto = require("crypto");
 
+// 暗号化・複合化ライブラリ
+// 暗号の強度はほとんど問題にしていないため、適当なものにしています
+var CryptoJS = require("crypto-js");
+const CRYPTO_KEY = "MariariIs0urJustice";
+function executeEncrypt(word) {
+  return CryptoJS.AES.encrypt(word, CRYPTO_KEY).toString();
+}
+function executeDecrypt(word) {
+  return CryptoJS.AES.decrypt(word, CRYPTO_KEY).toString(CryptoJS.enc.Utf8);
+}
+
 /**
  * ルーティング
  */
@@ -63,7 +74,28 @@ app.post("/", (request, response) => {
 
 // デザインリニューアルテスト
 app.get("/renew", (request, response) => {
-  response.sendFile(__dirname + "/views/index_renew.html");
+  const param = request.query.secret;
+  try {
+    var jsondata = executeDecrypt(param);
+    var obj = JSON.parse(jsondata);
+    var data = {
+      room_name: obj.room_name,
+      password: obj.password,
+    };
+  } catch {
+    // エラー時は何事もなくカラで表示
+    var data = {
+      room_name: "",
+      password: "",
+    };
+  }
+
+  //test
+  data.room_name = "なまえ";
+  data.password = "ぱすわーど";
+
+  // response.sendFile(__dirname + "/views/index_renew.html");
+  response.render("./index_renew.ejs", data);
 });
 app.post("/renew", (request, response) => {
   var room_id = crypto

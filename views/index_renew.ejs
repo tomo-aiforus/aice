@@ -30,16 +30,31 @@
       </span>
 
       <form method="post" action="" class="entry">
-        <input id="room_name" name="room_name" placeholder="部屋の名前" />
-        <input id="user_name" name="user_name" placeholder="ニックネーム" />
+        <input
+          id="room_name"
+          name="room_name"
+          placeholder="部屋の名前"
+          value="<%- room_name %>"
+        />
+        <input
+          id="password"
+          name="password"
+          placeholder="パスワード"
+          value="<%- password %>"
+        />
+        <input id="user_name" name="user_name" placeholder="名前" />
         <div class="center">
           <button class="button">
             <i class="fas fa-home"></i>
+          </button>
+          <button class="">
+            <i class="fas fa-plus"></i>
           </button>
         </div>
       </form>
 
       <script>
+        /*
         function setRoomName() {
           let url = document.location.href;
           let args = url.split("?");
@@ -55,6 +70,7 @@
         $(function () {
           setRoomName();
         });
+        */
       </script>
     </div>
   </body>
