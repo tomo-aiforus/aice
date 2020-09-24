@@ -155,7 +155,7 @@ function getRoomName() {
       */
 
   // 埋め込みで指定する場合
-  let args = $("#table_id").val();
+  let args = $("#room_id").val();
   if (args == "") {
     return "_testroom";
   }
@@ -786,7 +786,7 @@ function autoScroll() {
 
 function jumpOtherRoom(roomname) {
   const param = {
-    table_name: roomname,
+    room_name: roomname,
     user_name: $("#user_name").val(),
   };
   execPost("", param);

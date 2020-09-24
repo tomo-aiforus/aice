@@ -63,6 +63,24 @@ app.post("/", (request, response) => {
 
 // デザインリニューアルテスト
 app.get("/renew", (request, response) => {
+  response.sendFile(__dirname + "/views/index.html");
+});
+app.post("/renew", (request, response) => {
+  var room_id = crypto
+    .createHash("md5")
+    .update(request.body.room_name)
+    .digest("hex");
+
+  var data = {
+    user_name: request.body.user_name,
+    room_id: room_id,
+    room_name: request.body.room_name,
+  };
+  // レンダリングを行う
+  response.render("./room_mtg_renew.ejs", data);
+});
+/*
+app.get("/renew", (request, response) => {
   var table_id = crypto.createHash("md5").update("りにゅーある").digest("hex");
 
   var data = {
@@ -73,6 +91,7 @@ app.get("/renew", (request, response) => {
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
 });
+*/
 
 // ファイル置き場
 app.use(express.static(__dirname + "/public"));

@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title><%- table_name %></title>
+    <title><%- room_name %></title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -77,7 +77,7 @@
         <!-- ユーザエリア -->
         <div class="userArea">
           <div id="memberapp" class="member">
-            <h4><%- table_name %>（{{ loginmembers.length + 1 }}人）</h4>
+            <h4><%- room_name %>（{{ loginmembers.length + 1 }}人）</h4>
             <ul>
               <li>
                 <span id="user_good_myid" class="hidden goodicon"
@@ -129,7 +129,7 @@
 
     <!-- リソースなど -->
     <div class="hidden">
-      <input id="table_id" value="<%- table_id %>" />
+      <input id="room_id" value="<%- room_id %>" />
       <input id="user_name" value="<%- user_name %>" />
     </div>
     <audio id="alert_se" preload>
