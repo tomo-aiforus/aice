@@ -1009,7 +1009,7 @@ function sendLinkRequest() {
 }
 function showLinkWindow(msg) {
   const root = document.location.href;
-  const url = root + "?" + msg;
+  const url = root + "?secret=" + msg;
   Swal.fire({
     title: "招待リンク",
     // icon: "info",
