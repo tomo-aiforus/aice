@@ -63,7 +63,7 @@ app.post("/", (request, response) => {
 
 // デザインリニューアルテスト
 app.get("/renew", (request, response) => {
-  response.sendFile(__dirname + "/views/index.html");
+  response.sendFile(__dirname + "/views/index_renew.html");
 });
 app.post("/renew", (request, response) => {
   var room_id = crypto
