@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 .lightBG {
-  background: linear-gradient(#f4b3c2, #eaf4fc) !important;
+  background: linear-gradient(#fdeff2, #eaf4fc) !important;
 }
 .leftArea {
   width: calc(100vw - 300px);
