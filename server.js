@@ -83,21 +83,21 @@ app.post("/", (request, response) => {
 app.get("/renew", (request, response) => {
   const param = request.query.secret;
   console.log("param: " + param);
-  try {
-    var jsondata = executeDecrypt(param);
-    console.log("jsondata: " + jsondata);
-    var obj = JSON.parse(jsondata);
-    var data = {
-      room_name: obj.room_name,
-      password: obj.password,
-    };
-  } catch {
-    // エラー時は何事もなくカラで表示
-    var data = {
-      room_name: "",
-      password: "",
-    };
-  }
+  // try {
+  var jsondata = executeDecrypt(param);
+  console.log("jsondata: " + jsondata);
+  var obj = JSON.parse(jsondata);
+  var data = {
+    room_name: obj.room_name,
+    password: obj.password,
+  };
+  // } catch {
+  // エラー時は何事もなくカラで表示
+  var data = {
+    room_name: "",
+    password: "",
+  };
+  // }
 
   // response.sendFile(__dirname + "/views/index_renew.html");
   response.render("./index_renew.ejs", data);
