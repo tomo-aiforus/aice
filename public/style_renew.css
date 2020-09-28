@@ -179,3 +179,9 @@
   position: absolute;
   bottom: 0px;
 }
+
+.linkinputtext {
+  width: 90%;
+  font-size: 16px;
+  padding: 10px 10px;
+}

@@ -1021,7 +1021,7 @@ function showLinkWindow(msg) {
     // icon: "info",
     html:
       `<p>このURLから新しい参加者を招待することができます</p>` +
-      `<input value="` +
+      `<input class="linkinputtext" value="` +
       url +
       `"/>`,
     showCloseButton: true,
