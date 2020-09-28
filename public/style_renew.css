@@ -18,10 +18,11 @@
 }
 .rightArea {
   width: 300px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
   padding: 10px;
 }
 .videoArea {
+  background: rgba(255, 255, 255, 0.6);
   /* background-color: khaki; */
   height: calc(100vh - 75px);
   padding: 15px 0px 0px 15px;
@@ -100,7 +101,7 @@
   /*display: block;*/
   width: 56px; /*幅*/
   height: 56px; /*高さ*/
-  background: #03a9f4; /*背景色*/
+  /* background: #03a9f4; */ /*背景色*/
   text-align: center; /*中央寄せ*/
   border-radius: 50%; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
@@ -123,7 +124,8 @@
 }
 
 .fab-off {
-  background: linear-gradient(#808080, #b0c4de);
+  /* background: linear-gradient(#808080, #b0c4de); */
+  background: rgba(255, 255, 255, 0.2);
 }
 .fab-on {
   background: linear-gradient(#1e90ff, #40e0d0);
