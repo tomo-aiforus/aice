@@ -118,7 +118,7 @@ app.post("/renew", (request, response) => {
     user_name: request.body.user_name,
     room_id: room_id,
     room_name: request.body.room_name,
-    room_name: request.body.password,
+    password: request.body.password,
   };
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
