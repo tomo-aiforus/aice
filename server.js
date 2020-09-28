@@ -85,7 +85,8 @@ app.post("/", (request, response) => {
 app.get("/renew", (request, response) => {
   // const param = request.query.secret;
   try {
-    /*
+    /* 
+    // 暗号化処理
     var jsondata = executeDecrypt(param);
     var obj = JSON.parse(jsondata);
     var data = {
@@ -111,7 +112,7 @@ app.get("/renew", (request, response) => {
 app.post("/renew", (request, response) => {
   var room_id = crypto
     .createHash("md5")
-    .update(request.body.room_name)
+    .update(request.body.room_name + request.body.password)
     .digest("hex");
 
   var data = {
