@@ -926,6 +926,7 @@ function stopVoice() {
 function toggleInput() {
   if ($("#capturebutton").hasClass("fab-on")) {
     setCameraVideo();
+    stopVideo();
     $("#capturebutton").removeClass("fab-on");
   } else {
     toastr.info(
