@@ -737,7 +737,9 @@ window.onload = function () {
   var today = new Date();
   var hour = today.getHours();
   var minut = today.getMinutes();
-  var textdate = hour + "：" + minut;
+  hour = ("0" + hour).slice(-2);
+  minut = ("0" + minut).slice(-2);
+  var textdate = hour + ":" + minut;
 
   var text = $("#user_name").val() + "さんが参加しました。（" + textdate + "）";
   socket.emit("alert", text);
@@ -1024,7 +1026,6 @@ function showLinkWindow(msg) {
       `<input class="linkinputtext" value="` +
       url +
       `"/>`,
-    showCloseButton: true,
     focusConfirm: false,
     confirmButtonText: "閉じる",
     confirmButtonAriaLabel: "Close",
