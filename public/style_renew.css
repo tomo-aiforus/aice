@@ -6,12 +6,20 @@
 /************* 全体構造 ***************/
 
 .pageWrapper {
-  background: linear-gradient(#203744, #355a85);
   display: flex;
   overflow: hidden;
 }
-.lightBG {
-  background: linear-gradient(#fdeff2, #eaf4fc) !important;
+.blackBG {
+  background: #203744;
+}
+.pinkBG {
+  background: #f2a0a1;
+}
+.blueBG {
+  background: #3e62ad;
+}
+.purpleBG {
+  background: #460e44;
 }
 .leftArea {
   width: calc(100vw - 300px);
@@ -22,14 +30,15 @@
   padding: 10px;
 }
 .videoArea {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.4);
   /* background-color: khaki; */
-  height: calc(100vh - 75px);
+  height: calc(100vh - 85px);
   padding: 15px 0px 0px 15px;
 }
 .controlArea {
   /* background-color: aliceblue; */
-  height: 60px;
+  height: 56px;
+  padding: 7px;
 }
 .userArea {
   /* background-color: paleturquoise; */

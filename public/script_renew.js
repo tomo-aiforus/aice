@@ -937,12 +937,18 @@ function toggleInput() {
 }
 
 function toggleWallpaper() {
-  if ($("#bgchangebutton").hasClass("fab-on")) {
-    $("#pageWrapper").removeClass("lightBG");
-    $("#bgchangebutton").removeClass("fab-on");
-  } else {
-    $("#pageWrapper").addClass("lightBG");
-    $("#bgchangebutton").addClass("fab-on");
+  if ($("#pageWrapper").hasClass("blackBG")) {
+    $("#pageWrapper").removeClass("blackBG");
+    $("#pageWrapper").addClass("pinkBG");
+  } else if ($("#pageWrapper").hasClass("pinkBG")) {
+    $("#pageWrapper").removeClass("pinkBG");
+    $("#pageWrapper").addClass("blueBG");
+  } else if ($("#pageWrapper").hasClass("blueBG")) {
+    $("#pageWrapper").removeClass("blueBG");
+    $("#pageWrapper").addClass("purpleBG");
+  } else if ($("#pageWrapper").hasClass("purpleBG")) {
+    $("#pageWrapper").removeClass("purpleBG");
+    $("#pageWrapper").addClass("blackBG");
   }
 }
 
