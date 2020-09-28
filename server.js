@@ -83,23 +83,27 @@ app.post("/", (request, response) => {
 
 // デザインリニューアルテスト
 app.get("/renew", (request, response) => {
-  const param = request.query.secret;
-  console.log("param: " + param);
-  // try {
-  var jsondata = executeDecrypt(param);
-  console.log("jsondata: " + jsondata);
-  var obj = JSON.parse(jsondata);
-  var data = {
-    room_name: obj.room_name,
-    password: obj.password,
-  };
-  // } catch {
-  // エラー時は何事もなくカラで表示
-  var data = {
-    room_name: "",
-    password: "",
-  };
-  // }
+  // const param = request.query.secret;
+  try {
+    /*
+    var jsondata = executeDecrypt(param);
+    var obj = JSON.parse(jsondata);
+    var data = {
+      room_name: obj.room_name,
+      password: obj.password,
+    };
+    */
+    var data = {
+      room_name: request.query.room_name,
+      password: request.query.password,
+    };
+  } catch {
+    // エラー時は何事もなくカラで表示
+    var data = {
+      room_name: "",
+      password: "",
+    };
+  }
 
   // response.sendFile(__dirname + "/views/index_renew.html");
   response.render("./index_renew.ejs", data);
@@ -114,6 +118,7 @@ app.post("/renew", (request, response) => {
     user_name: request.body.user_name,
     room_id: room_id,
     room_name: request.body.room_name,
+    room_name: request.body.password,
   };
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
@@ -259,8 +264,8 @@ io.on("connection", function (socket) {
       room_name: message.room_name,
       password: message.password,
     };
-    const result = executeEncrypt(JSON.stringify(data));
-    socket.emit("roomhash", result);
+    // const result = executeEncrypt(JSON.stringify(data));
+    socket.emit("roomhash", data);
   });
 });
 
