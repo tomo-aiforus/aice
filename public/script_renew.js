@@ -945,7 +945,7 @@ function toggleInput() {
     $("#capturebutton").addClass("fab-on");
   }
   setTimeout(() => {
-    sendRefreshRequest();
+    // sendRefreshRequest();
   }, 10000);
 }
 
