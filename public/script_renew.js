@@ -139,7 +139,7 @@ socket.on("refresh", function (msg) {
   // stopAllConnection();
   setTimeout(() => {
     connect();
-  }, 3000);
+  }, 10000);
 });
 
 // --- broadcast message to all members in room
