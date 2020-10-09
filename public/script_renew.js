@@ -294,7 +294,7 @@ function createVideoElement(elementId) {
   let video = document.createElement("video");
   video.id = elementId;
   video.className = "membersvideo";
-  vide0.controls = true;
+  video.controls = true;
   container.prepend(video);
   return video;
 }
