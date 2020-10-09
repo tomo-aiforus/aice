@@ -398,6 +398,7 @@ function setCaptureVideo() {
       });
       */
 
+      stopVoice();
       playVideo(localVideo, stream);
       // connect();
       callMe();
@@ -419,6 +420,8 @@ function setCameraVideo() {
   getDeviceStream(videoParam)
     .then((stream) => {
       localStream = stream;
+
+      stopVoice();
       playVideo(localVideo, stream);
     })
     .catch((error) => {
