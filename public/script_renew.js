@@ -139,7 +139,7 @@ socket.on("refresh", function (msg) {
   // stopAllConnection();
   setTimeout(() => {
     connect();
-  }, 10000);
+  }, 3000);
 });
 
 // --- broadcast message to all members in room
@@ -937,15 +937,16 @@ function toggleInput() {
     setCameraVideo();
     stopVideo();
     $("#capturebutton").removeClass("fab-on");
-    sendRefreshRequest();
   } else {
     toastr.info(
       "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
     );
     setCaptureVideo();
     $("#capturebutton").addClass("fab-on");
-    sendRefreshRequest();
   }
+  setTimeout(() => {
+    sendRefreshRequest();
+  }, 10000);
 }
 
 function toggleWallpaper() {
