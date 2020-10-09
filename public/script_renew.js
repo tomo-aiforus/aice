@@ -945,6 +945,8 @@ function toggleInput() {
     );
     setCaptureVideo();
     $("#capturebutton").addClass("fab-on");
+    stopVoice();
+    $("#micbutton").removeClass("fab-on");
     var text = $("#user_name").val() + "さんが画面共有を開始しました。";
     socket.emit("alert", text);
     socket.emit("chat", text);
@@ -1073,6 +1075,10 @@ function showUpdateWindow() {
     showCancelButton: false,
     allowOutsideClick: false,
   }).then((result) => {
+    stopAllConnection();
+    setTimeout(() => {
+      connect();
+    }, 3000);
     stopAllConnection();
     setTimeout(() => {
       connect();
