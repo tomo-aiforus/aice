@@ -123,23 +123,8 @@ socket.on("vote", function (msg) {
   $("#vote_se").get(0).play();
 });
 
-socket.on("sharereq", function (msg) {
-  //let video = getRemoteVideoElement(msg);
-  //pauseVideo(video);
-  callMe();
-});
-
 socket.on("roomhash", function (msg) {
   showLinkWindow(msg);
-});
-
-socket.on("refresh", function (msg) {
-  stopConnection(msg);
-  // alert("id: " + msg);
-  // stopAllConnection();
-  setTimeout(() => {
-    connect();
-  }, 3000);
 });
 
 // --- broadcast message to all members in room
@@ -309,6 +294,7 @@ function createVideoElement(elementId) {
   let video = document.createElement("video");
   video.id = elementId;
   video.className = "membersvideo";
+  vide0.controls = true;
   container.prepend(video);
   return video;
 }

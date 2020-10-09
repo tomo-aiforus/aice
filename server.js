@@ -250,14 +250,6 @@ io.on("connection", function (socket) {
     emitMessage("leaveSignal", message);
   });
 
-  // 画面共有リクエストの配信
-  socket.on("sharereq", function () {
-    emitMessage("sharereq", socket.id);
-  });
-  socket.on("refresh", function () {
-    emitMessage("refresh", socket.id);
-  });
-
   // 投票シグナルの配信
   socket.on("vote", function (message) {
     emitMessage("vote", message);
