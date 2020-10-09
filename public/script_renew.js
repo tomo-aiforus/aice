@@ -1039,3 +1039,11 @@ function showLinkWindow(msg) {
     allowOutsideClick: true,
   });
 }
+
+$("#testbutton1").on("click", () => {
+  stopAllConnection();
+});
+
+$("#testbutton2").on("click", () => {
+  connect();
+});
