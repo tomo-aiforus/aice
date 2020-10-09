@@ -133,6 +133,15 @@ socket.on("roomhash", function (msg) {
   showLinkWindow(msg);
 });
 
+socket.on("refresh", function (msg) {
+  //stopConnection(msg);
+  alert("id: " + msg);
+  stopAllConnection();
+  setTimeout(() => {
+    connect();
+  }, 3000);
+});
+
 // --- broadcast message to all members in room
 function emitRoom(msg) {
   socket.emit("message", msg);
@@ -1047,3 +1056,7 @@ $("#testbutton1").on("click", () => {
 $("#testbutton2").on("click", () => {
   connect();
 });
+
+function sendRefreshRequest() {
+  socket.emit("refresh");
+}

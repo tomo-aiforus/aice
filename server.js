@@ -254,6 +254,9 @@ io.on("connection", function (socket) {
   socket.on("sharereq", function () {
     emitMessage("sharereq", socket.id);
   });
+  socket.on("refresh", function () {
+    emitMessage("refresh", socket.id);
+  });
 
   // 投票シグナルの配信
   socket.on("vote", function (message) {
