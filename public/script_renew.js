@@ -939,15 +939,15 @@ function toggleInput() {
     $("#capturebutton").removeClass("fab-on");
     stopVoice();
     $("#micbutton").removeClass("fab-on");
-    var text = $("#user_name").val() + "さんが画面共有を開始しました。";
-    socket.emit("alert", text);
-    socket.emit("chat", text);
   } else {
     toastr.info(
       "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
     );
     setCaptureVideo();
+    socket.emit("chat", text);
     $("#capturebutton").addClass("fab-on");
+    var text = $("#user_name").val() + "さんが画面共有を開始しました。";
+    socket.emit("alert", text);
   }
   showUpdateWindow();
 }
