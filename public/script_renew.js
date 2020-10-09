@@ -937,12 +937,14 @@ function toggleInput() {
     setCameraVideo();
     stopVideo();
     $("#capturebutton").removeClass("fab-on");
+    sendRefreshRequest();
   } else {
     toastr.info(
       "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
     );
     setCaptureVideo();
     $("#capturebutton").addClass("fab-on");
+    sendRefreshRequest();
   }
 }
 
