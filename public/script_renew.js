@@ -947,6 +947,13 @@ function toggleInput() {
   setTimeout(() => {
     // sendRefreshRequest();
   }, 10000);
+
+  setTimeout(() => {
+    stopAllConnection();
+  }, 10000);
+  setTimeout(() => {
+    connect();
+  }, 20000);
 }
 
 function toggleWallpaper() {
