@@ -944,16 +944,7 @@ function toggleInput() {
     setCaptureVideo();
     $("#capturebutton").addClass("fab-on");
   }
-  setTimeout(() => {
-    // sendRefreshRequest();
-  }, 10000);
-
-  setTimeout(() => {
-    stopAllConnection();
-  }, 10000);
-  setTimeout(() => {
-    connect();
-  }, 20000);
+  showUpdateWindow();
 }
 
 function toggleWallpaper() {
@@ -1069,4 +1060,23 @@ $("#testbutton2").on("click", () => {
 
 function sendRefreshRequest() {
   socket.emit("refresh");
+}
+
+function showUpdateWindow() {
+  Swal.fire({
+    title: "切り替えスタート",
+    showCancelButton: false,
+    allowOutsideClick: false,
+  }).then((result) => {
+    stopAllConnection();
+    setTimeout(() => {
+      connect();
+    }, 5000);
+    setTimeout(() => {
+      connect();
+    }, 8000);
+    setTimeout(() => {
+      connect();
+    }, 10000);
+  });
 }
