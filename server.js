@@ -110,16 +110,22 @@ app.get("/renew", (request, response) => {
   response.render("./index_renew.ejs", data);
 });
 app.post("/renew", (request, response) => {
+  var pw;
+  if (request.body.password) {
+    pw = request.body.password;
+  } else {
+    pw = Math.floor(Math.random() * 10000000);
+  }
   var room_id = crypto
     .createHash("md5")
-    .update(request.body.room_name + request.body.password)
+    .update(request.body.room_name + pw)
     .digest("hex");
 
   var data = {
     user_name: request.body.user_name,
     room_id: room_id,
     room_name: request.body.room_name,
-    password: request.body.password,
+    password: pw,
   };
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
