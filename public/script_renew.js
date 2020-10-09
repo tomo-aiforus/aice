@@ -134,9 +134,9 @@ socket.on("roomhash", function (msg) {
 });
 
 socket.on("refresh", function (msg) {
-  //stopConnection(msg);
-  alert("id: " + msg);
-  stopAllConnection();
+  stopConnection(msg);
+  // alert("id: " + msg);
+  // stopAllConnection();
   setTimeout(() => {
     connect();
   }, 3000);
