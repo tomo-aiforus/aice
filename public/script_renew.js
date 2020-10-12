@@ -407,8 +407,10 @@ function setCameraVideo() {
     .then((stream) => {
       localStream = stream;
 
-      stopVoice();
       playVideo(localVideo, stream);
+      // ビデオ・音声の送信をポーズ
+      stopVideo();
+      stopVoice();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
@@ -1060,7 +1062,7 @@ function sendRefreshRequest() {
 
 function showUpdateWindow() {
   Swal.fire({
-    title: "切り替えスタート",
+    title: "画面共有を開始します。",
     showCancelButton: false,
     allowOutsideClick: false,
   }).then((result) => {
