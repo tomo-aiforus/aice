@@ -174,7 +174,7 @@
   overflow-y: scroll;
   height: 100%;
   overflow-wrap: anywhere;
-  height: calc(50vh - 80px);
+  height: calc(50vh - 60px);
 }
 
 .chat ul {
