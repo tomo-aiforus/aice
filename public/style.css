@@ -4,7 +4,8 @@
 
 body {
   /* background: #2a2a2a; */
-  background: #203744;
+  /* background: #203744; */
+  background: linear-gradient(#203744, #9198e5);
   font-family: sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
@@ -30,6 +31,7 @@ form.entry {
 
 .toppage_container {
   text-align: center;
+  margin-top: calc(50vh - 200px);
 }
 .toppage_container > form {
   margin: auto;
@@ -49,14 +51,15 @@ input:focus {
 }
 
 form button {
-  background-color: #bbbbf2;
+  background-color: #f6bfbc;
   border: 2px solid currentColor;
   border-radius: 0.25em;
   cursor: pointer;
   font-size: inherit;
   line-height: 1.4em;
   padding: 0.25em 1em;
-  max-width: 20ch;
+  /* max-width: 20ch; */
+  padding: 10px 50px;
 }
 
 form button:hover {
@@ -108,6 +111,7 @@ div.chatarea {
 
 .note {
   font-size: 3px;
+  color: #696969;
 }
 
 .center {
