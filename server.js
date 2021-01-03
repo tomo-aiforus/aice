@@ -48,10 +48,12 @@ function executeDecrypt(base64) {
 }
 
 /**
+ * ****************************************************
  * ルーティング
+ * ****************************************************
  */
 // 会議チャットトップ
-app.get("/", (request, response) => {
+app.get("/old", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
 });
 
@@ -66,7 +68,7 @@ app.get("/demo", (request, response) => {
 });
 
 // 会議部屋
-app.post("/", (request, response) => {
+app.post("/old", (request, response) => {
   var table_id = crypto
     .createHash("md5")
     .update(request.body.table_name)
@@ -81,8 +83,8 @@ app.post("/", (request, response) => {
   response.render("./room_mtg.ejs", data);
 });
 
-// デザインリニューアルテスト
-app.get("/renew", (request, response) => {
+// 新デザイン
+app.get("/", (request, response) => {
   // const param = request.query.secret;
   try {
     /* 
@@ -109,7 +111,7 @@ app.get("/renew", (request, response) => {
   // response.sendFile(__dirname + "/views/index_renew.html");
   response.render("./index_renew.ejs", data);
 });
-app.post("/renew", (request, response) => {
+app.post("/", (request, response) => {
   var pw;
   if (request.body.password) {
     pw = request.body.password;
@@ -130,19 +132,7 @@ app.post("/renew", (request, response) => {
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
 });
-/*
-app.get("/renew", (request, response) => {
-  var table_id = crypto.createHash("md5").update("りにゅーある").digest("hex");
 
-  var data = {
-    user_name: "とも",
-    table_id: table_id,
-    table_name: "りにゅーある",
-  };
-  // レンダリングを行う
-  response.render("./room_mtg_renew.ejs", data);
-});
-*/
 
 // ファイル置き場
 app.use(express.static(__dirname + "/public"));
@@ -152,7 +142,11 @@ server.listen(port, function () {
   console.log("Server listening at port %d", port);
 });
 
-// ソケットの設定
+/**
+ * ****************************************************
+ * ソケットの設定
+ * ****************************************************
+ */
 io.on("connection", function (socket) {
   // ---- multi room ----
   socket.on("enter", function (roomname) {
