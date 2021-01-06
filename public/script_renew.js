@@ -942,10 +942,25 @@ function toggleInput() {
     socket.emit("alert", text);
     socket.emit("chat", text);
   }
-  showUpdateWindow();
+  //showUpdateWindow();
+  stopAllConnection();
+  
+  setTimeout(() => {
+    connect();
+  }, 3000);
+  setTimeout(() => {
+    connect();
+  }, 5000);
+  setTimeout(() => {
+    connect();
+  }, 8000);
+  setTimeout(() => {
+    connect();
+  }, 10000);
 }
 
 function toggleWallpaper() {
+  /*
   if ($("#pageWrapper").hasClass("blackBG")) {
     $("#pageWrapper").removeClass("blackBG");
     $("#pageWrapper").addClass("pinkBG");
@@ -958,6 +973,22 @@ function toggleWallpaper() {
   } else if ($("#pageWrapper").hasClass("purpleBG")) {
     $("#pageWrapper").removeClass("purpleBG");
     $("#pageWrapper").addClass("blackBG");
+  }
+  */
+  // 炭 → 梅
+  if ($("#pageWrapper").hasClass("charcoalBG")) {
+    $("#pageWrapper").removeClass("charcoalBG");
+    $("#pageWrapper").addClass("plumBG");
+
+    // 梅 -> 藤
+  } else if ($("#pageWrapper").hasClass("plumBG")) {
+    $("#pageWrapper").removeClass("plumBG");
+    $("#pageWrapper").addClass("wisteriaBG");
+
+    // 藤 -> 炭
+  } else if ($("#pageWrapper").hasClass("wisteriaBG")) {
+    $("#pageWrapper").removeClass("wisteriaBG");
+    $("#pageWrapper").addClass("charcoalBG");
   }
 }
 
