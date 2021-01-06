@@ -92,6 +92,7 @@ var memberVue = new Vue({
       var target_id;
       if (data.vote === "good") {
         target_id = "user_good_" + data.id;
+        $("#vote_se").get(0).play();
       } else {
         target_id = "user_bad_" + data.id;
       }

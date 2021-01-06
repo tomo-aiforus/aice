@@ -120,7 +120,6 @@ socket.on("being", function (msg) {
 
 socket.on("vote", function (msg) {
   memberVue.vote(msg);
-  $("#vote_se").get(0).play();
 });
 
 socket.on("roomhash", function (msg) {
@@ -1004,7 +1003,10 @@ function sendVote(voteStr) {
     id: "myid",
   };
   memberVue.vote(mymsg);
-  $("#vote_se").get(0).play();
+
+  if(voteStr === "good"){
+    $("#vote_se").get(0).play();
+  }
   return false;
 }
 
