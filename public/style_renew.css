@@ -9,7 +9,7 @@
   display: flex;
   overflow: hidden;
 }
-/*
+
 .blackBG {
   background: #203744;
 }
@@ -22,7 +22,6 @@
 .purpleBG {
   background: #460e44;
 }
-*/
 .charcoalBG {
   background: #2a2a2a;
 }
@@ -31,6 +30,9 @@
 }
 .wisteriaBG {
   background: #6b8cab;
+}
+.blind4black {
+  background: rgba(255, 255, 255, 0.15) !important;
 }
 .leftArea {
   width: calc(100vw - 300px);

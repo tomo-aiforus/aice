@@ -975,8 +975,9 @@ function toggleWallpaper() {
   }
   */
   // 炭 → 梅
-  if ($("#pageWrapper").hasClass("charcoalBG")) {
-    $("#pageWrapper").removeClass("charcoalBG");
+  if ($("#pageWrapper").hasClass("blackBG")) {
+    $("#pageWrapper").removeClass("blackBG");
+    $("#videoapp").removeClass("blind4black");
     $("#pageWrapper").addClass("plumBG");
 
     // 梅 -> 藤
@@ -987,7 +988,8 @@ function toggleWallpaper() {
     // 藤 -> 炭
   } else if ($("#pageWrapper").hasClass("wisteriaBG")) {
     $("#pageWrapper").removeClass("wisteriaBG");
-    $("#pageWrapper").addClass("charcoalBG");
+    $("#pageWrapper").addClass("blackBG");
+    $("#videoapp").addClass("blind4black");
   }
 }
 
