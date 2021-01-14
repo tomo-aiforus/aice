@@ -11,6 +11,9 @@ body {
   font-size: 12px;
   overflow: hidden;
 }
+a {
+  color: #ffffff;
+}
 .body {
   position: absolute;
   top: -20px;
@@ -179,11 +182,6 @@ body {
   padding: 1px;
   border-radius: 5px;
   margin-bottom: 20px;
-}
-
-.title a,
-.kiyakulink a {
-  color: #ffffff;
 }
 
 .kiyakulink {
