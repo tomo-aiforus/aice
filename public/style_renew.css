@@ -27,7 +27,9 @@
   background: #000000;
 }
 .plumBG {
-  background: #a57172;
+  /* background: #a57172; */
+  background-image: url(https://aice.cloud/img/COKlogin.jpg);
+  background-size: cover;
 }
 .wisteriaBG {
   background: #6b8cab;
