@@ -941,9 +941,10 @@ function toggleInput() {
     socket.emit("alert", text);
     socket.emit("chat", text);
   }
-  //showUpdateWindow();
+  showUpdateWindow();
+
+  /*
   stopAllConnection();
-  
   setTimeout(() => {
     connect();
   }, 3000);
@@ -956,6 +957,7 @@ function toggleInput() {
   setTimeout(() => {
     connect();
   }, 10000);
+  */
 }
 
 function toggleWallpaper() {
@@ -1104,16 +1106,15 @@ function showUpdateWindow() {
     stopAllConnection();
     setTimeout(() => {
       connect();
+    }, 2000);
+    setTimeout(() => {
+      connect();
     }, 3000);
-    stopAllConnection();
     setTimeout(() => {
       connect();
     }, 5000);
     setTimeout(() => {
       connect();
     }, 8000);
-    setTimeout(() => {
-      connect();
-    }, 10000);
   });
 }
