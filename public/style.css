@@ -44,8 +44,8 @@ body {
 }
 .header {
   position: absolute;
-  top: calc(50% - 35px);
-  left: calc(50% - 380px);
+  top: calc(50% - 45px);
+  left: calc(50% - 360px);
   z-index: 2;
   text-align: right;
 }
@@ -60,13 +60,13 @@ body {
   color: #5379fa !important;
 }
 .header div p {
-  font-size: 35px;
+  font-size: 30px;
   margin: 0px;
 }
 .login {
   position: absolute;
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
+  top: calc(50% - 65px);
+  left: calc(50% + 10px);
   height: 100px;
   width: 350px;
   padding: 10px;
