@@ -212,7 +212,7 @@ footer {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  margin-top: calc(50% - 320px);
+  margin-top: calc(50vh - 180px);
 }
 .leftarea {
   font-size: 22px;
