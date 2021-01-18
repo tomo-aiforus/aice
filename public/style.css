@@ -213,3 +213,10 @@ footer {
   margin-right: auto;
   margin-top: calc(50% - 320px);
 }
+.title {
+  font-size: 22px;
+  position: absolute;
+  top: calc(50% - 65px);
+  left: 65px;
+  text-align: right;
+}
