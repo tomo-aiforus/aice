@@ -28,11 +28,13 @@
 }
 .plumBG {
   /* background: #a57172; */
-  background-image: url(https://aice.cloud/img/COKlogin.jpg);
+  background-image: url(https://aice.cloud/img/conference2.jpg);
   background-size: cover;
 }
 .wisteriaBG {
-  background: #6b8cab;
+  /* background: #6b8cab; */
+  background-image: url(https://aice.cloud/img/conference1.jpg);
+  background-size: cover;
 }
 .blind4black {
   background: rgba(255, 255, 255, 0.15) !important;
