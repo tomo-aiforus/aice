@@ -7,7 +7,9 @@ body {
   padding: 0;
   background: #fff;
   color: #fff;
-  font-family: Arial;
+  /* font-family: Arial; */
+  font-family: "メイリオ", "Meiryo", "ＭＳ ゴシック",
+    "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
   font-size: 12px;
   overflow: hidden;
 }
@@ -89,7 +91,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 2px;
   color: #fff;
-  font-family: "Exo", sans-serif;
+  /* font-family: "Exo", sans-serif; */
   font-size: 16px;
   font-weight: 400;
   padding: 4px;
@@ -101,7 +103,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 2px;
   color: #fff;
-  font-family: "Exo", sans-serif;
+  /* font-family: "Exo", sans-serif; */
   font-size: 16px;
   font-weight: 400;
   padding: 4px;
@@ -115,7 +117,7 @@ a {
   cursor: pointer;
   border-radius: 2px;
   color: #a18d6c;
-  font-family: "Exo", sans-serif;
+  /* font-family: "Exo", sans-serif; */
   font-size: 16px;
   font-weight: 400;
   padding: 6px;
