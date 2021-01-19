@@ -222,6 +222,13 @@ footer {
   top: calc(50% - 50px);
   left: 65px;
   text-align: right;
+  width: 290px;
+}
+.leftarea > p {
+  text-align: justify;
+}
+.leftarea > p > a {
+  color: #87ceeb;
 }
 .title {
   font-size: 25px;
