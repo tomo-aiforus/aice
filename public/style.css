@@ -219,13 +219,13 @@ footer {
 .leftarea {
   font-size: 22px;
   position: absolute;
-  top: calc(50% - 50px);
+  top: calc(50% - 68px);
   left: 65px;
-  text-align: right;
   width: 290px;
 }
 .leftarea > p {
   text-align: justify;
+  margin: 16px 0px;
 }
 .leftarea > p > a {
   color: #87ceeb;
