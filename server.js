@@ -122,8 +122,10 @@ app.get("/", async(request, response) => {
   try {
 
     if(secret){
-      await db.room.findOne({
-        secret: secret
+      await db.room.findAll({
+        where: {
+          secret: secret
+        }
       }).then((room) => {
 
         // 会議室ページへ遷移
@@ -190,8 +192,10 @@ app.post("/", async(request, response) => {
     }else{
       // 招待されたモードの時
       // ルームを照合して遷移
-      await db.room.findOne({
-        secret: secret
+      await db.room.findAll({
+        where: {
+          secret: secret
+        }
       }).then((room) => {
 
         // 会議室ページへ遷移
