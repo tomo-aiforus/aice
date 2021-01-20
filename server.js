@@ -116,7 +116,7 @@ app.get("/", async(request, response) => {
   const param = request.query.secret;
   try {
 
-    db.room.findOne({
+    await db.room.findOne({
       secret: secret
     }).then((room) => {
 
@@ -161,29 +161,30 @@ app.post("/", async(request, response) => {
       pw = Math.floor(Math.random() * 10000000);
   
       secret = crypto
-        .createHash("md5")
-        .update(room_name + pw)
-        .digest("hex");
+      .createHash("md5")
+      .update(room_name + pw)
+      .digest("hex");
+
+      var data = {
+        user_name: user_name,
+        room_id: secret,
+        room_name: room_name,
+      };
 
       // DBに新規登録
-      db.room.create({
+      await db.room.create({
         room_name: room_name,
         secret: secret,
       }).then((createdUser) => {
 
         // 会議室ページへ遷移
-        var data = {
-          user_name: user_name,
-          room_id: secret,
-          room_name: room_name,
-        };
         response.render("./room_mtg_renew.ejs", data);
       });
       
     }else{
       // 招待されたモードの時
       // ルームを照合して遷移
-      db.room.findOne({
+      await db.room.findOne({
         secret: secret
       }).then((room) => {
 
