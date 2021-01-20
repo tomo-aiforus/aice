@@ -192,11 +192,12 @@ app.post("/", async(request, response) => {
       });
     }
 
-  }catch{
+  }catch(err){
+    console.log(err)
     // エラーが起こったらとりあえず招待画面に飛ばす
     var data = {
-      room_name: "",
-      password: "",
+      user_name: "",
+      room_name: ""
     };
     response.render("./index_renew.ejs", data);
   }
