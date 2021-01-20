@@ -177,7 +177,7 @@ app.post("/", async(request, response) => {
           room_id: secret,
           room_name: room_name,
         };
-      response.render("./room_mtg_renew.ejs", data);
+        response.render("./room_mtg_renew.ejs", data);
       });
       
     }else{
