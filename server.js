@@ -148,6 +148,11 @@ app.post("/", async(request, response) => {
   var secret = request.body.secret;
   var mode = request.body.mode;
 
+  console.log("room_name:" + room_name);
+  console.log("user_name:" + user_name);
+  console.log("secret:" + secret);
+  console.log("mode:" + mode);
+
   try{
     // 新規登録モードの時
     if(mode == "create"){
