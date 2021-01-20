@@ -116,7 +116,7 @@ app.get("/", async(request, response) => {
   const param = request.query.secret;
   try {
 
-    db.rooms.findOne({
+    db.room.findOne({
       secret: secret
     }).then((room) => {
 
@@ -161,7 +161,7 @@ app.post("/", async(request, response) => {
         .digest("hex");
 
       // DBに新規登録
-      db.rooms.create({
+      db.room.create({
         room_name: room_name,
         secret: secret,
       }).then((createdUser) => {
@@ -178,7 +178,7 @@ app.post("/", async(request, response) => {
     }else{
       // 招待されたモードの時
       // ルームを照合して遷移
-      db.rooms.findOne({
+      db.room.findOne({
         secret: secret
       }).then((room) => {
 
