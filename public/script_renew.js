@@ -929,6 +929,13 @@ function toggleInput() {
     $("#capturebutton").removeClass("fab-on");
     stopVoice();
     $("#micbutton").removeClass("fab-on");
+    stopAllConnection();
+    setTimeout(() => {
+      connect();
+    }, 2000);
+    setTimeout(() => {
+      connect();
+    }, 4000);
   } else {
     toastr.info(
       "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
@@ -940,8 +947,9 @@ function toggleInput() {
     var text = $("#user_name").val() + "さんが画面共有を開始しました。";
     socket.emit("alert", text);
     socket.emit("chat", text);
+    showUpdateWindow();
   }
-  showUpdateWindow();
+  
 
   /*
   stopAllConnection();
