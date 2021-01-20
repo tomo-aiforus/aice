@@ -113,7 +113,7 @@ app.get("/create", (request, response) => {
  * 招待ログインページ
  */
 app.get("/", async(request, response) => {
-  const param = request.query.secret;
+  const secret = request.query.secret;
   try {
 
     await db.room.findOne({
