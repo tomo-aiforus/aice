@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "aichauser",
-    "password": "Aicha_user2020",
+    "username": "aice_user",
+    "password": "Alice_Marisa_0812",
     "database": "conference",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "aichauser",
-    "password": "Aicha_user2020",
+    "username": "aice_user",
+    "password": "Alice_Marisa_0812",
     "database": "conference",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
-    "username": "aichauser",
-    "password": "Aicha_user2020",
+    "username": "aice_user",
+    "password": "Alice_Marisa_0812",
     "database": "conference",
     "host": "localhost",
     "dialect": "mysql"
