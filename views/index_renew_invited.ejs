@@ -47,6 +47,9 @@
         <p class="invitedmessage">「<%- room_name %>」へ参加します。</p>
         <% } else { %>
           <p >招待URLが正しくありません。</p>
+          <script>
+            window.location.href = 'https://aice.cloud/cloudoffice/';
+          </script>
         <% } %>
         <input 
           type="text"  
@@ -84,15 +87,19 @@
       function checkParams(form) {
         var user_name = form.elements.user_name;
         var room_name = form.elements.room_name;
-        if (user_name.value == "") {
-          alert("名前を入力してください。");
-          return false;
-        } else if (room_name.value == "") {
-          alert("作成したい会議室名を入力してください。");
-          return false;
-        } else {
-          return true;
+        var secret = form.elements.secret;
+        if(secret){
+          if (user_name.value == "") {
+            alert("名前を入力してください。");
+            return false;
+          } else if (room_name.value == "") {
+            alert("作成したい会議室名を入力してください。");
+            return false;
+          } else {
+            return true;
+          }
         }
+        return false
       }
     </script>
   </body>
