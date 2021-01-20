@@ -138,7 +138,7 @@ app.get("/", async(request, response) => {
   } catch {
     var data = {
       secret: "",
-      room_name: "使用できるURLではありません",
+      room_name: "",
     };
   }
   response.render("./index_renew_invited.ejs", data);

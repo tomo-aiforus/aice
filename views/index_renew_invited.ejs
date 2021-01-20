@@ -42,7 +42,12 @@
           name="room_name" 
           value="<%- room_name %>" 
         />
+
+        <% if (secret) { %>
         <p class="invitedmessage">あなたは「<%- room_name %>」会議室に招待されています。</p>
+        <% else { %>
+          <p class="invitedmessage">招待URLが正しくありません。</p>
+        <% } %>
         <input 
           type="text"  
           id="user_name"  
