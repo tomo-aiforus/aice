@@ -24,6 +24,9 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Sequelize（DBアクセス）
+let db = require('./models/index');
+
 // ハッシュライブラリ
 const crypto = require("crypto");
 
@@ -83,35 +86,121 @@ app.post("/old", (request, response) => {
   response.render("./room_mtg.ejs", data);
 });
 
-// 新デザイン
-app.get("/", (request, response) => {
-  // const param = request.query.secret;
+
+/**
+ * **************************************
+ * 新デザインルーティング
+ * **************************************
+ */
+
+/**
+ * 会議室作成ページ
+ */
+app.get("/create", (request, response) => {
+  
+  // 今回の仕様だと、ejsでやる必要ないけど一応残しときます
+  var data = {
+    room_name: "",
+    password: "",
+  };
+  // response.sendFile(__dirname + "/views/index_renew.html");
+  response.render("./index_renew.ejs", data);
+});
+
+/**
+ * 招待ログインページ
+ */
+app.get("/", async(request, response) => {
+  const param = request.query.secret;
   try {
-    /* 
-    // 暗号化処理
-    var jsondata = executeDecrypt(param);
-    var obj = JSON.parse(jsondata);
-    var data = {
-      room_name: obj.room_name,
-      password: obj.password,
-    };
-    */
-    var data = {
-      room_name: request.query.room_name,
-      password: request.query.password,
-    };
+
+    db.rooms.findOne({
+      secret: secret
+    }).then((room) => {
+
+      // 会議室ページへ遷移
+      var data = {
+        secret: secret,
+        room_name: room.room_name,
+      };
+      response.render("./index_renew_invited.ejs", data);
+    });
+
   } catch {
     // エラー時は何事もなくカラで表示
+    var data = {
+      secret: "",
+      room_name: "",
+    };
+  }
+  response.render("./index_renew_invited.ejs", data);
+});
+
+/**
+ * 会議室ページ
+ */
+app.post("/", async(request, response) => {
+
+  var room_name = request.body.room_name;
+  var user_name = request.body.user_name;
+  var secret = request.body.secret;
+  var mode = request.body.mode;
+
+  try{
+    // 新規登録モードの時
+    if(mode == "create"){
+
+      // ルームを新規作成して遷移
+      pw = Math.floor(Math.random() * 10000000);
+  
+      var secret = crypto
+        .createHash("md5")
+        .update(request.body.room_name + pw)
+        .digest("hex");
+
+      // DBに新規登録
+      db.rooms.create({
+        room_name: room_name,
+        secret: secret,
+      }).then((createdUser) => {
+
+        // 会議室ページへ遷移
+        var data = {
+          user_name: user_name,
+          room_id: secret,
+          room_name: room_name,
+        };
+      response.render("./room_mtg_renew.ejs", data);
+      });
+      
+    }else{
+      // 招待されたモードの時
+      // ルームを照合して遷移
+      db.rooms.findOne({
+        secret: secret
+      }).then((room) => {
+
+        // 会議室ページへ遷移
+        var data = {
+          user_name: user_name,
+          room_id: secret,
+          room_name: room_name,
+        };
+        response.render("./room_mtg_renew.ejs", data);
+      });
+    }
+
+  }catch{
+    // エラーが起こったらとりあえず招待画面に飛ばす
     var data = {
       room_name: "",
       password: "",
     };
+    response.render("./index_renew.ejs", data);
   }
 
-  // response.sendFile(__dirname + "/views/index_renew.html");
-  response.render("./index_renew.ejs", data);
-});
-app.post("/", (request, response) => {
+
+  /*
   var pw;
   if (request.body.password) {
     pw = request.body.password;
@@ -129,10 +218,10 @@ app.post("/", (request, response) => {
     room_name: request.body.room_name,
     password: pw,
   };
+  */
   // レンダリングを行う
   response.render("./room_mtg_renew.ejs", data);
 });
-
 
 // ファイル置き場
 app.use(express.static(__dirname + "/public"));

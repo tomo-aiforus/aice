@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "aichauser",
+    "password": "Aicha_user2020",
+    "database": "conference",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "aichauser",
+    "password": "Aicha_user2020",
+    "database": "conference",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "aichauser",
+    "password": "Aicha_user2020",
+    "database": "conference",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

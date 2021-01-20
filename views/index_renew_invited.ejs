@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AICE cloud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  </head>
+
+  <body>
+    <div class="body"></div>
+    <!--
+    <div class="grad"></div>
+    <div class="header">
+      <div class="title">
+        <p>クラウドオフィス会議室</p>
+        Powered by <a href="https://aice.cloud" target="_blank">AICE.CLOUD</a>
+      </div>
+    </div>
+    <form
+      method="post"
+      action="/"
+      class="entry"
+    >
+      <div class="login">
+        <input 
+          type="text" 
+          id="room_name" 
+          name="room_name" 
+          placeholder="ルーム名"
+          value="<%- room_name %>" 
+        />
+        <input 
+          type="text"  
+          id="user_name"  
+          name="user_name" 
+          placeholder="名前"
+        />
+        <input
+          type="hidden"
+          id="password"
+          name="password"
+          placeholder="パスワード"
+          value="<%- password %>"
+        />
+
+        <button>会議を始める</button>
+        
+      </div>
+    </form>
+    -->
+
+    <div class="darkWindow">
+      <table>
+        <tr>
+          <td>
+            <div class="leftarea">
+              <p class="title">クラウドオフィス会議室</p>
+              <p>Powered by <a href="https://aice.cloud" target="_blank">AICE.CLOUD</a></p>
+            </div>
+          </td>
+          <td>
+            <form
+      method="post"
+      action="/"
+      class="entry"
+      onsubmit="return checkParams(this);"
+    >
+
+      <div class="login">
+        <input 
+          type="hidden" 
+          id="room_name" 
+          name="room_name" 
+          value="<%- room_name %>" 
+        />
+        <h3>ようこそ</h3>
+        <p>あなたは「<%- room_name %>」会議室に招待されています。</p>
+        <input 
+          type="text"  
+          id="user_name"  
+          name="user_name" 
+          placeholder="名前"
+        />
+        <input
+          type="hidden"
+          name="secret"
+          value="<%- secret %>"
+        />
+        <input
+          type="hidden"
+          name="mode"
+          value="invited"
+        />
+
+        <button>会議へ参加</button>
+        
+      </div>
+    </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <footer>
+      Copyright © 2021
+      <a href="https://aiforus.co.jp/" target="_blank">AIFORUS,Inc.</a>
+    </footer>
+    <script>
+      function checkParams(form) {
+        var user_name = form.elements.user_name;
+        var room_name = form.elements.room_name;
+        if (user_name.value == "") {
+          alert("名前を入力してください。");
+          return false;
+        } else if (room_name.value == "") {
+          alert("作成したい会議室名を入力してください。");
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
