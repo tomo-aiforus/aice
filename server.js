@@ -30,6 +30,7 @@ let db = require('./models/index');
 // ハッシュライブラリ
 const crypto = require("crypto");
 
+/*
 // 暗号化・複合化ライブラリ
 // 暗号の強度はほとんど問題にしていないため、適当なものにしています
 var CryptoJS = require("crypto-js");
@@ -49,6 +50,7 @@ function executeDecrypt(base64) {
   return textString;
   // return CryptoJS.AES.decrypt(word, CRYPTO_KEY).toString(CryptoJS.enc.Utf8);
 }
+*/
 
 /**
  * ****************************************************
