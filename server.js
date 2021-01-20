@@ -132,7 +132,7 @@ app.get("/", async(request, response) => {
         // 会議室ページへ遷移
         data = {
           secret: secret,
-          room_name: room.room_name,
+          room_name: room[0].room_name,
         };
         response.render("./index_renew_invited.ejs", data);
       });
