@@ -127,6 +127,7 @@ app.get("/", async(request, response) => {
           secret: secret
         }
       }).then((room) => {
+        console.log("//////room: " + JSON.stringify(room))
 
         // 会議室ページへ遷移
         data = {
