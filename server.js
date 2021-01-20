@@ -155,9 +155,9 @@ app.post("/", async(request, response) => {
       // ルームを新規作成して遷移
       pw = Math.floor(Math.random() * 10000000);
   
-      var secret = crypto
+      secret = crypto
         .createHash("md5")
-        .update(request.body.room_name + pw)
+        .update(room_name + pw)
         .digest("hex");
 
       // DBに新規登録
