@@ -234,3 +234,7 @@ footer {
   font-size: 25px;
   margin: 0px;
 }
+.invitedmessage{
+  position: absolute;
+  top: -30px;
+}

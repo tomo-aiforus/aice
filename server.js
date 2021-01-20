@@ -114,25 +114,31 @@ app.get("/create", (request, response) => {
  */
 app.get("/", async(request, response) => {
   const secret = request.query.secret;
+  var data = {
+    secret: "",
+    room_name: "使用できるURLではありません",
+  };
+
   try {
 
-    await db.room.findOne({
-      secret: secret
-    }).then((room) => {
+    if(secret){
+      await db.room.findOne({
+        secret: secret
+      }).then((room) => {
 
-      // 会議室ページへ遷移
-      var data = {
-        secret: secret,
-        room_name: room.room_name,
-      };
-      response.render("./index_renew_invited.ejs", data);
-    });
+        // 会議室ページへ遷移
+        data = {
+          secret: secret,
+          room_name: room.room_name,
+        };
+        response.render("./index_renew_invited.ejs", data);
+      });
+    }
 
   } catch {
-    // エラー時は何事もなくカラで表示
     var data = {
       secret: "",
-      room_name: "",
+      room_name: "使用できるURLではありません",
     };
   }
   response.render("./index_renew_invited.ejs", data);

@@ -42,8 +42,7 @@
           name="room_name" 
           value="<%- room_name %>" 
         />
-        <h3>ようこそ</h3>
-        <p>あなたは「<%- room_name %>」会議室に招待されています。</p>
+        <p class="invitedmessage">あなたは「<%- room_name %>」会議室に招待されています。</p>
         <input 
           type="text"  
           id="user_name"  
@@ -61,8 +60,10 @@
           value="invited"
         />
 
+        <% if (data.secret) { %>
         <button>会議へ参加</button>
-        
+        <% } %>
+
       </div>
     </form>
           </td>
