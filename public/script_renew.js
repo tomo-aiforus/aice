@@ -1088,7 +1088,8 @@ function showLinkWindow(msg) {
   */
   const root = document.location.href;
   const url =
-    root + "?room_name=" + msg.room_name + "&password=" + msg.password;
+    // root + "?room_name=" + msg.room_name + "&password=" + msg.password;
+    root + "?secret=" + $("#room_id").val()
   Swal.fire({
     title: "招待リンク",
     // icon: "info",
