@@ -1,13 +1,15 @@
-var os = require('os');
-var hostname = os.hostname();
-console.log("hostname:" + hostname);
-
-
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
-var ssl_server_key = "/etc/letsencrypt/live/www.aice.cloud/privkey.pem";
-var ssl_server_crt = "/etc/letsencrypt/live/www.aice.cloud/fullchain.pem";
+
+// www.aice.cloud
+// var ssl_server_key = "/etc/letsencrypt/live/www.aice.cloud/privkey.pem";
+// var ssl_server_crt = "/etc/letsencrypt/live/www.aice.cloud/fullchain.pem";
+
+// conference.aice.cloud
+var ssl_server_key = "/etc/letsencrypt/live/conference.aice.cloud/privkey.pem";
+var ssl_server_crt = "/etc/letsencrypt/live/conference.aice.cloud/fullchain.pem";
+
 var options = {
   key: fs.readFileSync(ssl_server_key),
   cert: fs.readFileSync(ssl_server_crt),
