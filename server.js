@@ -1,3 +1,8 @@
+var os = require('os');
+var hostname = os.hostname();
+console.log("hostname:" + hostname);
+
+
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
