@@ -18,7 +18,7 @@ var express = require("express");
 var app = express();
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
-var port = process.env.PORT || 8443;
+var port = process.env.PORT || 8445;
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
