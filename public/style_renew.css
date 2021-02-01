@@ -44,9 +44,11 @@
 }
 .rightArea {
   width: 300px;
-  background: rgba(255, 255, 255, 0.9);
+  /* background: rgba(255, 255, 255, 0.9); 白系の場合 */
+  background: rgba(0, 0, 0, 0.5); /* 黒系の場合 */
   padding: 10px;
   height: calc(100vh - 20px);
+  color: #ffffff; /* 黒系の場合 */
 }
 .videoArea {
   /* background: rgba(255, 255, 255, 0.4); */
@@ -58,6 +60,7 @@
   background: rgba(0, 0, 0, 0.8);
   height: 56px;
   padding: 7px;
+  text-align: center;
 }
 .userArea {
   /* background-color: paleturquoise; */
@@ -174,6 +177,7 @@
 
 .member h4 {
   border-bottom: 3px solid #696969;
+  color: #ffffff;
 }
 .member ul {
   list-style: none;
@@ -193,6 +197,7 @@
   height: 100%;
   overflow-wrap: anywhere;
   height: calc(50vh - 60px);
+  padding-top: 5px;
 }
 
 .chat ul {
