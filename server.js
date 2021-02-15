@@ -4,6 +4,7 @@ require('dotenv').config();
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
+console.log(".env loaded..." + process.env.DOMAIN)
 
 // conference.aice.cloud
 var ssl_server_key = "/etc/letsencrypt/live/conference.aice.cloud/privkey.pem";
@@ -17,7 +18,7 @@ var express = require("express");
 var app = express();
 var server = require("https").createServer(options, app);
 var io = require("socket.io")(server);
-var port = process.env.PORT || 8445;
+var port = process.env.PORT || 8446;
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
