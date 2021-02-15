@@ -1,10 +1,9 @@
+// 環境変数読み込み（カレントディレクトリの.envを読み込む）
+require('dotenv').config();
+
 // SSL版・エクスプレスサーバ・ソケットサーバの基本設定
 // SSL準備
 var fs = require("fs");
-
-// www.aice.cloud
-// var ssl_server_key = "/etc/letsencrypt/live/www.aice.cloud/privkey.pem";
-// var ssl_server_crt = "/etc/letsencrypt/live/www.aice.cloud/fullchain.pem";
 
 // conference.aice.cloud
 var ssl_server_key = "/etc/letsencrypt/live/conference.aice.cloud/privkey.pem";
