@@ -7,8 +7,8 @@ var fs = require("fs");
 console.log(".env loaded..." + process.env.DOMAIN)
 
 // conference.aice.cloud
-var ssl_server_key = "/etc/letsencrypt/live/conference.aice.cloud/privkey.pem";
-var ssl_server_crt = "/etc/letsencrypt/live/conference.aice.cloud/fullchain.pem";
+var ssl_server_key = process.env.SSL_KEY || "/etc/letsencrypt/live/conference.aice.cloud/privkey.pem";
+var ssl_server_crt = process.env.SSL_CRT || "/etc/letsencrypt/live/conference.aice.cloud/fullchain.pem";
 
 var options = {
   key: fs.readFileSync(ssl_server_key),
