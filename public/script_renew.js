@@ -362,6 +362,7 @@ async function setCaptureVideo() {
     },
   };
 
+  var result = false;
   await navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
@@ -395,14 +396,13 @@ async function setCaptureVideo() {
       // connect();
       callMe();
       console.log("setCaptureVideo last ...true")
-      return true
+      result = true
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
-      return false;
     });
   console.log("setCaptureVideo last ...false")
-  return false
+  return result
 }
 function setCameraVideo() {
   var videoParam = {
