@@ -394,12 +394,14 @@ async function setCaptureVideo() {
       playVideo(localVideo, stream);
       // connect();
       callMe();
+      console.log("setCaptureVideo last ...true")
       return true
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
       return false;
     });
+  console.log("setCaptureVideo last ...false")
   return false
 }
 function setCameraVideo() {
