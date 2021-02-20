@@ -392,7 +392,7 @@ function setCaptureVideo() {
 
       // stopVoice();
       playVideo(localVideo, stream);
-      // connect();
+      connect();
       // callMe();
       return true
     })
@@ -419,6 +419,7 @@ function setCameraVideo() {
       // ビデオ・音声の送信をポーズ
       // stopVideo();
       // stopVoice();
+      connect();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
@@ -965,10 +966,11 @@ function toggleInput() {
     }  
   }
   
-  
+  /*
   setTimeout(() => {
     connect();
   }, 3000);
+  */
 }
 
 function toggleWallpaper() {
