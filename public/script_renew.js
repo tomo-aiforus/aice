@@ -361,10 +361,12 @@ function setCaptureVideo() {
       frameRate: { ideal: 10, max: 15 },
     },
   };
+
+  console.log("setCaptureVideo")
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
-
+      console.log("getDisplayMedia~then")
       var tracks = localStream.getAudioTracks();
 
       // 取得したメディア情報をぶち込む
@@ -415,8 +417,8 @@ function setCameraVideo() {
 
       playVideo(localVideo, stream);
       // ビデオ・音声の送信をポーズ
-      stopVideo();
-      stopVoice();
+      // stopVideo();
+      // stopVoice();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
@@ -931,9 +933,9 @@ function stopVoice() {
 
 function toggleInput() {
   if ($("#capturebutton").hasClass("fab-on")) {
+    $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
     // stopVideo();
-    // $("#capturebutton").removeClass("fab-on");
     // stopVoice();
     // $("#micbutton").removeClass("fab-on");
 
@@ -947,11 +949,11 @@ function toggleInput() {
     }, 4000);
     */
   } else {
-    toastr.info(
-      "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
-    );
-    setCaptureVideo();
+    // toastr.info(
+    //   "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
+    // );
     $("#capturebutton").addClass("fab-on");
+    setCaptureVideo();
     // stopVoice();
     // $("#micbutton").removeClass("fab-on");
     var text = $("#user_name").val() + "さんが画面共有を開始しました。";
