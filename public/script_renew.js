@@ -358,7 +358,7 @@ async function setCaptureVideo() {
   var videoParam = {
     audio: true,
     video: {
-      frameRate: { ideal: 10, max: 15 },
+      frameRate: { max: 5 },
     },
   };
 
@@ -371,37 +371,13 @@ async function setCaptureVideo() {
       // 取得したメディア情報をぶち込む
       localStream = stream;
       localStream.addTrack(tracks[0]);
-
-      // ↓これでもやってることは同じ
-      // localStream.removeTrack(localStream.getVideoTracks()[0]);
-      // localStream.addTrack(stream.getVideoTracks()[0]);
-
-      //localStream.getVideoTracks().forEach((track) => {
-      //  track = stream.getVideoTracks()[0];
-      //});
-
-      /*
-      // PeerConnectionのSenderで制御したいが、PCsが空なんですけど！！？？
-      peerConnections.forEach(function (pc) {
-        var sender = pc.getSenders().find(function (s) {
-          return s.track.kind == videoTrack.kind;
-        });
-        console.log("found sender:", sender);
-        sender.replaceTrack(new_track);
-      });
-      */
-
-      // stopVoice();
       playVideo(localVideo, stream);
-      // connect();
-      callMe();
-      console.log("setCaptureVideo last ...true")
+
       result = true
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
     });
-  console.log("setCaptureVideo last ...false")
   return result
 }
 function setCameraVideo() {
@@ -418,11 +394,6 @@ function setCameraVideo() {
     localStream = stream;
 
     playVideo(localVideo, stream);
-    // ビデオ・音声の送信をポーズ
-    // stopVideo();
-    // stopVoice();
-    // connect();
-    callMe();
   })
   .catch((error) => {
     console.error("getDisplayMedia error:", error);
@@ -940,9 +911,6 @@ function toggleInput() {
   if ($("#capturebutton").hasClass("fab-on")) {
     $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
-    // stopVideo();
-    // stopVoice();
-    // $("#micbutton").removeClass("fab-on");
 
     setTimeout(() => {
       connect();
@@ -954,17 +922,12 @@ function toggleInput() {
       connect();
     }, 5000);
   } else {
-    // toastr.info(
-    //   "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
-    // );
 
-    setCaptureVideo().then(result => {
-      console.log("setCaptureVideo result:" + result)
+    setCaptureVideo()
+    .then(result => {
       if (result) {
         $("#capturebutton").addClass("fab-on");
-        // stopVoice();
-        // $("#micbutton").removeClass("fab-on");
-        var text = $("#user_name").val() + "さんが画面共有を準備しています。";
+        var text = $("#user_name").val() + "さんが画面共有をはじめました。";
         socket.emit("alert", text);
         socket.emit("chat", text);
         
@@ -980,12 +943,6 @@ function toggleInput() {
       }
     })
   }
-  
-  /*
-  setTimeout(() => {
-    connect();
-  }, 3000);
-  */
 }
 
 function toggleWallpaper() {
