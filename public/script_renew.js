@@ -369,7 +369,7 @@ function setCaptureVideo() {
 
       // 取得したメディア情報をぶち込む
       localStream = stream;
-      localStream.addTrack(tracks);
+      localStream.addTrack(tracks[0]);
 
       // ↓これでもやってることは同じ
       // localStream.removeTrack(localStream.getVideoTracks()[0]);
