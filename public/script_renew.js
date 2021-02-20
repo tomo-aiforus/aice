@@ -957,6 +957,7 @@ function toggleInput() {
     // );
 
     setCaptureVideo().then(result => {
+      console.log("setCaptureVideo result:" + result)
       if (result) {
         $("#capturebutton").addClass("fab-on");
         // stopVoice();
