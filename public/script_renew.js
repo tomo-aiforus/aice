@@ -392,8 +392,8 @@ function setCaptureVideo() {
 
       // stopVoice();
       playVideo(localVideo, stream);
-      connect();
-      // callMe();
+      // connect();
+      callMe();
       return true
     })
     .catch((error) => {
@@ -419,7 +419,8 @@ function setCameraVideo() {
       // ビデオ・音声の送信をポーズ
       // stopVideo();
       // stopVoice();
-      connect();
+      // connect();
+      callMe();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
