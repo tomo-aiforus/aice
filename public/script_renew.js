@@ -932,6 +932,7 @@ function stopVoice() {
 }
 
 function toggleInput() {
+  stopAllConnection();
   if ($("#capturebutton").hasClass("fab-on")) {
     $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
@@ -964,7 +965,7 @@ function toggleInput() {
     }  
   }
   
-  stopAllConnection();
+  
   setTimeout(() => {
     connect();
   }, 3000);
