@@ -354,7 +354,7 @@ function connectVideo() {
   return false;
 }
 
-function setCaptureVideo() {
+async function setCaptureVideo() {
   var videoParam = {
     audio: true,
     video: {
@@ -362,7 +362,7 @@ function setCaptureVideo() {
     },
   };
 
-  navigator.mediaDevices
+  await navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
       var tracks = localStream.getAudioTracks();
@@ -412,20 +412,20 @@ function setCameraVideo() {
     },
   };
   getDeviceStream(videoParam)
-    .then((stream) => {
-      localStream = stream;
+  .then((stream) => {
+    localStream = stream;
 
-      playVideo(localVideo, stream);
-      // ビデオ・音声の送信をポーズ
-      // stopVideo();
-      // stopVoice();
-      // connect();
-      callMe();
-    })
-    .catch((error) => {
-      console.error("getDisplayMedia error:", error);
-      return;
-    });
+    playVideo(localVideo, stream);
+    // ビデオ・音声の送信をポーズ
+    // stopVideo();
+    // stopVoice();
+    // connect();
+    callMe();
+  })
+  .catch((error) => {
+    console.error("getDisplayMedia error:", error);
+    return;
+  });
 }
 
 function sendChat() {
@@ -955,16 +955,18 @@ function toggleInput() {
     // toastr.info(
     //   "※初めて画面共有をする場合は、ブラウザ再起動が必要な場合があります。"
     // );
-    
-    if (setCaptureVideo()) {
-      $("#capturebutton").addClass("fab-on");
-      // stopVoice();
-      // $("#micbutton").removeClass("fab-on");
-      var text = $("#user_name").val() + "さんが画面共有を開始しました。";
-      socket.emit("alert", text);
-      socket.emit("chat", text);
-      // showUpdateWindow();
+
+    setCaptureVideo().then(result => {
+      if (result) {
+        $("#capturebutton").addClass("fab-on");
+        // stopVoice();
+        // $("#micbutton").removeClass("fab-on");
+        var text = $("#user_name").val() + "さんが画面共有を準備しています。";
+        socket.emit("alert", text);
+        socket.emit("chat", text);
+        // showUpdateWindow();
     }  
+    })
   }
   
   /*
