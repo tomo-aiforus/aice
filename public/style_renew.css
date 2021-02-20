@@ -154,6 +154,13 @@
   padding-top: 0ex;
 }
 
+.fab img {
+  filter: brightness(10);
+  width: 26px;
+  padding-top: 13px;
+  vertical-align: sub;
+}
+
 .fab-off {
   /* background: linear-gradient(#808080, #b0c4de); */
   background: rgba(255, 255, 255, 0.2);
