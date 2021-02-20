@@ -364,9 +364,13 @@ function setCaptureVideo() {
   navigator.mediaDevices
     .getDisplayMedia(videoParam)
     .then((stream) => {
+
+      // 取得したメディア情報をぶち込む
+      localStream = stream;
+
       // ↓これでもやってることは同じ
-      localStream.removeTrack(localStream.getVideoTracks()[0]);
-      localStream.addTrack(stream.getVideoTracks()[0]);
+      // localStream.removeTrack(localStream.getVideoTracks()[0]);
+      // localStream.addTrack(stream.getVideoTracks()[0]);
 
       //localStream.getVideoTracks().forEach((track) => {
       //  track = stream.getVideoTracks()[0];
@@ -383,10 +387,10 @@ function setCaptureVideo() {
       });
       */
 
-      stopVoice();
+      // stopVoice();
       playVideo(localVideo, stream);
-      // connect();
-      callMe();
+      connect();
+      // callMe();
     })
     .catch((error) => {
       console.error("getDisplayMedia error:", error);
