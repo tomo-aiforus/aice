@@ -133,7 +133,7 @@ socket.on("being", function (msg) {
  */
 socket.on("presen", function (msg) {
   stopVideo();
-  $("#videobutton").removeClass("fab-on");
+  // $("#videobutton").removeClass("fab-on");
   $("#videobutton").addClass("fab-disable");
   $("#capturebutton").addClass("fab-disable");
 });
@@ -141,7 +141,7 @@ socket.on("presenEnd", function (msg) {
   if (videoSwitchFlg) {
     startVideo();  
   }
-  $("#videobutton").addClass("fab-on");
+  // $("#videobutton").addClass("fab-on");
   $("#videobutton").removeClass("fab-disable");
   $("#capturebutton").removeClass("fab-disable");
 });
