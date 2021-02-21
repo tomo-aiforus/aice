@@ -873,12 +873,6 @@ function execPost(action, data) {
 // ----------------------------------------------------------------
 // ---------------------- ボタン操作 --------------------------------
 // ----------------------------------------------------------------
-// ビデオのON/OFFフラグ
-// var videoSwitchFlg = false
-// マイクのON/OFFフラグ
-// var micSwitchFlg = false
-// 共有のON/OFFフラグ
-// var captureSwitchFlg = false
 
 /**
  * ビデオボタン
@@ -988,6 +982,7 @@ function toggleInput() {
   stopAllConnection();
   if ($("#capturebutton").hasClass("fab-on")) {
 
+    // 画面共有モード終了のお知らせ
     clearInterval(modeIntervalControler);
     sendPresenEnd();
 
@@ -1003,31 +998,40 @@ function toggleInput() {
     setTimeout(() => {
       connect();
     }, 9000);
+  
   } else {
-    
+
+    // 画面共有モード開始のお知らせ
     modeIntervalControler = setInterval(function () {
       sendPresenSign();
     }, 3000);
+    
+    var text = $("#user_name").val() + "さんが画面共有の準備をしています。";
+    socket.emit("alert", text);
 
     setCaptureVideo()
-    .then(result => {
-      if (result) {
-        $("#capturebutton").addClass("fab-on");
-        var text = $("#user_name").val() + "さんが画面共有をはじめました。";
-        socket.emit("alert", text);
-        socket.emit("chat", text);
+      .then(result => {
+          
+        if (result) {
+          $("#capturebutton").addClass("fab-on");
+          var text = $("#user_name").val() + "さんが画面共有をはじめました。";
+          socket.emit("chat", text);
+          
+          setTimeout(() => {
+            connect();
+          }, 3000);
+          setTimeout(() => {
+            connect();
+          }, 4000);
+          setTimeout(() => {
+            connect();
+          }, 5000);
         
-        setTimeout(() => {
-          connect();
-        }, 3000);
-        setTimeout(() => {
-          connect();
-        }, 4000);
-        setTimeout(() => {
-          connect();
-        }, 5000);
-      }
-    })
+        } else {
+          clearInterval(modeIntervalControler);
+          sendPresenEnd();
+        }
+      })
   }
 }
 
