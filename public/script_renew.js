@@ -1030,6 +1030,15 @@ function toggleInput() {
         } else {
           clearInterval(modeIntervalControler);
           sendPresenEnd();
+          setTimeout(() => {
+            connect();
+          }, 3000);
+          setTimeout(() => {
+            connect();
+          }, 4000);
+          setTimeout(() => {
+            connect();
+          }, 5000);
         }
       })
   }
