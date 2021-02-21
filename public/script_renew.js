@@ -10,6 +10,13 @@ function _assert(desc, v) {
 // 表示モードのシグナル制御
 var modeIntervalControler;
 
+// ビデオのON/OFFフラグ
+var videoSwitchFlg = false
+// マイクのON/OFFフラグ
+var micSwitchFlg = false
+// 共有のON/OFFフラグ
+var captureSwitchFlg = false
+
 // デバイスのメディアにアクセス
 let localVideo = document.getElementById("local_video");
 let localStream = null;
@@ -128,11 +135,15 @@ socket.on("presen", function (msg) {
   stopVideo();
   $("#videobutton").removeClass("fab-on");
   $("#videobutton").addClass("fab-disable");
+  $("#capturebutton").addClass("fab-disable");
 });
 socket.on("presenEnd", function (msg) {
-  startVideo();
+  if (videoSwitchFlg) {
+    startVideo();  
+  }
   $("#videobutton").addClass("fab-on");
   $("#videobutton").removeClass("fab-disable");
+  $("#capturebutton").removeClass("fab-disable");
 });
 
 socket.on("vote", function (msg) {
@@ -390,6 +401,13 @@ async function setCaptureVideo() {
       localStream.addTrack(tracks[0]);
       playVideo(localVideo, stream);
 
+      if (micSwitchFlg) {
+        startVoice();
+      } else {
+        stopVoice();
+      }
+      startVideo();
+
       result = true
     })
     .catch((error) => {
@@ -411,6 +429,17 @@ function setCameraVideo() {
     localStream = stream;
 
     playVideo(localVideo, stream);
+    
+    if (micSwitchFlg) {
+      startVoice();
+    } else {
+      stopVoice();
+    }
+    if (videoSwitchFlg) {
+      startVideo();
+    } else {
+      stopVideo();
+    }
   })
   .catch((error) => {
     console.error("getDisplayMedia error:", error);
@@ -844,23 +873,36 @@ function execPost(action, data) {
 // ----------------------------------------------------------------
 // ---------------------- ボタン操作 --------------------------------
 // ----------------------------------------------------------------
+// ビデオのON/OFFフラグ
+// var videoSwitchFlg = false
+// マイクのON/OFFフラグ
+// var micSwitchFlg = false
+// 共有のON/OFFフラグ
+// var captureSwitchFlg = false
 
 /**
- * イベントリスナ
+ * ビデオボタン
  */
-
 $("#videobutton").on("click", () => {
   if (!$("#videobutton").hasClass("fab-disable")) {
     toggleVideo(); 
   }
 });
 
+/**
+ * マイクボタン
+ */
 $("#micbutton").on("click", () => {
   toggleMic();
 });
 
+/**
+ * 共有ボタン
+ */
 $("#capturebutton").on("click", () => {
-  toggleInput();
+  if (!$("#capturebutton").hasClass("fab-disable")) {
+    toggleInput();
+  }
 });
 $("#recordbutton").on("click", () => {
   alert("Now developing...");
@@ -893,9 +935,11 @@ function toggleVideo() {
   localStream.getVideoTracks().forEach((track) => {
     if (track.enabled == true) {
       stopVideo();
+      videoSwitchFlg = false;
       $("#videobutton").removeClass("fab-on");
     } else {
       startVideo();
+      videoSwitchFlg = true;
       $("#videobutton").addClass("fab-on");
     }
   });
@@ -905,31 +949,32 @@ function toggleMic() {
   var tracks = localStream.getAudioTracks();
   if (tracks[0].enabled) {
     stopVoice();
+    micSwitchFlg = false
     $("#micbutton").removeClass("fab-on");
   } else {
     startVoice();
+    micSwitchFlg = true
     $("#micbutton").addClass("fab-on");
   }
 }
 
+/**
+ * ビデオON/OFF
+ */
 function startVideo() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = true;
   });
-  $("#stopbutton").removeClass("hidden");
-  $("#startbutton").addClass("hidden");
 }
-
 function stopVideo() {
   localStream.getVideoTracks().forEach((track) => {
     track.enabled = false;
   });
-  // stopLocalStream(localStream);
-  $("#startbutton").removeClass("hidden");
-  $("#stopbutton").addClass("hidden");
 }
 
-// マイクON/OFF
+/**
+ * マイクON/OFF
+ */
 function startVoice() {
   var tracks = localStream.getAudioTracks();
   tracks[0].enabled = true;
