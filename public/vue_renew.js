@@ -201,7 +201,6 @@ var videoVue = new Vue({
   },
 
   computed: {
-    loginmembers: function () {},
   },
 
   methods: {

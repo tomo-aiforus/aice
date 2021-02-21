@@ -354,6 +354,14 @@ io.on("connection", function (socket) {
     emitMessage("being", message);
   });
 
+  // 画面共有モードの配信
+  socket.on("presen", function (message) {
+    emitMessage("presen", message);
+  });
+  socket.on("presenEnd", function (message) {
+    emitMessage("presenEnd", message);
+  });
+  
   // マイク使用シグナルの配信
   socket.on("talkSignal", function (message) {
     emitMessage("talkSignal", message);

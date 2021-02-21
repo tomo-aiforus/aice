@@ -7,6 +7,9 @@ function _assert(desc, v) {
   }
 }
 
+// 表示モードのシグナル制御
+var modeIntervalControler;
+
 // デバイスのメディアにアクセス
 let localVideo = document.getElementById("local_video");
 let localStream = null;
@@ -116,6 +119,20 @@ socket.on("being", function (msg) {
   }
   // メンバー一覧を更新する
   memberVue.updateMemberList(msg);
+});
+
+/**
+ * 画面共有シグナルを受けた時
+ */
+socket.on("presen", function (msg) {
+  stopVideo();
+  $("#videobutton").removeClass("fab-on");
+  $("#videobutton").addClass("fab-disable");
+});
+socket.on("presenEnd", function (msg) {
+  startVideo();
+  $("#videobutton").addClass("fab-on");
+  $("#videobutton").removeClass("fab-disable");
 });
 
 socket.on("vote", function (msg) {
@@ -418,6 +435,20 @@ function sendChat() {
 function sendBeing() {
   var message = $("#user_name").val() + "---" + socket.id;
   socket.emit("being", message);
+  return false;
+}
+
+/**
+ * 画面共有モード発令中のシグナル
+ */
+function sendPresenSign() {
+  var message = socket.id;
+  socket.emit("presen", message);
+  return false;
+}
+function sendPresenEnd() {
+  var message = socket.id;
+  socket.emit("presenEnd", message);
   return false;
 }
 
@@ -819,7 +850,9 @@ function execPost(action, data) {
  */
 
 $("#videobutton").on("click", () => {
-  toggleVideo();
+  if (!$("#videobutton").hasClass("fab-disable")) {
+    toggleVideo(); 
+  }
 });
 
 $("#micbutton").on("click", () => {
@@ -909,19 +942,26 @@ function stopVoice() {
 function toggleInput() {
   stopAllConnection();
   if ($("#capturebutton").hasClass("fab-on")) {
+
+    clearInterval(modeIntervalControler);
+
     $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
 
     setTimeout(() => {
       connect();
-    }, 3000);
-    setTimeout(() => {
-      connect();
-    }, 4000);
-    setTimeout(() => {
-      connect();
     }, 5000);
+    setTimeout(() => {
+      connect();
+    }, 7000);
+    setTimeout(() => {
+      connect();
+    }, 9000);
   } else {
+    
+    modeIntervalControler = setInterval(function () {
+      sendPresenSign();
+    }, 3000);
 
     setCaptureVideo()
     .then(result => {
