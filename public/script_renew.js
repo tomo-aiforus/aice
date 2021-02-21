@@ -989,6 +989,7 @@ function toggleInput() {
   if ($("#capturebutton").hasClass("fab-on")) {
 
     clearInterval(modeIntervalControler);
+    sendPresenEnd();
 
     $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
