@@ -994,16 +994,15 @@ function toggleInput() {
 
     $("#capturebutton").removeClass("fab-on");
     setCameraVideo();
-
+    setTimeout(() => {
+      connect();
+    }, 3000);
+    setTimeout(() => {
+      connect();
+    }, 4000);
     setTimeout(() => {
       connect();
     }, 5000);
-    setTimeout(() => {
-      connect();
-    }, 7000);
-    setTimeout(() => {
-      connect();
-    }, 9000);
   
   } else {
 
