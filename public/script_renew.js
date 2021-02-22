@@ -7,6 +7,10 @@ function _assert(desc, v) {
   }
 }
 
+toastr.options = {
+  "timeOut": "8000",
+};
+
 // 表示モードのシグナル制御
 var modeIntervalControler;
 
@@ -777,6 +781,9 @@ function callMe() {
  * 画面遷移時
  */
 window.onload = function () {
+  setInterval(function () {
+    sendBeing();
+  }, 2000);
   var today = new Date();
   var hour = today.getHours();
   var minut = today.getMinutes();
@@ -791,12 +798,6 @@ window.onload = function () {
   var systemmesage =
     "ようこそ" + $("#user_name").val() + "さん。（" + textdate + "）";
   chatVue.addContent(systemmesage);
-
-  setInterval(function () {
-    sendBeing();
-  }, 5000);
-
-  // autoScroll();
 
   connectVideo();
 };
@@ -979,8 +980,13 @@ function stopVoice() {
 }
 
 function toggleInput() {
-  stopAllConnection();
   if ($("#capturebutton").hasClass("fab-on")) {
+
+    var text = $("#user_name").val() + "さんが画面共有を終了しています。";
+    socket.emit("alert", text);
+    toastr.success("画面共有を終了しています。");
+
+    stopAllConnection();
 
     // 画面共有モード終了のお知らせ
     clearInterval(modeIntervalControler);
@@ -1009,6 +1015,8 @@ function toggleInput() {
     var text = $("#user_name").val() + "さんが画面共有の準備をしています。";
     socket.emit("alert", text);
 
+    stopAllConnection();
+
     setCaptureVideo()
       .then(result => {
           
@@ -1016,7 +1024,11 @@ function toggleInput() {
           $("#capturebutton").addClass("fab-on");
           var text = $("#user_name").val() + "さんが画面共有をはじめました。";
           socket.emit("chat", text);
+          toastr.success("画面共有を接続しています。");
           
+          setTimeout(() => {
+            connect();
+          }, 2000);
           setTimeout(() => {
             connect();
           }, 3000);
@@ -1030,6 +1042,9 @@ function toggleInput() {
         } else {
           clearInterval(modeIntervalControler);
           sendPresenEnd();
+          setTimeout(() => {
+            connect();
+          }, 2000);
           setTimeout(() => {
             connect();
           }, 3000);
