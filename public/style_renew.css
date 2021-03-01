@@ -164,7 +164,8 @@
 
 .fab-off {
   /* background: linear-gradient(#808080, #b0c4de); */
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: none;
 }
 .fab-on {
   background: linear-gradient(#1e90ff, #40e0d0);
