@@ -14,6 +14,8 @@ toastr.options = {
 // 表示モードのシグナル制御
 var modeIntervalControler;
 
+var isAudienceMode = false
+
 // ビデオのON/OFFフラグ
 var videoSwitchFlg = false
 // マイクのON/OFFフラグ
@@ -136,12 +138,17 @@ socket.on("being", function (msg) {
  * 画面共有シグナルを受けた時
  */
 socket.on("presen", function (msg) {
+  if (!isAudienceMode) {
+    toastr.success("画面共有中のため、カメラ機能を制限しています。");
+    isAudienceMode = true
+  }
   stopVideo();
   // $("#videobutton").removeClass("fab-on");
   $("#videobutton").addClass("fab-disable");
   $("#capturebutton").addClass("fab-disable");
 });
 socket.on("presenEnd", function (msg) {
+  isAudienceMode = false
   if (videoSwitchFlg) {
     startVideo();  
   }
