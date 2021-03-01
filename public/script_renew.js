@@ -1003,13 +1003,13 @@ function toggleInput() {
     setCameraVideo();
     setTimeout(() => {
       connect();
-    }, 3000);
-    setTimeout(() => {
-      connect();
-    }, 4000);
-    setTimeout(() => {
-      connect();
     }, 5000);
+    setTimeout(() => {
+      connect();
+    }, 6000);
+    setTimeout(() => {
+      connect();
+    }, 8000);
   
   } else {
 
