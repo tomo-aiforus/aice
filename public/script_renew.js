@@ -1199,13 +1199,13 @@ function showLinkWindow(msg) {
     // root + "?room_name=" + msg.room_name + "&password=" + msg.password;
     root + "?secret=" + $("#room_id").val()
   Swal.fire({
-    title: "招待URL",
-    // icon: "info",
     html:
+      `<h2>招待URL</h2>` +
       `<p>下記URLを招待する対象者へお知らせください。</p>` +
       `<input class="linkinputtext" value="` +
       url +
-      `"/>`,
+      `"/>`+
+      "<style>h2, p{color: #ffffff}</style>",
     focusConfirm: false,
     confirmButtonText: "閉じる",
     confirmButtonAriaLabel: "Close",
