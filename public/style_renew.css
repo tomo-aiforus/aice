@@ -250,3 +250,48 @@
 .controlArea > div {
   display: flex;
 }
+
+/*
+<!-- コントロールエリア -->
+        <div class="controlArea">
+          <!-- ビデオONOFF -->
+          <span class="fab fab-off" id="videobutton">
+            <i class="fas fa-video"></i>
+          </span>
+          <!-- マイクONOFF -->
+          <span class="fab fab-off" id="micbutton">
+            <i class="fas fa-microphone"></i>
+          </span>
+          <!-- 画面共有開始 -->
+          <span class="fab fab-off" id="capturebutton">
+            <i class="fas fa-tv"></i>
+          </span>
+          <!-- 録音録画ONOFF -->
+          <span class="fab fab-disable" id="recordbutton">
+            <i class="fas fa-compact-disc"></i>
+          </span>
+          
+          <!-- 反応（Good） -->
+          <span class="fab fab-left fab-off" id="goodbutton">
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <!-- 反応（Bad） -->
+          <span class="fab fab-right fab-off" id="badbutton">
+            <i class="fas fa-thumbs-down"></i>
+          </span>
+          <!-- 招待追加 -->
+          <span class="fab fab-off" id="linkbutton">
+            <img src="assets/images/share.svg" class="linkicon">
+          </span>
+          <!-- 背景変更 -->
+          <span class="fab fab-off" id="bgchangebutton">
+            <!-- <i class="fas fa-palette"></i> -->
+            <img src="assets/images/poster.svg" class="bgchangeicon">
+          </span>
+          <!-- 退室 -->
+          <span class="fab fab-off" id="leavebutton">
+            <img src="assets/images/logout.svg" class="leaveicon">
+          </span>
+        </div>
+
+*/
