@@ -1199,6 +1199,7 @@ function showLinkWindow(msg) {
     // root + "?room_name=" + msg.room_name + "&password=" + msg.password;
     root + "?secret=" + $("#room_id").val()
   Swal.fire({
+    background: 'rgba(0, 0, 0, 0.8)',
     html:
       `<h2>招待URL</h2>` +
       `<p>下記URLを招待する対象者へお知らせください。</p>` +
