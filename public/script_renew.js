@@ -1152,7 +1152,7 @@ function shieldButton(idname) {
  */
 function leaveRoom() {
   Swal.fire({
-    background: 'rgba(0, 0, 0, 0.5)',
+    background: 'rgba(0, 0, 0, 0.8)',
     title: "退室確認",
     html: "この会議から退室しても宜しいでしょうか。",
     showCloseButton: false,
