@@ -155,9 +155,9 @@
   padding-top: 0ex;
 }
 
-.fab img {
-  filter: brightness(10);
-  width: 26px;
+#bgchangebutton {
+  filter: invert(1);
+  width: 20px;
   padding-top: 13px;
   vertical-align: sub;
 }
