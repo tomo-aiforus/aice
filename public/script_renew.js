@@ -1100,22 +1100,22 @@ function toggleWallpaper() {
     $("#videoapp").addClass("blind4black");
   }
   */
- // 炭 → 梅
-  if ($("#pageWrapper").hasClass("charcoalBG")) {
-    $("#pageWrapper").removeClass("charcoalBG");
-    // $("#videoapp").removeClass("blind4black");
-    $("#pageWrapper").addClass("wisteriaBG");
+  
+  if ($("#pageWrapper").hasClass("bg1")) {
+    $("#pageWrapper").removeClass("bg1");
+    $("#pageWrapper").addClass("bg2");
 
-    // 梅 -> 藤
-  } else if ($("#pageWrapper").hasClass("wisteriaBG")) {
-    $("#pageWrapper").removeClass("wisteriaBG");
-    $("#pageWrapper").addClass("plumBG");
+  } else if ($("#pageWrapper").hasClass("bg2")) {
+    $("#pageWrapper").removeClass("bg2");
+    $("#pageWrapper").addClass("bg3");
 
-    // 藤 -> 炭
-  } else if ($("#pageWrapper").hasClass("plumBG")) {
-    $("#pageWrapper").removeClass("plumBG");
-    $("#pageWrapper").addClass("charcoalBG");
-    // $("#videoapp").addClass("blind4black");
+  } else if ($("#pageWrapper").hasClass("bg3")) {
+    $("#pageWrapper").removeClass("bg3");
+    $("#pageWrapper").addClass("bg4");
+
+  } else if ($("#pageWrapper").hasClass("bg4")) {
+    $("#pageWrapper").removeClass("bg4");
+    $("#pageWrapper").addClass("bg1");
   }
 }
 
