@@ -155,8 +155,20 @@
   padding-top: 0ex;
 }
 
-#bgchangebutton {
-  filter: invert(1);
+.linkicon {
+  filter: brightness(10);
+  width: 20px;
+  padding-top: 13px;
+  vertical-align: sub;
+}
+.bgchangeicon {
+  filter: brightness(10);
+  width: 20px;
+  padding-top: 13px;
+  vertical-align: sub;
+}
+.leaveicon {
+  filter: brightness(10);
   width: 20px;
   padding-top: 13px;
   vertical-align: sub;
