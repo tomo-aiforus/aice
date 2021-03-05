@@ -154,7 +154,8 @@
   font-size: 18px; /*サイズ*/
   padding-top: 0ex;
 }
-
+.fabdiv {
+}
 .buttontitle {
   position: relative;
   display: flex;
