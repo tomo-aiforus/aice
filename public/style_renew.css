@@ -135,7 +135,7 @@
   height: 56px; /*高さ*/
   /* background: #03a9f4; */ /*背景色*/
   text-align: center; /*中央寄せ*/
-  border-radius: 50%; /*角丸く*/
+  border-radius: 25%; /*角丸く*/
   transition: 0.3s; /*滑らかな動きに*/
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24); /*影*/
   padding-top: 0ex;
@@ -174,11 +174,11 @@
   background: #696969;
 }
 .fab-left {
-  border-radius: 50% 0 0 50%;
+  border-radius: 25% 0 0 25%;
   margin-right: 0px !important;
 }
 .fab-right {
-  border-radius: 0 50% 50% 0;
+  border-radius: 0 25% 25% 0;
   margin-left: -3px !important;
 }
 
@@ -241,8 +241,4 @@
   bottom: -20px;
   left: 15px;
   font-size: 14px;
-}
-
-#videobutton {
-  border-radius: 25%;
 }
