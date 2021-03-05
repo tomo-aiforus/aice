@@ -159,6 +159,8 @@
 .buttontitle {
   position: relative;
   display: flex;
+  font-size: 12px;
+  color: #ffffff;
 }
 .linkicon {
   filter: invert(1);
