@@ -156,22 +156,22 @@
 }
 
 .linkicon {
-  filter: brightness(10);
+  filter: invert(1);
   width: 20px;
   padding-top: 13px;
-  vertical-align: sub;
+  vertical-align: bottom;
 }
 .bgchangeicon {
-  filter: brightness(10);
+  filter: invert(1);
   width: 20px;
   padding-top: 13px;
-  vertical-align: sub;
+  vertical-align: bottom;
 }
 .leaveicon {
-  filter: brightness(10);
+  filter: invert(1);
   width: 20px;
   padding-top: 13px;
-  vertical-align: sub;
+  vertical-align: bottom;
 }
 
 .fab-off {
