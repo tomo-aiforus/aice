@@ -155,8 +155,9 @@
   padding-top: 0ex;
 }
 
-.controlArea ul {
-  list-style: none;
+.buttontitle {
+  position: relative;
+  display: flex;
 }
 .linkicon {
   filter: invert(1);
