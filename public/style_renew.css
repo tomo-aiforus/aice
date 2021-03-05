@@ -177,6 +177,7 @@ div.reactionmargin {
 .reactiontitle {
   position: absolute;
   bottom: 12px;
+  margin-left: -8px;
 }
 
 .fab-off {
