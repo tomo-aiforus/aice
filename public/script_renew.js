@@ -1152,9 +1152,9 @@ function shieldButton(idname) {
  */
 function leaveRoom() {
   Swal.fire({
-    title: "退室してよろしいですか？",
+    title: "退室確認",
     icon: "warning",
-    html: "完全にログアウトして、ログイン画面に戻ります。",
+    html: "この会議から退室しても宜しいでしょうか。",
     showCloseButton: false,
     showCancelButton: true,
     focusConfirm: false,
@@ -1198,10 +1198,10 @@ function showLinkWindow(msg) {
     // root + "?room_name=" + msg.room_name + "&password=" + msg.password;
     root + "?secret=" + $("#room_id").val()
   Swal.fire({
-    title: "招待リンク",
+    title: "招待URL",
     // icon: "info",
     html:
-      `<p>このURLから新しい参加者を招待することができます</p>` +
+      `<p>下記URLを招待する対象者へお知らせください。</p>` +
       `<input class="linkinputtext" value="` +
       url +
       `"/>`,
