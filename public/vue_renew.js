@@ -215,19 +215,19 @@ var videoVue = new Vue({
       const targetId = "#video_container_" + fromid;
       console.log("setPresenClass..." + targetId);
       if (!$(targetId).hasClass("vcPresen")) {
-        $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
+        $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
         $(targetId).addClass("vcPresen");
       }
       $(".videowrapper").each((index, elm) => {
         if (!$(elm).hasClass("vcPresen")) {
           $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
-          $(elm).addClass("vc4");
+          $(elm).addClass("vcAudience");
         }
       });
     },
     editVideoClass: function () {
       $(".videowrapper").each((index, elm) => {
-        $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcPresen");
+        $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcPresen vcAudience");
         $(elm).addClass(this.getClassname);
       });
     },
