@@ -213,6 +213,7 @@ var videoVue = new Vue({
     },
     setPresenClass(fromid) {
       const targetId = "#video_container_" + fromid;
+      console.log("setPresenClass..." + targetId);
       if (!$(targetId).hasClass("vcPresen")) {
         $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
         $(targetId).addClass("vcPresen");
