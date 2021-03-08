@@ -11,12 +11,12 @@ console.log(".env loaded... PORT_NO:" + process.env.PORT_NO)
 // var ssl_server_crt = process.env.SSL_CRT || "/etc/letsencrypt/live/conference.aice.cloud/fullchain.pem";
 
 // conference.aice.cloud
-// var ssl_server_key = "/etc/letsencrypt/live/conftest.aice.cloud/privkey.pem";
-// var ssl_server_crt = "/etc/letsencrypt/live/conftest.aice.cloud/fullchain.pem";
-
-// conftest.aice.cloud
 var ssl_server_key = "/etc/letsencrypt/live/conftest.aice.cloud/privkey.pem";
 var ssl_server_crt = "/etc/letsencrypt/live/conftest.aice.cloud/fullchain.pem";
+
+// conftest.aice.cloud
+// var ssl_server_key = "/etc/letsencrypt/live/conftest.aice.cloud/privkey.pem";
+// var ssl_server_crt = "/etc/letsencrypt/live/conftest.aice.cloud/fullchain.pem";
 
 var options = {
   key: fs.readFileSync(ssl_server_key),
@@ -30,10 +30,10 @@ var io = require("socket.io")(server);
 // var port = process.env.PORT_NO
 
 // conference.aice.cloud
-// var port = 8445;
+var port = 8445;
 
 // conftest.aice.cloud
-var port = 8446;
+// var port = 8446;
 
 // テンプレートエンジン
 app.set("view engine", "ejs");
