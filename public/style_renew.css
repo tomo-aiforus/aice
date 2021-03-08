@@ -132,11 +132,15 @@
 }
 .vcAudience {
   width: 12%;
+  z-index: 200;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 .vcPresen {
   width: calc(100% - 340px) !important;
   position: fixed !important;
   top: 10px;
+  z-index: 100;
 }
 .audienceContainer {
   position: absolute;
