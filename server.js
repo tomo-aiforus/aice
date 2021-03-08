@@ -15,9 +15,9 @@ var ssl_server_key = "";
 var ssl_server_crt = "";
 var port = 0;
 
-const ENV = TEST;
+const ENV = "TEST";
 
-if (ENV == 'TEST') {
+if (ENV == "TEST") {
   port = 8446;
   ssl_server_key = "/etc/letsencrypt/live/conftest.aice.cloud/privkey.pem";
   ssl_server_crt = "/etc/letsencrypt/live/conftest.aice.cloud/fullchain.pem";
