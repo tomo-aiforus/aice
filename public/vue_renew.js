@@ -211,7 +211,11 @@ var videoVue = new Vue({
     removeVideoCount: function () {
       this.vCount--;
     },
+
     setPresenClass(fromid) {
+      if (!$("#container").hasClass("audienceContainer")) {
+        $("#container").addClass("audienceContainer")
+      }
       const targetId = "#video_container_" + fromid;
       console.log("setPresenClass..." + targetId);
       if (!$(targetId).hasClass("vcPresen")) {
@@ -225,12 +229,23 @@ var videoVue = new Vue({
         }
       });
     },
+    resetPresenClass() {
+      if ($("#container").hasClass("audienceContainer")) {
+        $("#container").removeClass("audienceContainer")
+      }
+      $(".videowrapper").each((index, elm) => {
+        $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcPresen vcAudience");
+        $(elm).addClass(this.getClassname);
+      });
+    },
+
     editVideoClass: function () {
       $(".videowrapper").each((index, elm) => {
         $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcPresen vcAudience");
         $(elm).addClass(this.getClassname);
       });
     },
+
     getClassname: function () {
       var classname = "";
       switch (this.vCount) {

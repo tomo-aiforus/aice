@@ -149,7 +149,7 @@ socket.on("presen", function (msg) {
   $("#capturebutton").addClass("fab-disable");
 });
 socket.on("presenEnd", function (msg) {
-  videoVue.editVideoClass();
+  videoVue.resetPresenClass();
   isAudienceMode = false
   if (videoSwitchFlg) {
     startVideo();  
