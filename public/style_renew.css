@@ -145,9 +145,12 @@
   top: 10px;
   z-index: 100;
 }
+.vcPresen > video.membersvideo {
+  max-height: calc(100vh - 200px);
+}
 .audienceContainer {
   position: absolute;
-  bottom: 90px;
+  bottom: 76px;
   height: 100px;
   width: calc(100% - 320px);
 }
