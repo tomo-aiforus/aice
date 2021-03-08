@@ -371,6 +371,7 @@ io.on("connection", function (socket) {
 
   // 画面共有モードの配信
   socket.on("presen", function (message) {
+    message.from = socket.id;
     emitMessage("presen", message);
   });
   socket.on("presenEnd", function (message) {

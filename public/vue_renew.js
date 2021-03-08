@@ -211,12 +211,16 @@ var videoVue = new Vue({
     removeVideoCount: function () {
       this.vCount--;
     },
-    setPresenClass() {
-      console.log("setPresenClass");
+    setAudienceClass() {
       $(".videowrapper").each((index, elm) => {
         $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
         $(elm).addClass("vc4");
       });
+    },
+    setPresenClass(fromid) {
+      const targetId = "#remote_video_" + fromid;
+      $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
+      $(targetId).addClass("vcPresen");
     },
     editVideoClass: function () {
       $(".videowrapper").each((index, elm) => {
