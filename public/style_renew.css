@@ -144,7 +144,8 @@
 }
 .audienceContainer {
   position: absolute;
-  bottom: 28px;
+  bottom: 90px;
+  height: 60px;
   width: calc(100% - 320px);
 }
 
