@@ -141,6 +141,7 @@ socket.on("presen", function (msg) {
   if (!isAudienceMode) {
     toastr.success("画面共有中のため、カメラ機能を制限しています。");
     isAudienceMode = true
+    videoVue.setPresenClass();
   }
   stopVideo();
   // $("#videobutton").removeClass("fab-on");
@@ -148,6 +149,7 @@ socket.on("presen", function (msg) {
   $("#capturebutton").addClass("fab-disable");
 });
 socket.on("presenEnd", function (msg) {
+  videoVue.editVideoClass();
   isAudienceMode = false
   if (videoSwitchFlg) {
     startVideo();  
