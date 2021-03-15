@@ -11,8 +11,8 @@ let recordedBlobs;
 
 function getLocalMediaStream(mediaStream) {
   // recordBtn.disabled = false;
-  const localStream = mediaStream;
-  localVideo.srcObject = mediaStream;
+  // const localStream = mediaStream;
+  // localVideo.srcObject = mediaStream;
   window.stream = mediaStream;
 }
 
