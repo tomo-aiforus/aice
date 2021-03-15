@@ -86,7 +86,7 @@ $("#recordbutton").on("click", () => {
   toggleRecord()
 });
 function toggleRecord() {
-  if ($("#recordbutton").hasClass()) {
+  if ($("#recordbutton").hasClass("fab-on")) {
     $("#recordbutton").removeClass("fab-on");
     stopRecording();
     download();
