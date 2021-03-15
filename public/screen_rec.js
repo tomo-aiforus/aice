@@ -65,7 +65,7 @@ function startCapture(){
   };
   navigator.mediaDevices
     .getDisplayMedia(constraints)
-    .then(getLocalMediaStream)
+    .then((str) => getLocalMediaStream(str))
     .catch(handleLocalMediaStreamError);
 };
 
