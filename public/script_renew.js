@@ -908,9 +908,14 @@ $("#capturebutton").on("click", () => {
     toggleInput();
   }
 });
+
+/**
+ * 録画ボタン 別ファイルに移動
 $("#recordbutton").on("click", () => {
   alert("Now developing...");
 });
+ */
+
 $("#goodbutton").on("click", () => {
   if (!$("#goodbutton").hasClass("fab-disable")) {
     sendVote("good");
