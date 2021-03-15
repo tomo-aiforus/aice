@@ -14,6 +14,8 @@ function getLocalMediaStream(mediaStream) {
   // const localStream = mediaStream;
   // localVideo.srcObject = mediaStream;
   window.stream = mediaStream;
+
+  startRecording()
 }
 
 function handleLocalMediaStreamError(error) {
@@ -93,9 +95,6 @@ function toggleRecord() {
   } else {
     $("#recordbutton").addClass("fab-on");
     startCapture();
-    setTimeout(
-      startRecording(), 5000
-    ) 
   }
 }
 
