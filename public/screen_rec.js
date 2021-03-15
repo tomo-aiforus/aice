@@ -1,11 +1,11 @@
 "use strict";
 
-const localVideo = document.getElementById("local");
-const recordedVideo = document.getElementById("recorded");
-const startBtn = document.getElementById("start");
+// const localVideo = document.getElementById("local");
+// const recordedVideo = document.getElementById("recorded");
+// const startBtn = document.getElementById("start");
 // const recordBtn = document.getElementById("record");
-const playBtn = document.getElementById("play");
-const downloadBtn = document.getElementById("download");
+// const playBtn = document.getElementById("play");
+// const downloadBtn = document.getElementById("download");
 let mediaRecorder;
 let recordedBlobs;
 
