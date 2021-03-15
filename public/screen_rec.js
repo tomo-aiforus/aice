@@ -94,7 +94,7 @@ function toggleRecord() {
     $("#recordbutton").addClass("fab-on");
     startCapture();
     setTimeout(
-      startRecording(), 1000
+      startRecording(), 5000
     ) 
   }
 }
