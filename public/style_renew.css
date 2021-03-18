@@ -149,6 +149,10 @@
   max-height: calc(100vh - 200px);
   max-width: calc(100vw - 45px);
 }
+.vcPresen video.membersvideo {
+  max-height: calc(100vh - 200px);
+  max-width: calc(100vw - 45px);
+}
 .audienceContainer {
   position: absolute;
   bottom: 76px;
@@ -305,6 +309,7 @@ div.reactionmargin {
 }
 .widemode {
   right: 0px;
+  transform: rotateY(180deg);
 }
 .edgespace {
   height: 100vh;

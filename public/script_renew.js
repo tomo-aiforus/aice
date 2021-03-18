@@ -147,6 +147,7 @@ socket.on("presen", function (msg) {
   // $("#videobutton").removeClass("fab-on");
   $("#videobutton").addClass("fab-disable");
   $("#capturebutton").addClass("fab-disable");
+  setWideMode();
 });
 socket.on("presenEnd", function (msg) {
   videoVue.resetPresenClass();
@@ -952,12 +953,15 @@ function toggleWidth() {
     $(".edgespace").removeClass("widemode_edge");
 
   } else {
-    $("#widthChangebutton").addClass("widemode");
-    $(".leftArea").addClass("widemode_left");
-    $(".rightArea").addClass("widemode_right");
-    $("#input_msg").addClass("widemode_input");
-    $(".edgespace").addClass("widemode_edge");
+    setWideMode();
   }
+}
+function setWideMode() {
+  $("#widthChangebutton").addClass("widemode");
+  $(".leftArea").addClass("widemode_left");
+  $(".rightArea").addClass("widemode_right");
+  $("#input_msg").addClass("widemode_input");
+  $(".edgespace").addClass("widemode_edge");
 }
 
 
