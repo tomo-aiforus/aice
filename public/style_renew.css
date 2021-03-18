@@ -322,7 +322,8 @@ div.reactionmargin {
 .edgespace {
   height: 100vh;
   width: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  /* background: rgba(255, 255, 255, 0.1); */
+  background-color: #000000;
   position: absolute;
   right: 295px;
   top: 0px;
