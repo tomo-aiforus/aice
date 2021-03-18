@@ -201,9 +201,8 @@
         <!-- ユーザエリア -->
         <div class="userArea">
           <div id="memberapp" class="member">
-            <h4>
-                  <img src="assets/images/leftright.svg" class="svgicon" id="widthChangebutton">
-                  <%- room_name %> 参加者：{{ loginmembers.length + 1 }}</h4>
+            <img src="assets/images/leftright.svg" class="svgicon" id="widthChangebutton">
+            <h4><%- room_name %> 参加者：{{ loginmembers.length + 1 }}</h4>
             <ul>
               <li>
                 <span id="user_good_myid" class="hidden goodicon"
