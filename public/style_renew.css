@@ -298,7 +298,8 @@ div.reactionmargin {
 }
 .leftrighticon {
   position: absolute;
-  top: 12px;
+  /* top: 12px; */
+  top: calc(50vh - 10px);
   right: 295px;
 }
 .widemode {
