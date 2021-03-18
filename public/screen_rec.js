@@ -58,7 +58,7 @@ function stopRecording() {
   console.log("Recorded media.");
 }
 
-function startCapture() {
+async function startCapture() {
   /*
   const constraints = {
     video: {
