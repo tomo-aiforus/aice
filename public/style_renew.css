@@ -68,7 +68,7 @@
   padding: 15px 0px 0px 15px;
 }
 .controlArea {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   height: 56px;
   /*height: 82px;*/
   padding: 7px;
@@ -151,7 +151,7 @@
   max-width: calc(100vw - 45px);
 }
 .vcPresen video.membersvideo {
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 210px);
   max-width: calc(100vw - 45px);
 }
 .audienceContainer {
@@ -165,7 +165,7 @@
   bottom: 70px;
   height: 120px;
   width: calc(100% - 20px);
-  background: rgba(0, 0, 0, 0.69);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /************* コントロールエリア ***************/
