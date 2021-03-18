@@ -33,6 +33,24 @@
 
         <!-- コントロールエリア -->
         <div class="controlArea">
+
+          <!-- 背景変更
+          <div class="fab fab-off" id="widthChangebutton">
+            <table>
+              <tr>
+                <td>
+                  <img src="assets/images/pictures.svg" class="svgicon" >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="buttontitle">右エリア</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        -->
+
           <!-- ビデオONOFF -->
           <div class="fab fab-off" id="videobutton">
             <table>
@@ -159,22 +177,6 @@
             </table>
           </div>
 
-          <!-- 背景変更 -->
-          <div class="fab fab-off" id="widthChangebutton">
-            <table>
-              <tr>
-                <td>
-                  <img src="assets/images/pictures.svg" class="svgicon">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span class="buttontitle">右エリア</span>
-                </td>
-              </tr>
-            </table>
-          </div>
-
           <!-- 退室 -->
           <div class="fab fab-off" id="leavebutton">
             <table>
@@ -199,7 +201,9 @@
         <!-- ユーザエリア -->
         <div class="userArea">
           <div id="memberapp" class="member">
-            <h4><%- room_name %> 参加者：{{ loginmembers.length + 1 }}</h4>
+            <h4>
+                  <img src="assets/images/leftright.svg" class="svgicon" id="widthChangebutton">
+                  <%- room_name %> 参加者：{{ loginmembers.length + 1 }}</h4>
             <ul>
               <li>
                 <span id="user_good_myid" class="hidden goodicon"
