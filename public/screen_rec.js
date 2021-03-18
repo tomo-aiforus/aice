@@ -72,6 +72,7 @@ async function startCapture() {
     .catch(handleLocalMediaStreamError);
   */
   
+  /*
   const videoStream = await navigator.mediaDevices.getDisplayMedia({
     video: {
       width: 1280,
@@ -85,6 +86,25 @@ async function startCapture() {
   });
   var combinedStream = new MediaStream([videoStream.getTracks(), audioStream.getTracks()])
   getLocalMediaStream(combinedStream)
+  */
+  
+  navigator.mediaDevices.getDisplayMedia({
+    video: {
+      width: 1280,
+      height: 720
+    },
+    audio: true
+  }).then((ds) => {
+    navigator.mediaDevices.getUserMedia({
+    video: false,
+    audio: true
+    }).then((us) => {
+      var combinedStream = new MediaStream([ds.getTracks(), us.getTracks()])
+      getLocalMediaStream(combinedStream)
+    })
+  })
+
+
 };
 
 /*
