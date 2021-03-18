@@ -58,7 +58,8 @@ function stopRecording() {
   console.log("Recorded media.");
 }
 
-function startCapture(){
+function startCapture() {
+  /*
   const constraints = {
     video: {
       width: 1280,
@@ -69,6 +70,21 @@ function startCapture(){
     .getDisplayMedia(constraints)
     .then((str) => getLocalMediaStream(str))
     .catch(handleLocalMediaStreamError);
+  */
+  
+  const videoStream = await navigator.mediaDevices.getDisplayMedia({
+    video: {
+      width: 1280,
+      height: 720
+    },
+    audio: true
+  });
+  const audioStream = await navigator.mediaDevices.getUserMedia({
+    video: false,
+    audio: true
+  });
+  var combinedStream = new MediaStream([videoStream.getTracks(), audioStream.getTracks()])
+  getLocalMediaStream(combinedStream)
 };
 
 /*
