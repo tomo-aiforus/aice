@@ -147,6 +147,7 @@
 }
 .vcPresen > video.membersvideo {
   max-height: calc(100vh - 200px);
+  max-width: calc(100vw - 45px);
 }
 .audienceContainer {
   position: absolute;
