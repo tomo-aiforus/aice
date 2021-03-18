@@ -102,7 +102,7 @@ async function startCapture() {
         video: false,
         audio: true
       }).then((us) => {
-        combinedStream.addClass(us.getTracks()[0])
+        combinedStream.addTrack(us.getTracks()[0])
         getLocalMediaStream(combinedStream)
       })
     
