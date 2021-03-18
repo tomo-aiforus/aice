@@ -939,6 +939,25 @@ $("#bgchangebutton").on("click", () => {
 $("#leavebutton").on("click", () => {
   leaveRoom();
 });
+$("#widthChangebutton").on("click", () => {
+  toggleWidth();
+});
+
+function toggleWidth() {
+  if ($("#widthChangebutton").hasClass("fab-on")) {
+    $("#widthChangebutton").removeClass("fab-on");
+    $(".leftArea").removeClass("widemode_left");
+    $(".rightArea").removeClass("widemode_right");
+    $("#input_msg").removeClass("widemode_input");
+
+  } else {
+    $("#widthChangebutton").addClass("fab-on");
+    $(".leftArea").addClass("widemode_left");
+    $(".rightArea").addClass("widemode_right");
+    $("#input_msg").addClass("widemode_input");
+  }
+}
+
 
 function toggleVideo() {
   localStream.getVideoTracks().forEach((track) => {

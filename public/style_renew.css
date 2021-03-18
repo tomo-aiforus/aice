@@ -284,3 +284,12 @@ div.reactionmargin {
   /* display: flex; */
   margin-left: 15px;
 }
+.widemode_left {
+  width: 100%;
+}
+.widemode_right {
+  width: 0px;
+}
+.widemode_input {
+  display: none;
+}

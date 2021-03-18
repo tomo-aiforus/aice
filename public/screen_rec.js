@@ -72,22 +72,6 @@ async function startCapture() {
     .catch(handleLocalMediaStreamError);
   */
   
-  /*
-  const videoStream = await navigator.mediaDevices.getDisplayMedia({
-    video: {
-      width: 1280,
-      height: 720
-    },
-    audio: true
-  });
-  const audioStream = await navigator.mediaDevices.getUserMedia({
-    video: false,
-    audio: true
-  });
-  var combinedStream = new MediaStream([videoStream.getTracks(), audioStream.getTracks()])
-  getLocalMediaStream(combinedStream)
-  */
-  
   var combinedStream = new MediaStream()
   navigator.mediaDevices.getDisplayMedia({
     video: {
@@ -111,19 +95,6 @@ async function startCapture() {
 
 };
 
-/*
-recordBtn.addEventListener("click", () => {
-  if (recordBtn.textContent === "録画開始") {
-    startRecording();
-  } else {
-    stopRecording();
-    // recordBtn.textContent = "録画開始";
-    playBtn.disabled = false;
-    downloadBtn.disabled = false;
-  }
-});
-*/
-
 $("#recordbutton").on("click", () => {
   toggleRecord()
 });
@@ -137,18 +108,6 @@ function toggleRecord() {
     startCapture();
   }
 }
-
-/**
- * 録画内容の再生ボタンは使用しない
-playBtn.addEventListener("click", () => {
-  const superBuffer = new Blob(recordedBlobs, { type: "video/webm" });
-  recordedVideo.src = null;
-  recordedVideo.srcObject = null;
-  recordedVideo.src = window.URL.createObjectURL(superBuffer);
-  recordedVideo.controls = true;
-  recordedVideo.play();
-});
- */
 
 function download(){
   const blob = new Blob(recordedBlobs, { type: "video/webm" });
