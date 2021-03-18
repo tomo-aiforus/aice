@@ -949,12 +949,14 @@ function toggleWidth() {
     $(".leftArea").removeClass("widemode_left");
     $(".rightArea").removeClass("widemode_right");
     $("#input_msg").removeClass("widemode_input");
+    $(".edgespace").removeClass("widemode_edge");
 
   } else {
     $("#widthChangebutton").addClass("widemode");
     $(".leftArea").addClass("widemode_left");
     $(".rightArea").addClass("widemode_right");
     $("#input_msg").addClass("widemode_input");
+    $(".edgespace").addClass("widemode_edge");
   }
 }
 

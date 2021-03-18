@@ -296,15 +296,19 @@ div.reactionmargin {
 .leftrighticon {
   position: absolute;
   top: 12px;
+  right: 287px;
 }
 .widemode {
   right: 0px;
 }
 .edgespace {
   height: 100vh;
-  width: 30px;
+  width: 35px;
   background: rgba(0, 0, 0, 0.2);
   position: absolute;
-  right: 285px;
+  right: 280px;
   top: 0px;
+}
+.widemode_edge {
+  width: 0px;
 }
