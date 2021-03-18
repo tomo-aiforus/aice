@@ -293,3 +293,10 @@ div.reactionmargin {
 .widemode_input {
   display: none;
 }
+.leftrighticon {
+  position: absolute;
+  top: 12px;
+}
+.widemode {
+  right: 0px;
+}

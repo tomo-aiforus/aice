@@ -944,14 +944,14 @@ $("#widthChangebutton").on("click", () => {
 });
 
 function toggleWidth() {
-  if ($("#widthChangebutton").hasClass("fab-on")) {
-    $("#widthChangebutton").removeClass("fab-on");
+  if ($("#widthChangebutton").hasClass("widemode")) {
+    $("#widthChangebutton").removeClass("widemode");
     $(".leftArea").removeClass("widemode_left");
     $(".rightArea").removeClass("widemode_right");
     $("#input_msg").removeClass("widemode_input");
 
   } else {
-    $("#widthChangebutton").addClass("fab-on");
+    $("#widthChangebutton").addClass("widemode");
     $(".leftArea").addClass("widemode_left");
     $(".rightArea").addClass("widemode_right");
     $("#input_msg").addClass("widemode_input");
