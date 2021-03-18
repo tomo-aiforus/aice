@@ -94,7 +94,7 @@ async function startCapture() {
       width: 1280,
       height: 720
     },
-    audio: true
+    audio: false
   }).then((temp) => {
     ds = temp
     navigator.mediaDevices.getUserMedia({
