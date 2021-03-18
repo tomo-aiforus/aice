@@ -300,3 +300,11 @@ div.reactionmargin {
 .widemode {
   right: 0px;
 }
+.edgespace {
+  height: 100vh;
+  width: 10px;
+  background-color: #1e90ff;
+  position: absolute;
+  right: 280px;
+  top: 0px;
+}
