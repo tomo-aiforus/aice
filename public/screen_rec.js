@@ -96,13 +96,13 @@ async function startCapture() {
     },
     audio: false
   }).then((ds) => {
-    combinedStream.addTrack(ds)
+    combinedStream.addTrack(ds[0])
 
       navigator.mediaDevices.getUserMedia({
         video: false,
         audio: true
       }).then((us) => {
-        combinedStrea.addClass(us)
+        combinedStrea.addClass(us[0])
         getLocalMediaStream(combinedStream)
       })
     
