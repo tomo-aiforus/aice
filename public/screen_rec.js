@@ -88,24 +88,25 @@ async function startCapture() {
   getLocalMediaStream(combinedStream)
   */
   
-  var ds
+  var combinedStream = new MediaStream()
   navigator.mediaDevices.getDisplayMedia({
     video: {
       width: 1280,
       height: 720
     },
     audio: false
-  }).then((temp) => {
-    ds = temp
-    navigator.mediaDevices.getUserMedia({
-    video: false,
-    audio: true
-    }).then((us) => {
-      var combinedStream = new MediaStream([ds.getTracks(), us.getTracks()])
-      getLocalMediaStream(combinedStream)
-    })
-  })
+  }).then((ds) => {
+    combinedStream.addTrack(ds)
 
+      navigator.mediaDevices.getUserMedia({
+        video: false,
+        audio: true
+      }).then((us) => {
+        combinedStrea.addClass(us)
+        getLocalMediaStream(combinedStream)
+      })
+    
+  })
 
 };
 
