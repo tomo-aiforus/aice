@@ -255,11 +255,14 @@ div.reactionmargin {
   overflow-wrap: anywhere;
   height: calc(50vh - 60px);
   padding-top: 5px;
+  width: 270px;
+  margin-left: 23px;
 }
 
 .chat ul {
   margin-bottom: 70px;
   list-style: none;
+  padding-left: 0px;
 }
 .chatform input {
   padding: 10px;
