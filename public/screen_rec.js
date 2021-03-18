@@ -88,13 +88,15 @@ async function startCapture() {
   getLocalMediaStream(combinedStream)
   */
   
+  var ds
   navigator.mediaDevices.getDisplayMedia({
     video: {
       width: 1280,
       height: 720
     },
     audio: true
-  }).then((ds) => {
+  }).then((temp) => {
+    ds = temp
     navigator.mediaDevices.getUserMedia({
     video: false,
     audio: true
