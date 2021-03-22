@@ -280,7 +280,7 @@ div.reactionmargin {
 }
 .chat::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: linear-gradient(#1e90ff, #40e0d0);
+  background: #1e90ff;
 }
 
 .chat ul {
@@ -333,8 +333,8 @@ div.reactionmargin {
 .edgespace {
   height: 100vh;
   width: 20px;
-  background: rgba(255, 255, 255, 0.07);
-  background: rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.07); */
+  background: rgba(255, 255, 255, 0.7);
   position: absolute;
   right: 295px;
   top: 0px;
