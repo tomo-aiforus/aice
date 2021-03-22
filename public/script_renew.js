@@ -1064,6 +1064,7 @@ function toggleInput() {
       .then(result => {
           
         if (result) {
+          videoVue.setMyPresenClass();
           $("#capturebutton").addClass("fab-on");
           var text = $("#user_name").val() + "さんが画面共有をはじめました。";
           socket.emit("chat", text);
@@ -1081,7 +1082,6 @@ function toggleInput() {
           setTimeout(() => {
             connect();
           }, 5000);
-        videoVue.setMyPresenClass();
         
         } else {
           clearInterval(modeIntervalControler);
