@@ -255,7 +255,18 @@ var videoVue = new Vue({
     editVideoClass: function () {
       const isPresenter = $("#video_container_local_video").hasClass("vcPresen");
       const isAudience = $("#video_container_local_video").hasClass("vcAudience");
-      if (isPresenter || isAudience) {
+      if (isPresenter) {
+        const targetId = "#video_container_local_video";
+        $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
+        $(targetId).addClass("vcPresen");
+
+        $(".videowrapper").each((index, elm) => {
+          $(elm).addClass("vcAudience");
+          $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
+        });
+        return
+      }
+      if (isAudience) {
         return
       }
       $(".videowrapper").each((index, elm) => {
