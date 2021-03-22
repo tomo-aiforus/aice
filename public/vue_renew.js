@@ -216,13 +216,15 @@ var videoVue = new Vue({
       $("#container").addClass("audienceContainer")
       const targetId = "#video_container_local_video";
       
+      $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
+      $(targetId).addClass("vcPresen");
+
       $(".videowrapper").each((index, elm) => {
         $(elm).addClass("vcAudience");
         $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
       });
-      $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
-      $(targetId).addClass("vcPresen");
     },
+    
     setPresenClass(fromid) {
       if (!$("#container").hasClass("audienceContainer")) {
         $("#container").addClass("audienceContainer")
