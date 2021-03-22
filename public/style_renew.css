@@ -272,7 +272,15 @@ div.reactionmargin {
   margin-left: 23px;
 }
 .chat::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+  height: 10px;
+}
+.chat::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+.chat::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #808080;
 }
 
 .chat ul {
