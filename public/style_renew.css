@@ -325,8 +325,8 @@ div.reactionmargin {
   /* top: 12px; */
   top: calc(50vh - 10px);
   right: 295px;
-  width: 20px;
-  height: 17px;
+  width: 17px;
+  height: 14px;
 }
 .widemode {
   right: 0px;
