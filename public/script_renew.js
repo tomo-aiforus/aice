@@ -1065,6 +1065,7 @@ function toggleInput() {
           
         if (result) {
           videoVue.setMyPresenClass();
+          setWideMode();
           $("#capturebutton").addClass("fab-on");
           var text = $("#user_name").val() + "さんが画面共有をはじめました。";
           socket.emit("chat", text);
