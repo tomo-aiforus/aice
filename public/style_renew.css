@@ -324,7 +324,7 @@ div.reactionmargin {
   position: absolute;
   /* top: 12px; */
   top: calc(50vh - 10px);
-  right: 295px;
+  right: 296px;
   width: 17px;
   height: 14px;
 }
@@ -342,8 +342,7 @@ div.reactionmargin {
   top: 0px;
 }
 .edgespace:hover {
-  /* background: rgba(255, 255, 255, 0.1); */
-  background: linear-gradient(#1e90ff, #40e0d0);
+  background: rgba(255, 255, 255, 0.2);
 }
 .widemode_edge {
   right: 0px;

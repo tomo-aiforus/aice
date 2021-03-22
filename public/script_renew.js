@@ -943,6 +943,9 @@ $("#leavebutton").on("click", () => {
 $("#widthChangebutton").on("click", () => {
   toggleWidth();
 });
+$(".edgespace").on("click", () => {
+  toggleWidth();
+});
 
 function toggleWidth() {
   if ($("#widthChangebutton").hasClass("widemode")) {
