@@ -1053,7 +1053,6 @@ function toggleInput() {
     modeIntervalControler = setInterval(function () {
       sendPresenSign();
     }, 3000);
-    videoVue.setPresenClass("local_video");
     
     var text = $("#user_name").val() + "さんが画面共有の準備をしています。";
     socket.emit("alert", text);
@@ -1081,6 +1080,7 @@ function toggleInput() {
           setTimeout(() => {
             connect();
           }, 5000);
+        videoVue.setPresenClass("local_video");
         
         } else {
           clearInterval(modeIntervalControler);
