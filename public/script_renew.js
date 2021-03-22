@@ -1024,6 +1024,7 @@ function stopVoice() {
 function toggleInput() {
   if ($("#capturebutton").hasClass("fab-on")) {
 
+    videoVue.resetPresenClass();
     var text = $("#user_name").val() + "さんが画面共有を終了しています。";
     socket.emit("alert", text);
     toastr.success("画面共有を終了しています。");
@@ -1052,6 +1053,7 @@ function toggleInput() {
     modeIntervalControler = setInterval(function () {
       sendPresenSign();
     }, 3000);
+    videoVue.setPresenClass("local_video");
     
     var text = $("#user_name").val() + "さんが画面共有の準備をしています。";
     socket.emit("alert", text);
