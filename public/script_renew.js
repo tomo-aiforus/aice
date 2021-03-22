@@ -1105,40 +1105,6 @@ function toggleInput() {
 }
 
 function toggleWallpaper() {
-  /*
-  if ($("#pageWrapper").hasClass("blackBG")) {
-    $("#pageWrapper").removeClass("blackBG");
-    $("#pageWrapper").addClass("pinkBG");
-  } else if ($("#pageWrapper").hasClass("pinkBG")) {
-    $("#pageWrapper").removeClass("pinkBG");
-    $("#pageWrapper").addClass("blueBG");
-  } else if ($("#pageWrapper").hasClass("blueBG")) {
-    $("#pageWrapper").removeClass("blueBG");
-    $("#pageWrapper").addClass("purpleBG");
-  } else if ($("#pageWrapper").hasClass("purpleBG")) {
-    $("#pageWrapper").removeClass("purpleBG");
-    $("#pageWrapper").addClass("blackBG");
-  }
-  */
- /*
-  // 炭 → 梅
-  if ($("#pageWrapper").hasClass("charcoalBG")) {
-    $("#pageWrapper").removeClass("charcoalBG");
-    $("#videoapp").removeClass("blind4black");
-    $("#pageWrapper").addClass("plumBG");
-
-    // 梅 -> 藤
-  } else if ($("#pageWrapper").hasClass("plumBG")) {
-    $("#pageWrapper").removeClass("plumBG");
-    $("#pageWrapper").addClass("wisteriaBG");
-
-    // 藤 -> 炭
-  } else if ($("#pageWrapper").hasClass("wisteriaBG")) {
-    $("#pageWrapper").removeClass("wisteriaBG");
-    $("#pageWrapper").addClass("charcoalBG");
-    $("#videoapp").addClass("blind4black");
-  }
-  */
   
   if ($("#pageWrapper").hasClass("bg1")) {
     $("#pageWrapper").removeClass("bg1");
@@ -1154,6 +1120,26 @@ function toggleWallpaper() {
 
   } else if ($("#pageWrapper").hasClass("bg4")) {
     $("#pageWrapper").removeClass("bg4");
+    $("#pageWrapper").addClass("bg5");
+
+  } else if ($("#pageWrapper").hasClass("bg5")) {
+    $("#pageWrapper").removeClass("bg5");
+    $("#pageWrapper").addClass("bg6");
+
+  } else if ($("#pageWrapper").hasClass("bg6")) {
+    $("#pageWrapper").removeClass("bg6");
+    $("#pageWrapper").addClass("bg7");
+
+  } else if ($("#pageWrapper").hasClass("bg7")) {
+    $("#pageWrapper").removeClass("bg7");
+    $("#pageWrapper").addClass("bg8");
+
+  } else if ($("#pageWrapper").hasClass("bg8")) {
+    $("#pageWrapper").removeClass("bg8");
+    $("#pageWrapper").addClass("bg9");
+
+  } else if ($("#pageWrapper").hasClass("bg9")) {
+    $("#pageWrapper").removeClass("bg9");
     $("#pageWrapper").addClass("bg1");
   }
 }
