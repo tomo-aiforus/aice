@@ -342,7 +342,7 @@ div.reactionmargin {
   top: 0px;
 }
 .edgespace:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
 }
 .widemode_edge {
   right: 0px;
