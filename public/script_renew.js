@@ -138,6 +138,7 @@ socket.on("being", function (msg) {
  * 画面共有シグナルを受けた時
  */
 socket.on("presen", function (msg) {
+  console.log("recieve presen signal..." + msg)
   videoVue.setPresenClass(msg);
   if (!isAudienceMode) {
     toastr.success("画面共有中のため、カメラ機能を制限しています。");
