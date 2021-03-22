@@ -1081,7 +1081,7 @@ function toggleInput() {
           setTimeout(() => {
             connect();
           }, 5000);
-        videoVue.setPresenClass("local_video");
+        videoVue.setMyPresenClass();
         
         } else {
           clearInterval(modeIntervalControler);

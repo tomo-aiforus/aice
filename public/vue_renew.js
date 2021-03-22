@@ -212,6 +212,17 @@ var videoVue = new Vue({
       this.vCount--;
     },
 
+    setMyPresenClass() {
+      $("#container").addClass("audienceContainer")
+      const targetId = "#video_container_local_video";
+      
+      $(".videowrapper").each((index, elm) => {
+        $(elm).addClass("vcAudience");
+        $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
+      });
+      $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
+      $(targetId).addClass("vcPresen");
+    },
     setPresenClass(fromid) {
       if (!$("#container").hasClass("audienceContainer")) {
         $("#container").addClass("audienceContainer")
@@ -219,13 +230,13 @@ var videoVue = new Vue({
       const targetId = "#video_container_" + fromid;
       console.log("setPresenClass..." + targetId);
       if (!$(targetId).hasClass("vcPresen")) {
-        $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
         $(targetId).addClass("vcPresen");
+        $(targetId).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7 vcAudience");
       }
       $(".videowrapper").each((index, elm) => {
         if (!$(elm).hasClass("vcPresen")) {
-          $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
           $(elm).addClass("vcAudience");
+          $(elm).removeClass("vc1 vc2 vc3 vc4 vc5 vc6 vc7");
         }
       });
     },
