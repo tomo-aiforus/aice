@@ -271,6 +271,9 @@ div.reactionmargin {
   width: 270px;
   margin-left: 23px;
 }
+.chat::-webkit-scrollbar {
+  display: none;
+}
 
 .chat ul {
   margin-bottom: 70px;
