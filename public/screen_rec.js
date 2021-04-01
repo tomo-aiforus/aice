@@ -114,7 +114,7 @@ function download(){
   const a = document.createElement("a");
   a.style.display = "none";
   a.href = url;
-  a.download = "screen-capture-video.webm";
+  a.download = "rec.webm";
   document.body.appendChild(a);
   a.click();
   setTimeout(() => {
