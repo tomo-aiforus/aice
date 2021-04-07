@@ -15,7 +15,7 @@ var ssl_server_key = "";
 var ssl_server_crt = "";
 var port = 0;
 
-const ENV = "TEST";
+const ENV = "PRD";
 
 if (ENV == "TEST") {
   port = 8446;
