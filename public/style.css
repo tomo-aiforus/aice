@@ -234,7 +234,13 @@ footer {
   font-size: 25px;
   margin: 0px;
 }
-.invitedmessage{
+.invitedmessage {
   position: absolute;
   top: -30px;
+}
+.appbutton {
+}
+.appbutton a {
+}
+.appbutton img {
 }
