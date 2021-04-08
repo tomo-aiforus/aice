@@ -29,35 +29,43 @@
           </td>
           <td>
             <form
-      method="post"
-      action="/"
-      class="entry"
-      onsubmit="return checkParams(this);"
-    >
-      <div class="login">
-        <input 
-          type="text" 
-          id="room_name" 
-          name="room_name" 
-          placeholder="ルーム名"
-          value="<%- room_name %>" 
-        />
-        <input 
-          type="text"  
-          id="user_name"  
-          name="user_name" 
-          placeholder="名前"
-        />
-        <input
-          type="hidden"
-          name="mode"
-          value="create"
-        />
-
-        <button>会議を作成</button>
-        
-      </div>
-    </form>
+              method="post"
+              action="/"
+              class="entry"
+              onsubmit="return checkParams(this);"
+            >
+              <div class="login">
+                <input 
+                  type="text" 
+                  id="room_name" 
+                  name="room_name" 
+                  placeholder="ルーム名"
+                  value="<%- room_name %>" 
+                />
+                <input 
+                  type="text"  
+                  id="user_name"  
+                  name="user_name" 
+                  placeholder="名前"
+                />
+                <input
+                  type="hidden"
+                  name="mode"
+                  value="create"
+                />
+                <button>会議を作成</button>
+              </div>
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="" target="_blank">
+              <img src="assets/images/appstore.png">
+            </a>
+            <a href="" target="_blank">
+              <img src="assets/images/googleplay.png">
+            </a>
           </td>
         </tr>
       </table>
