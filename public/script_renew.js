@@ -24,6 +24,7 @@ if(ua.indexOf("windows nt") !== -1) {
 } else {
   osStr = "pc"
 }
+alert("os:" + osStr)
 
 // 表示モードのシグナル制御
 var modeIntervalControler;
