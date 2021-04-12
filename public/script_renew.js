@@ -12,19 +12,24 @@ toastr.options = {
 };
 
 var ua = window.navigator.userAgent.toLowerCase();
+alert(ua)
 var osStr = ""
 if(ua.indexOf("windows nt") !== -1) {
+  alert("os:windows")
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
+  alert("os:android")
   osStr = "mobile"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1) {
+  alert("os:ios")
   osStr = "mobile"
 } else if(ua.indexOf("mac os x") !== -1) {
+  alert("os:mac")
   osStr = "pc"
 } else {
   osStr = "pc"
+  alert("os:other")
 }
-alert("os:" + osStr)
 
 // 表示モードのシグナル制御
 var modeIntervalControler;
