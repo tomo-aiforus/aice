@@ -12,23 +12,17 @@ toastr.options = {
 };
 
 var ua = window.navigator.userAgent.toLowerCase();
-alert(ua)
 var osStr = ""
 if(ua.indexOf("windows nt") !== -1) {
-  alert("os:windows")
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
-  alert("os:android")
   osStr = "mobile"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
-  alert("os:ios")
   osStr = "mobile"
 } else if(ua.indexOf("mac os x") !== -1) {
-  alert("os:mac")
   osStr = "pc"
 } else {
   osStr = "pc"
-  alert("os:other")
 }
 
 // 表示モードのシグナル制御
@@ -385,14 +379,26 @@ function removeVideoWrapperElement(elementId) {
 
 // connect video
 function connectVideo() {
-  var videoParam = {
-    audio: true,
-    video: {
-      width: 640,
-      height: 480,
-      frameRate: { ideal: 10, max: 15 },
-    },
-  };
+  var videoParam
+  if (osStr == "pc") {
+    videoParam = {
+      audio: true,
+      video: {
+        width: 640,
+        height: 480,
+        frameRate: { ideal: 10, max: 15 },
+      },
+    }
+  } else if(osStr == "mobile"){
+    videoParam = {
+      audio: true,
+      video: {
+        width: 480,
+        height: 640,
+        frameRate: { ideal: 10, max: 15 },
+      },
+    }
+  }
   getDeviceStream(videoParam) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function (stream) {
       // success
