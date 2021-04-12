@@ -11,6 +11,20 @@ toastr.options = {
   "timeOut": "8000",
 };
 
+var ua = window.navigator.userAgent.toLowerCase();
+var osStr = ""
+if(ua.indexOf("windows nt") !== -1) {
+  osStr = "pc"
+} else if(ua.indexOf("android") !== -1) {
+  osStr = "mobile"
+} else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1) {
+  osStr = "mobile"
+} else if(ua.indexOf("mac os x") !== -1) {
+  osStr = "pc"
+} else {
+  osStr = "pc"
+}
+
 // 表示モードのシグナル制御
 var modeIntervalControler;
 
@@ -431,14 +445,26 @@ async function setCaptureVideo() {
   return result
 }
 function setCameraVideo() {
-  var videoParam = {
-    audio: true,
-    video: {
-      width: 640,
-      height: 480,
-      frameRate: { ideal: 10, max: 15 },
-    },
-  };
+
+  if (osStr == "pc") {
+    videoParam = {
+      audio: true,
+      video: {
+        width: 640,
+        height: 480,
+        frameRate: { ideal: 10, max: 15 },
+      },
+    }
+  } else {
+    videoParam = {
+      audio: true,
+      video: {
+        width: 480,
+        height: 640,
+        frameRate: { ideal: 10, max: 15 },
+      },
+    }
+  }
   getDeviceStream(videoParam)
   .then((stream) => {
     localStream = stream;
