@@ -20,7 +20,7 @@ if(ua.indexOf("windows nt") !== -1) {
 } else if(ua.indexOf("android") !== -1) {
   alert("os:android")
   osStr = "mobile"
-} else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1) {
+} else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
   alert("os:ios")
   osStr = "mobile"
 } else if(ua.indexOf("mac os x") !== -1) {
@@ -452,6 +452,7 @@ async function setCaptureVideo() {
 }
 function setCameraVideo() {
 
+  var videoParam
   if (osStr == "pc") {
     videoParam = {
       audio: true,
@@ -461,7 +462,7 @@ function setCameraVideo() {
         frameRate: { ideal: 10, max: 15 },
       },
     }
-  } else {
+  } else if(osStr == "mobile"){
     videoParam = {
       audio: true,
       video: {
