@@ -22,7 +22,7 @@ if(ua.indexOf("windows nt") !== -1) {
   osStr = "mobile"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
   alert("os:ios")
-  osStr = "mobile"
+  osStr = "pc"
 } else if(ua.indexOf("mac os x") !== -1) {
   alert("os:mac")
   osStr = "pc"
