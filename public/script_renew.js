@@ -385,33 +385,8 @@ function removeVideoWrapperElement(elementId) {
 
 // connect video
 function connectVideo() {
-  var videoParam
-  if (osStr == "pc") {
-    videoParam = {
-      audio: true,
-      video: {
-        // width: 640,
-        // height: 480,
-        width: 320,
-        height: 240,
-        frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 }
-      },
-    }
-  } else if(osStr == "mobile"){
-    videoParam = {
-      audio: true,
-      video: {
-        // width: 480,
-        // height: 640,
-        width: 240,
-        height: 320,
-        frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 },
-        facingMode: "user"
-      },
-    }
-  }
+  var videoParam = getVideoParam()
+  
   getDeviceStream(videoParam) // audio: false <-- ontrack once, audio:true --> ontrack twice!!
     .then(function (stream) {
       // success
@@ -471,33 +446,8 @@ async function setCaptureVideo() {
 }
 function setCameraVideo() {
 
-  var videoParam
-  if (osStr == "pc") {
-    videoParam = {
-      audio: true,
-      video: {
-        // width: 640,
-        // height: 480,
-        width: 320,
-        height: 240,
-        frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 }
-      },
-    }
-  } else if(osStr == "mobile"){
-    videoParam = {
-      audio: true,
-      video: {
-        // width: 480,
-        // height: 640,
-        width: 240,
-        height: 320,
-        frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 },
-        facingMode: "user"
-      },
-    }
-  }
+  var videoParam = getVideoParam()
+  
   getDeviceStream(videoParam)
   .then((stream) => {
     localStream = stream;
@@ -519,6 +469,38 @@ function setCameraVideo() {
     console.error("getDisplayMedia error:", error);
     return;
   });
+}
+
+function getVideoParam() {
+  var videoParam
+  if (osStr == "pc") {
+    videoParam = {
+      audio: true,
+      video: {
+        // width: 640,
+        // height: 480,
+        width: 320,
+        height: 240,
+        frameRate: { ideal: 10, max: 15 },
+        aspectRatio: { ideal: 1.333 },
+        facingMode: "user"
+      },
+    }
+  } else if(osStr == "mobile"){
+    videoParam = {
+      audio: true,
+      video: {
+        // width: 480,
+        // height: 640,
+        width: 240,
+        height: 320,
+        frameRate: { ideal: 10, max: 15 },
+        aspectRatio: { ideal: 1.333 },
+        facingMode: "user"
+      },
+    }
+  }
+  return videoParam
 }
 
 function sendChat() {
