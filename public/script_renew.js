@@ -12,22 +12,22 @@ toastr.options = {
 };
 
 var ua = window.navigator.userAgent.toLowerCase();
-alert(ua)
+// alert(ua)
 var osStr = ""
 if(ua.indexOf("windows nt") !== -1) {
-  alert("os:windows")
+  console.log("os:windows")
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
-  alert("os:android")
+  console.log("os:android")
   osStr = "mobile"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
-  alert("os:ios")
+  console.log("os:ios")
   osStr = "mobile"
 } else if(ua.indexOf("mac os x") !== -1) {
-  alert("os:mac")
+  console.log("os:mac")
   osStr = "pc"
 } else {
-  alert("os:other")
+  console.log("os:other")
   osStr = "pc"
 }
 
@@ -390,8 +390,10 @@ function connectVideo() {
     videoParam = {
       audio: true,
       video: {
-        width: 640,
-        height: 480,
+        // width: 640,
+        // height: 480,
+        width: 480,
+        height: 360,
         frameRate: { ideal: 10, max: 15 },
       },
     }
@@ -399,8 +401,10 @@ function connectVideo() {
     videoParam = {
       audio: true,
       video: {
+        // width: 480,
+        // height: 640,
         width: 480,
-        height: 640,
+        height: 360,
         frameRate: { ideal: 10, max: 15 },
       },
     }
@@ -469,8 +473,10 @@ function setCameraVideo() {
     videoParam = {
       audio: true,
       video: {
-        width: 640,
-        height: 480,
+        // width: 640,
+        // height: 480,
+        width: 480,
+        height: 360,
         frameRate: { ideal: 10, max: 15 },
       },
     }
@@ -478,8 +484,10 @@ function setCameraVideo() {
     videoParam = {
       audio: true,
       video: {
+        // width: 480,
+        // height: 640,
         width: 480,
-        height: 640,
+        height: 360,
         frameRate: { ideal: 10, max: 15 },
       },
     }
