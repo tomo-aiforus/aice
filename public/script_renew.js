@@ -395,7 +395,7 @@ function connectVideo() {
         width: 320,
         height: 240,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 0.75 }
+        // aspectRatio: { ideal: 0.75 }
       },
     }
   } else if(osStr == "mobile"){
@@ -407,7 +407,7 @@ function connectVideo() {
         width: 240,
         height: 320,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 0.75 }
+        // aspectRatio: { ideal: 0.75 }
       },
     }
   }
@@ -480,7 +480,7 @@ function setCameraVideo() {
         width: 320,
         height: 240,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 0.75 }
+        // aspectRatio: { ideal: 0.75 }
       },
     }
   } else if(osStr == "mobile"){
@@ -492,7 +492,7 @@ function setCameraVideo() {
         width: 240,
         height: 320,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 0.75 }
+        // aspectRatio: { ideal: 0.75 }
       },
     }
   }
