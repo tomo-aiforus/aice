@@ -131,24 +131,31 @@
 
 .vc1 {
   width: 47%;
+  text-align: center;
 }
 .vc2 {
   width: 47%;
+  text-align: center;
 }
 .vc3 {
   width: 31%;
+  text-align: center;
 }
 .vc4 {
   width: 23%;
+  text-align: center;
 }
 .vc5 {
   width: 31%;
+  text-align: center;
 }
 .vc6 {
   width: 31%;
+  text-align: center;
 }
 .vc7 {
   width: 23%;
+  text-align: center;
 }
 .vcAudience {
   height: 100px;

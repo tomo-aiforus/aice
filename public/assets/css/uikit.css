@@ -163,6 +163,7 @@ video {
   max-width: 100%;
   /* 2 */
   height: auto;
+  max-height: 66%;
   /* 3 */
   box-sizing: border-box;
 }
