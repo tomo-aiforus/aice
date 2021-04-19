@@ -73,7 +73,7 @@ a {
 }
 .login {
   position: absolute;
-  top: calc(50% - 100px);
+  top: calc(50% - 90px);
   left: calc(50% + 10px);
   height: 100px;
   width: 350px;
@@ -219,7 +219,7 @@ footer {
 .leftarea {
   font-size: 22px;
   position: absolute;
-  top: calc(50% - 100px);
+  top: calc(50% - 90px);
   left: 65px;
   width: 290px;
 }
@@ -238,10 +238,13 @@ footer {
   position: absolute;
   top: -30px;
 }
+.appbuttonarea {
+  position: relative;
+}
 .appbutton {
-  position: absolute;
-  bottom: 0px;
-  left: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
 }
 .appbutton img {
   width: 200px;
