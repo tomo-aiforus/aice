@@ -407,7 +407,8 @@ function connectVideo() {
         width: 240,
         height: 320,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 }
+        aspectRatio: { ideal: 1.333 },
+        facingMode: "user"
       },
     }
   }
@@ -492,7 +493,8 @@ function setCameraVideo() {
         width: 240,
         height: 320,
         frameRate: { ideal: 10, max: 15 },
-        aspectRatio: { ideal: 1.333 }
+        aspectRatio: { ideal: 1.333 },
+        facingMode: "user"
       },
     }
   }
