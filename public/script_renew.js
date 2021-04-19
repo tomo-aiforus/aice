@@ -392,8 +392,8 @@ function connectVideo() {
       video: {
         // width: 640,
         // height: 480,
-        width: 480,
-        height: 360,
+        width: 320,
+        height: 240,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
@@ -404,8 +404,8 @@ function connectVideo() {
       video: {
         // width: 480,
         // height: 640,
-        width: 360,
-        height: 480,
+        width: 240,
+        height: 320,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
@@ -477,8 +477,8 @@ function setCameraVideo() {
       video: {
         // width: 640,
         // height: 480,
-        width: 480,
-        height: 360,
+        width: 320,
+        height: 240,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
@@ -489,8 +489,8 @@ function setCameraVideo() {
       video: {
         // width: 480,
         // height: 640,
-        width: 360,
-        height: 480,
+        width: 240,
+        height: 320,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
