@@ -19,7 +19,7 @@ if(ua.indexOf("windows nt") !== -1) {
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
   alert("os:android")
-  osStr = "mobile"
+  osStr = "pc"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
   alert("os:ios")
   osStr = "mobile"
