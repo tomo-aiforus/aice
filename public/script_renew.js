@@ -15,19 +15,19 @@ var ua = window.navigator.userAgent.toLowerCase();
 // alert(ua)
 var osStr = ""
 if(ua.indexOf("windows nt") !== -1) {
-  console.log("os:windows")
+  alert("os:windows")
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
-  console.log("os:android")
+  alert("os:android")
   osStr = "mobile"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
-  console.log("os:ios")
+  alert("os:ios")
   osStr = "mobile"
 } else if(ua.indexOf("mac os x") !== -1) {
-  console.log("os:mac")
+  alert("os:mac")
   osStr = "pc"
 } else {
-  console.log("os:other")
+  alert("os:other")
   osStr = "pc"
 }
 
