@@ -19,7 +19,7 @@ if(ua.indexOf("windows nt") !== -1) {
   osStr = "pc"
 } else if(ua.indexOf("android") !== -1) {
   alert("os:android")
-  osStr = "pc"
+  osStr = "android"
 } else if(ua.indexOf("iphone") !== -1 || ua.indexOf("ipad") !== -1  || ua.indexOf("version") !== -1) {
   alert("os:ios")
   osStr = "mobile"
@@ -477,8 +477,6 @@ function getVideoParam() {
     videoParam = {
       audio: true,
       video: {
-        // width: 640,
-        // height: 480,
         width: 320,
         height: 240,
         frameRate: { ideal: 10, max: 15 },
@@ -486,12 +484,19 @@ function getVideoParam() {
         facingMode: "user"
       },
     }
-  } else if(osStr == "mobile"){
+  } else if(osStr == "android"){
     videoParam = {
       audio: true,
       video: {
-        // width: 480,
-        // height: 640,
+        width: 240,
+        height: 320,
+        frameRate: { ideal: 10, max: 15 },
+      },
+    }
+  } else if (osStr == "mobile") {
+    videoParam = {
+      audio: true,
+      video: {
         width: 240,
         height: 320,
         frameRate: { ideal: 10, max: 15 },
