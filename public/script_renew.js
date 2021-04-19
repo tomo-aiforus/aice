@@ -404,8 +404,8 @@ function connectVideo() {
       video: {
         // width: 480,
         // height: 640,
-        width: 480,
-        height: 360,
+        width: 360,
+        height: 480,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
@@ -489,8 +489,8 @@ function setCameraVideo() {
       video: {
         // width: 480,
         // height: 640,
-        width: 480,
-        height: 360,
+        width: 360,
+        height: 480,
         frameRate: { ideal: 10, max: 15 },
         aspectRatio: { ideal: 0.75 }
       },
